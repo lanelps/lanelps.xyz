@@ -2,5 +2,5 @@
     base = 'web'
     command = 'yarn build'
     publish = '/public'
-    functions = 'functions'
+    # functions = 'functions'
 

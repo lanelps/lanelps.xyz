@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 
 export default function SendGridForm() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
 
   const handleInputChange = ({ target: { name, value } }) => {
     setForm({ ...form, [name]: value })
+  }
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+      )
+      .join('&')
   }
 
   const formSubmit = async (event) => {
@@ -28,7 +35,13 @@ export default function SendGridForm() {
   }
 
   return (
-    <form onSubmit={formSubmit}>
+    <form
+      onSubmit={formSubmit}
+      name='contact'
+      method='post'
+      data-netlify='true'
+      data-netlify-honeypot='bot-field'>
+      <input type='hidden' name='form-name' value='contact' />
       <label htmlFor='name'>Name:</label>
       <input
         type='text'
