@@ -9,8 +9,8 @@ const sendEmail = (client, form, senderEmail, senderName) => {
         name: senderName,
       },
       subject: 'Netlify Function - Sendgrid Email',
-      to: `${form.email}`,
-      html: `Hey, you\'ve sent an email from Netlify Functions<br/>Message: ${message}`,
+      to: form.email,
+      html: `<h1>${form.name}</h1> <p>${form.message}</p>`,
     }
 
     client
