@@ -10,13 +10,21 @@ export default function SendGridForm() {
 
   const formSubmit = async (event) => {
     event.preventDefault()
-    try {
-      await axios
-        .post('/.netlify/functions/sendgrid', form)
-        .then((res) => console.log(res))
-    } catch (e) {
-      console.error(e)
-    }
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...form }),
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          setForm({ name: '', email: '', message: '' })
+          console.log('Success!', res.status)
+        }
+      })
+      .catch((err) => {
+        setForm({ name: '', email: '', message: '' })
+        console.error(err)
+      })
   }
 
   return (
