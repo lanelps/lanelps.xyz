@@ -48,8 +48,8 @@ export default function SEO({ title, url }) {
         },
         { name: 'phone', content: phone },
         { name: 'email', content: email },
-        { name: 'robots', content: 'index, follow' },
-        { name: 'googlebot', content: 'index, follow' },
+        { name: 'robots', content: 'noindex, nofollow' },
+        { name: 'googlebot', content: 'noindex, nofollow' },
       ].concat([])}>
       <link rel='canonical' href={`${siteUrl}${url && url}`} />
     </Helmet>
