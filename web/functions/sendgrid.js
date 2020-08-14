@@ -2,7 +2,7 @@ require('dotenv').config()
 const client = require('@sendgrid/mail')
 
 const sendEmail = (client, form, senderEmail, senderName) => {
-  return new Prommise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const data = {
       from: {
         email: senderEmail,
