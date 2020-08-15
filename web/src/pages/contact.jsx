@@ -2,6 +2,7 @@ import React from 'react'
 
 import Layout from '../components/Layout.jsx'
 import Header from '../components/Header'
+import ContactDetails from '../components/ContactDetails'
 import SendGridForm from '../components/SendGridForm'
 
 const Contact = () => {
@@ -13,6 +14,7 @@ const Contact = () => {
   return (
     <Layout title='Contact' url='/contact' page='contact'>
       <Header title={title} text={text} />
+      <ContactDetails />
       <SendGridForm />
     </Layout>
   )
