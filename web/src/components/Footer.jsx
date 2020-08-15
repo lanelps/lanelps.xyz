@@ -1,48 +1,38 @@
 import React from 'react'
-
-import cv from '../assets/img/Lane_Le_Prevost_Smith_CV_19.pdf'
+import { graphql, useStaticQuery } from 'gatsby'
 
 export default function Footer() {
   const date = new Date().getFullYear()
+  const {
+    sanityContactDetails: { contactItems },
+  } = useStaticQuery(graphql`
+    query ContactDetailsFooter {
+      sanityContactDetails {
+        contactItems {
+          _key
+          title
+          name
+          link
+        }
+      }
+    }
+  `)
+
   return (
     <footer>
-      <div className='info'>
-        <div>
-          <span className='title'>Email: </span>
-          <a href='mailto:lanelps@gmail.com' target='_blank'>
-            lanelps@gmail.com
-          </a>
-        </div>
-        <div>
-          <span className='title'>Mobile: </span>
-          <a href='tel:+64226954688' target='_blank'>
-            0226954688
-          </a>
-        </div>
-        <div>
-          <span className='title'>Instagram: </span>
-          <a href='https://instagram.com/lane_lps' target='_blank'>
-            @lane_lps
-          </a>
-        </div>
-        <div>
-          <span className='title'>GitHub: </span>
-          <a href='https://github.com/lanelps' target='_blank'>
-            github.com/lanelps
-          </a>
-        </div>
-        <div>
-          <span className='title'>Linkedin: </span>
-          <a href='https://www.linkedin.com/in/lane-lps/' target='_blank'>
-            linkedin.com/in/lane-lps/
-          </a>
-        </div>
-        <div>
-          <a href={cv} target='_blank'>
-            CV
-          </a>
-        </div>
-      </div>
+      <ul className='info'>
+        {contactItems.map((contactItem) => {
+          console.log(contactItem)
+          return (
+            <li key={contactItem._key}>
+              <span className='title'>{contactItem.title}: </span>
+              <a href={contactItem.link} target='_blank'>
+                {contactItem.name}
+              </a>
+            </li>
+          )
+        })}
+      </ul>
       <span>© Lane Le Prevost-Smith {date}</span>
     </footer>
   )

@@ -195,19 +195,23 @@ footer {
   width: calc(100vw - 8rem);
 }
 
-footer .info > div {
+.info {
+  list-style: none;
+}
+
+.info > li {
   display: inline-block;
 }
 
-footer .info > div:not(:last-child) {
+.info > li:not(:last-child) {
   margin-right: 2rem;
 }
 
-footer .info > div:nth-child(1) .title::before {
+.info > li:nth-child(1) .title::before {
   content: '$';
 }
 
-footer .info > div .title::before {
+.info > li .title::before {
   content: '';
 }
 
