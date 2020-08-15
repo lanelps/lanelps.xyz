@@ -17,7 +17,7 @@ export default function SendGridForm() {
 
   const formSubmit = async (event) => {
     event.preventDefault()
-    fetch('/', {
+    await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...form }),
@@ -36,6 +36,7 @@ export default function SendGridForm() {
 
   return (
     <form
+      className='send-grid-form'
       onSubmit={formSubmit}
       name='contact'
       method='post'
