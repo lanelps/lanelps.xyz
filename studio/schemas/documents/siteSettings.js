@@ -26,11 +26,5 @@ export default {
         layout: 'tags',
       },
     },
-    {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: [{ type: 'author' }],
-    },
   ],
 }

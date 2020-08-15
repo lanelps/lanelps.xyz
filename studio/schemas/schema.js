@@ -4,15 +4,15 @@ import createSchema from 'part:@sanity/base/schema-creator'
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
+//documents
 import siteSettings from './documents/siteSettings.js'
 import navigation from './documents/navigation.js'
-import footer from './documents/footer.js'
+import contactDetails from './documents/contactDetails.js'
 import projects from './documents/projects.js'
-import author from './documents/author.js'
 
 //objects
 import navigationItem from './objects/navigationItem.js'
-import footerItem from './objects/footerItem.js'
+import contactItem from './objects/contactItem.js'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -24,11 +24,10 @@ export default createSchema({
     //documents
     siteSettings,
     navigation,
-    footer,
+    contactDetails,
     projects,
-    author,
     //objects
     navigationItem,
-    footerItem,
+    contactItem,
   ]),
 })

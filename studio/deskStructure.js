@@ -13,10 +13,14 @@ export default () =>
         .title('Navigation')
         .child(S.editor().schemaType('navigation').documentId('navigation')),
       S.listItem()
-        .title('Footer')
-        .child(S.editor().schemaType('footer').documentId('footer')),
+        .title('Contact Details')
+        .child(
+          S.editor().schemaType('contactDetails').documentId('contactDetails')
+        ),
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          !['siteSettings', 'navigation', 'footer'].includes(listItem.getId())
+          !['siteSettings', 'navigation', 'contactDetails'].includes(
+            listItem.getId()
+          )
       ),
     ])
