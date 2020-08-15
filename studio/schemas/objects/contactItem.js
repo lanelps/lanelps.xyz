@@ -5,13 +5,19 @@ export default {
   fields: [
     {
       name: 'title',
-      title: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) => Rule.max(20).warning('You need a shorter title'),
+    },
+    {
+      name: 'name',
+      title: 'Link name',
       type: 'string',
       validation: (Rule) => Rule.max(20).warning('You need a shorter title'),
     },
     {
       name: 'link',
-      title: 'link',
+      title: 'Link url',
       type: 'url',
       description:
         'Add in a url (https://###), email (mailto:###) or phone number (tel:###)',

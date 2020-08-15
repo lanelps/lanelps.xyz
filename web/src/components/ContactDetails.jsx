@@ -10,6 +10,7 @@ export default function ContactDetails() {
         contactItems {
           _key
           title
+          name
           link
         }
       }
@@ -23,7 +24,7 @@ export default function ContactDetails() {
           <li key={contactItem._key}>
             <h3>
               <b>{contactItem.title}: </b>
-              <a href={contactItem.link}>{contactItem.link}</a>
+              <a href={contactItem.link}>{contactItem.name}</a>
             </h3>
           </li>
         )
