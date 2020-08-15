@@ -43,31 +43,35 @@ export default function SendGridForm() {
       data-netlify='true'
       data-netlify-honeypot='bot-field'>
       <input type='hidden' name='form-name' value='contact' />
-      <label htmlFor='name'>Name:</label>
+
       <input
         type='text'
         name='name'
         value={form.name}
         onChange={handleInputChange}
+        placeholder='Name*'
+        required
       />
 
-      <label htmlFor='email'>Email:</label>
       <input
         type='email'
         name='email'
         value={form.email}
         onChange={handleInputChange}
+        placeholder='Email*'
+        required
       />
 
-      <label htmlFor='message'>Message:</label>
       <input
         type='text'
         name='message'
         value={form.message}
         onChange={handleInputChange}
+        placeholder='Message*'
+        required
       />
 
-      <button type='submit'>Submit</button>
+      <button type='submit'>Send</button>
     </form>
   )
 }

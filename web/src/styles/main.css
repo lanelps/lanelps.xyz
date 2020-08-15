@@ -6,6 +6,7 @@
   --turq-color: #00a9d0;
   --bronze-color: #ba670d;
   --purple-color: #cbcbff;
+  --font-family: 'IBM Plex Sans', sans-serif;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap');
@@ -24,7 +25,7 @@
 }
 
 html {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-family);
   font-size: 62.5%;
   font-weight: 400;
   z-index: 0;
@@ -35,9 +36,6 @@ html {
 /* ::before {
   font-variation-settings: "wght" 400;
 } */
-
-body {
-}
 
 h1 {
   font-size: 3rem;
@@ -58,6 +56,14 @@ a {
   text-decoration: none;
   color: var(--main-color);
   transition: color 0.7s ease;
+}
+
+b {
+  font-weight: 500;
+}
+
+ul {
+  list-style: none;
 }
 
 a:hover {
@@ -87,6 +93,7 @@ a:hover {
   overflow-y: scroll;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
 }
 
 .title {
@@ -202,4 +209,36 @@ footer .info > div:nth-child(1) .title::before {
 
 footer .info > div .title::before {
   content: '';
+}
+
+.contact__detials {
+  grid-column: 1 / span 6;
+}
+
+.send-grid-form {
+  grid-column: 7 / span 6;
+  grid-row: 1 / span 2;
+  margin-top: 2rem;
+}
+
+.send-grid-form > * {
+  width: 100%;
+  height: 3.5rem;
+  margin-bottom: 6rem;
+  border: none;
+  font-size: 2.4rem;
+  font-family: var(--font-family);
+}
+
+.send-grid-form > input {
+  border-bottom: 1px solid black;
+}
+
+.send-grid-form > button {
+  width: max-content;
+  background: none;
+}
+
+.send-grid-form > button:hover {
+  cursor: pointer;
 }
