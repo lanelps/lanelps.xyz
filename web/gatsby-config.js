@@ -1,6 +1,4 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
@@ -26,6 +24,7 @@ module.exports = {
         projectId: 'k2d93j2x',
         dataset: 'production',
         token: process.env.SANITY_TOKEN,
+        watchMode: true,
       },
     },
   ],
