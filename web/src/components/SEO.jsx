@@ -4,27 +4,25 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 export default function SEO({ title, url }) {
   const {
-    site: {
-      siteMetadata: {
-        title: siteTitle,
-        description,
-        author,
-        siteUrl,
-        phone,
-        email,
-      },
+    sanitySiteSettings: {
+      siteTitle,
+      description,
+      author,
+      domain,
+      keywords,
+      indexed,
     },
   } = useStaticQuery(graphql`
     query {
-      site {
-        siteMetadata {
-          title
-          description
-          author
-          siteUrl
-          phone
-          email
+      sanitySiteSettings {
+        siteTitle: title
+        description
+        author {
+          name
         }
+        domain
+        keywords
+        indexed
       }
     }
   `)
@@ -40,18 +38,21 @@ export default function SEO({ title, url }) {
           content: '',
         },
         { name: 'description', content: description },
-        { name: 'author', content: author },
+        { name: 'author', content: author.name },
         {
           name: 'keywords',
-          content:
-            'Freelance, Graphic Design, Web Development, Auckland, New Zealand',
+          content: `${keywords.map((keyword) => keyword)}`,
         },
-        { name: 'phone', content: phone },
-        { name: 'email', content: email },
-        { name: 'robots', content: 'noindex, nofollow' },
-        { name: 'googlebot', content: 'noindex, nofollow' },
+        {
+          name: 'robots',
+          content: `${indexed ? 'index, follow' : 'noindex, nofollow'}`,
+        },
+        {
+          name: 'googlebot',
+          content: `${indexed ? 'index, follow' : 'noindex, nofollow'}`,
+        },
       ].concat([])}>
-      <link rel='canonical' href={`${siteUrl}${url && url}`} />
+      <link rel='canonical' href={`${domain}${url && url}`} />
     </Helmet>
   )
 }
