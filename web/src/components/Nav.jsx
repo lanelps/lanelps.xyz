@@ -1,36 +1,29 @@
 import React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 
 export default function Nav() {
-  const {
-    allSanityNavigation: { edges: navigation },
-  } = useStaticQuery(graphql`
-    query Nav {
-      allSanityNavigation {
-        edges {
-          node {
-            id
-            navigationItems {
-              _key
-              name
-              slug {
-                current
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
   return (
     <nav className='nav'>
-      {navigation.map(({ node: nav }) =>
-        nav.navigationItems.map((navItem) => (
-          <span key={navItem._key}>
-            <Link to={navItem.slug.current}>{navItem.name}</Link>
-          </span>
-        ))
-      )}
+      <ul>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/about'>About</Link>
+        </li>
+        <li>
+          <Link to='/work'>Work</Link>
+        </li>
+        <li>
+          <Link to='/contact'>Contact</Link>
+        </li>
+        <li>
+          <Link to='/services'>Services</Link>
+        </li>
+        <li>
+          <Link to='/experiments'>Experiments</Link>
+        </li>
+      </ul>
     </nav>
   )
 }
