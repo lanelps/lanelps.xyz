@@ -36,7 +36,7 @@ export default function SendGridForm() {
 
   return (
     <form
-      className='send-grid-form'
+      className='netlify-form'
       onSubmit={formSubmit}
       name='contact'
       method='post'
