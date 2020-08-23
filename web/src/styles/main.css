@@ -55,7 +55,7 @@ h3 {
 a {
   text-decoration: none;
   color: var(--main-color);
-  transition: color 0.7s ease;
+  transition: color 0.4s ease;
 }
 
 b {
@@ -78,7 +78,7 @@ a:hover {
   color: var(--main-color);
   font-size: 1.2rem;
   position: relative;
-  transition: background-color 0.7s ease, color 0.7s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
   height: 100vh;
 }
 
@@ -86,7 +86,7 @@ a:hover {
   position: fixed;
   padding: 4rem;
   border: 1px solid var(--main-color);
-  transition: border 0.7s;
+  transition: border 0.4s;
   width: calc(100vw - 8rem);
   height: calc(100vh - 8rem);
   background-color: transparent;
@@ -164,6 +164,12 @@ a:hover {
   grid-column: 3 / span 1;
 }
 
+.nav ul {
+  grid-column: 3 / span 6;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
 .header-title {
   grid-column: 1 / span 6;
 }
@@ -172,7 +178,7 @@ a:hover {
   width: 100%;
   height: 100%;
   border: 1px solid var(--main-color);
-  transition: border 0.7s ease;
+  transition: border 0.4s ease;
   grid-row: 1 / span 3;
 }
 
@@ -219,30 +225,37 @@ footer {
   grid-column: 1 / span 6;
 }
 
-.send-grid-form {
+.netlify-form {
   grid-column: 7 / span 6;
   grid-row: 1 / span 2;
   margin-top: 2rem;
 }
 
-.send-grid-form > * {
+.netlify-form > * {
   width: 100%;
   height: 3.5rem;
   margin-bottom: 6rem;
   border: none;
   font-size: 2.4rem;
   font-family: var(--font-family);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.send-grid-form > input {
-  border-bottom: 1px solid black;
+.netlify-form > input {
+  border-bottom: 1px solid var(--main-color);
+  background: var(--main-bg-color);
+  color: var(--main-color);
 }
 
-.send-grid-form > button {
+.netlify-form > button {
   width: max-content;
   background: none;
+  color: var(--main-color);
+  transition: color 0.4s ease;
 }
 
-.send-grid-form > button:hover {
+.netlify-form > button:hover {
   cursor: pointer;
+  color: var(--blue-color);
+  transition: color 0s;
 }
