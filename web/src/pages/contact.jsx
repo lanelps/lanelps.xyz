@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from '../components/Layout.jsx'
 import Header from '../components/Header'
 import ContactDetails from '../components/ContactDetails'
-import SendGridForm from '../components/SendGridForm'
+import NetlifyForm from '../components/NetlifyForm'
 
 const Contact = () => {
   const { title, text } = {
@@ -15,7 +15,7 @@ const Contact = () => {
     <Layout title='Contact' url='/contact' page='contact'>
       <Header title={title} text={text} />
       <ContactDetails />
-      <SendGridForm />
+      <NetlifyForm />
     </Layout>
   )
 }
