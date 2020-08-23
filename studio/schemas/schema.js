@@ -6,13 +6,15 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 //documents
 import siteSettings from './documents/siteSettings.js'
-import navigation from './documents/navigation.js'
 import contactDetails from './documents/contactDetails.js'
 import projects from './documents/projects.js'
+import aboutPage from './documents/aboutPage.js'
 
 //objects
-import navigationItem from './objects/navigationItem.js'
 import contactItem from './objects/contactItem.js'
+import accessableImage from './objects/accessableImage.js'
+import author from './objects/author.js'
+
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -22,12 +24,15 @@ export default createSchema({
   types: schemaTypes.concat([
     /* Your types here! */
     //documents
+    //singleton documents
     siteSettings,
-    navigation,
     contactDetails,
+    aboutPage,
+    //documents
     projects,
     //objects
-    navigationItem,
     contactItem,
+    accessableImage,
+    author,
   ]),
 })
