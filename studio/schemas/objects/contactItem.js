@@ -11,16 +11,16 @@ export default {
     },
     {
       name: 'name',
-      title: 'Link name',
+      title: 'Name',
       type: 'string',
       validation: (Rule) => Rule.max(20).warning('You need a shorter title'),
     },
     {
       name: 'link',
-      title: 'Link url',
+      title: 'Link',
       type: 'url',
       description:
-        'Add in a url (https://###), email (mailto:###) or phone number (tel:###)',
+        'Add in a url (https://example.com), email (mailto:example@gmail.com) or phone number (tel:+64226954688)',
       validation: (Rule) =>
         Rule.uri({
           scheme: ['http', 'https', 'mailto', 'tel'],
