@@ -2,6 +2,9 @@ export default {
   name: 'siteSettings',
   title: 'Site Settings',
   type: 'document',
+  initialValue: {
+    indexed: false,
+  },
   fields: [
     {
       name: 'title',
@@ -12,6 +15,16 @@ export default {
       name: 'description',
       title: 'Description',
       type: 'text',
+    },
+    {
+      name: 'author',
+      title: 'Author',
+      type: 'author',
+    },
+    {
+      name: 'domain',
+      title: 'Site Domain',
+      type: 'string',
     },
     {
       name: 'keywords',
@@ -26,5 +39,6 @@ export default {
         layout: 'tags',
       },
     },
+    { name: 'indexed', title: 'Is Indexed?', type: 'boolean' },
   ],
 }
