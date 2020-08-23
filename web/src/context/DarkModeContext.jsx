@@ -11,10 +11,12 @@ const DarkModeProvider = ({ children }) => {
       setIsDark(false)
       document.documentElement.style.setProperty('--main-bg-color', '#fff')
       document.documentElement.style.setProperty('--main-color', '#000')
+      document.documentElement.style.setProperty('--purple-color', '#cbcbff')
     } else {
       setIsDark(true)
       document.documentElement.style.setProperty('--main-bg-color', '#000')
       document.documentElement.style.setProperty('--main-color', '#fff')
+      document.documentElement.style.setProperty('--purple-color', '#51516e')
     }
   }, [time])
 
@@ -22,9 +24,11 @@ const DarkModeProvider = ({ children }) => {
     if (!isDark) {
       document.documentElement.style.setProperty('--main-bg-color', '#fff')
       document.documentElement.style.setProperty('--main-color', '#000')
+      document.documentElement.style.setProperty('--purple-color', '#cbcbff')
     } else {
       document.documentElement.style.setProperty('--main-bg-color', '#000')
       document.documentElement.style.setProperty('--main-color', '#fff')
+      document.documentElement.style.setProperty('--purple-color', '#51516e')
     }
   }, [isDark])
 
