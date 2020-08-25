@@ -10,19 +10,39 @@ export default () =>
         .title('Site Settings')
         .icon(() => <Emoji style={{ fontSize: 30 }} text='⚙️' />)
         .child(
-          S.editor().schemaType('siteSettings').documentId('siteSettings')
+          S.editor()
+            .schemaType('siteSettings')
+            .documentId('siteSettings')
+            .title('Site Settings')
         ),
       S.listItem()
         .title('Contact Details')
         .icon(() => <Emoji style={{ fontSize: 30 }} text='📞' />)
         .child(
-          S.editor().schemaType('contactDetails').documentId('contactDetails')
+          S.editor()
+            .schemaType('contactDetails')
+            .documentId('contactDetails')
+            .title('Contact Details')
         ),
       S.divider(),
       S.listItem()
         .title('About Page')
         .icon(() => <Emoji style={{ fontSize: 30 }} text='🙋🏽‍♂️' />)
-        .child(S.editor().schemaType('aboutPage').documentId('aboutPage')),
+        .child(
+          S.editor()
+            .schemaType('aboutPage')
+            .documentId('aboutPage')
+            .title('About Page')
+        ),
+      S.listItem()
+        .title('Contact Page')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text='📧' />)
+        .child(
+          S.editor()
+            .schemaType('contactPage')
+            .documentId('contactPage')
+            .title('Contact Page')
+        ),
       S.listItem()
         .title('Projects')
         .icon(() => <Emoji style={{ fontSize: 30 }} text='💻' />)
