@@ -1,18 +1,50 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Header from '../components/Header'
+import ImageContainer from '../components/ImageContainer'
 
-const { title, text } = {
-  title: 'About',
-  text:
-    'I am a Full-Stack Web Developer and Graphic Designer from Auckland, New Zealand. I create accessible and fast websites using the latest modern web technologies',
-}
+export const query = graphql`
+  query AboutQuery {
+    sanityAboutPage {
+      title
+      personalBio
+      imageContainer {
+        title
+        description
+        year(formatString: "YYYY")
+        accessableImage {
+          image {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+          altText
+        }
+      }
+    }
+  }
+`
 
-const About = () => {
+const About = ({
+  data: {
+    sanityAboutPage: { title, personalBio, imageContainer },
+  },
+}) => {
   return (
     <Layout title='About' url='/about' page='about'>
-      <Header title={title} text={text} />
+      <div className='container-1'>
+        <Header title='About' text={title} />
+        <section className='about__description'>
+          <p>{personalBio}</p>
+        </section>
+      </div>
+      <div className='container-2'>
+        <ImageContainer {...imageContainer} objectFit='contain' />
+      </div>
     </Layout>
   )
 }
