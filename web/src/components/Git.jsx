@@ -5,14 +5,14 @@ import DarkModeContext from '../context/DarkModeContext'
 export default function Git() {
   const { isDark, setIsDark } = useContext(DarkModeContext)
 
-  const [branch, setBranch] = useState('(master)')
+  const [branch, setBranch] = useState('(light-theme)')
 
   useEffect(() => {
     console.log(isDark)
     if (isDark) {
-      setBranch('(master-dark)')
+      setBranch('(dark-theme)')
     } else {
-      setBranch('(master)')
+      setBranch('(light-theme)')
     }
   }, [isDark])
 
@@ -23,9 +23,9 @@ export default function Git() {
   return (
     <div className='git'>
       <span>lanelps </span>
-      <span onClick={dayNightClick} role='button' tabIndex={0}>
+      <button onClick={dayNightClick} tabIndex={0}>
         {branch}
-      </span>
+      </button>
       <span> website</span>
     </div>
   )
