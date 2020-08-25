@@ -9,11 +9,13 @@ import siteSettings from './documents/siteSettings.js'
 import contactDetails from './documents/contactDetails.js'
 import projects from './documents/projects.js'
 import aboutPage from './documents/aboutPage.js'
+import ContactPage from './documents/contactPage.js'
 
 //objects
 import contactItem from './objects/contactItem.js'
 import accessableImage from './objects/accessableImage.js'
 import author from './objects/author.js'
+import imageContainer from './objects/imageContainer.js'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -26,13 +28,15 @@ export default createSchema({
     //documents
     //singleton documents
     siteSettings,
-    contactDetails,
     aboutPage,
+    contactDetails,
+    ContactPage,
     //documents
     projects,
     //objects
     contactItem,
     accessableImage,
     author,
+    imageContainer,
   ]),
 })
