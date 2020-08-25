@@ -1,13 +1,14 @@
 export default {
-  type: 'document',
-  title: 'Contact Details',
   name: 'contactDetails',
+  title: 'Contact Details',
+  type: 'document',
   fields: [
-    // The "of"-property must be set, and it must be an array
     {
-      type: 'array', // type is required
-      title: 'Contact Items',
       name: 'contactItems',
+      title: 'Contact Items',
+      type: 'array',
+      description:
+        'These will show up mainly in the footer, but also other areas of the site where contact details are used',
       of: [{ type: 'contactItem' }],
     },
   ],
