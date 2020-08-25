@@ -31,23 +31,7 @@ const Experiments = ({
     allSanityProjects: { projects },
   },
 }) => {
-  // const [selected, setSelected] = useState({
-  //   name: '',
-  //   description: '',
-  //   date: '',
-  //   image: '',
-  // })
-
   const [selected, setSelected] = useState('')
-  console.log(selected)
-
-  // const selectedHandler = ({ name, description, date, images }) => () => {
-  //   setSelected({ ...selected, name, description, date, image: images[0] })
-  // }
-
-  // const clearSelected = () => {
-  //   setSelected({ name: '', description: '', date: '', image: '' })
-  // }
 
   return (
     <Layout title='Work' url='/work' page='work'>
@@ -58,8 +42,9 @@ const Experiments = ({
             {projects.map(({ project }) => (
               <li
                 key={project.id}
-                onMouseEnter={() => setSelected(project.id)}
-                onMouseLeave={() => setSelected('')}>
+                // onMouseEnter={() => setSelected(project.id)}
+                // onMouseLeave={() => setSelected('')}
+                onClick={() => setSelected(project.id)}>
                 <Link className='' to={`#`}>
                   <span>{project.name}</span> <span>{project.date}</span>
                 </Link>
