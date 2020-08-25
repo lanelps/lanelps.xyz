@@ -4,14 +4,17 @@ import Layout from '../components/Layout'
 import Header from '../components/Header'
 
 const { title, text } = {
-  title: 'Experiments',
+  title: 'Work',
   text: 'Work will eventually be here',
 }
 
 const Experiments = () => {
   return (
-    <Layout title='Experiments' url='/experiments' page='experiments'>
-      <Header title={title} text={text} />
+    <Layout title='Work' url='/work' page='work'>
+      <div className='container-1'>
+        <Header title={title} text={text} />
+      </div>
+      <div className='container-2'></div>
     </Layout>
   )
 }

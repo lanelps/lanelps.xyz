@@ -12,7 +12,10 @@ const { title, text } = {
 const Experiments = () => {
   return (
     <Layout title='Experiments' url='/experiments' page='experiments'>
-      <Header title={title} text={text} />
+      <div className='container-1'>
+        <Header title={title} text={text} />
+      </div>
+      <div className='container-2'></div>
     </Layout>
   )
 }

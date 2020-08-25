@@ -12,7 +12,10 @@ const { title, text } = {
 const Services = () => {
   return (
     <Layout title='Services' url='/services' page='services'>
-      <Header title={title} text={text} />
+      <div className='container-1'>
+        <Header title={title} text={text} />
+      </div>
+      <div className='container-2'></div>
     </Layout>
   )
 }
