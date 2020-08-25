@@ -22,18 +22,19 @@ export default function Footer() {
     <footer>
       <ul className='info'>
         {contactItems.map((contactItem) => {
-          console.log(contactItem)
           return (
             <li key={contactItem._key}>
               <span className='title'>{contactItem.title}: </span>
-              <a href={contactItem.link} target='_blank'>
+              <a href={contactItem.link} target='_blank' rel='noreferrer'>
                 {contactItem.name}
               </a>
             </li>
           )
         })}
       </ul>
-      <span>© Lane Le Prevost-Smith {date}</span>
+      <span>
+        © Lane Le Prevost-Smith <time dateTime={date}>{date}</time>
+      </span>
     </footer>
   )
 }
