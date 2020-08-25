@@ -4,8 +4,8 @@ export default {
   type: 'object',
   fields: [
     {
-      title: 'Image',
-      name: 'mainImage',
+      title: 'Photo',
+      name: 'image',
       type: 'image',
     },
     {
