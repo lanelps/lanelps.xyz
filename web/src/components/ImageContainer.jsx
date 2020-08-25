@@ -1,24 +1,20 @@
 import React from 'react'
 import Img from 'gatsby-image'
 
-const ImageContainer = ({
-  title,
-  description,
-  year,
-  accessableImage,
-  objectFit,
-}) => {
+const ImageContainer = ({ title, description, year, image, objectFit }) => {
   return (
     <section className='image-container'>
-      <Img
-        loading='eager'
-        fluid={accessableImage.image.asset.fluid}
-        alt={accessableImage.altText}
-        className='image-container__image'
-        imgStyle={{
-          objectFit: `${objectFit || 'cover'}`,
-        }}
-      />
+      {image && (
+        <Img
+          loading='eager'
+          fluid={image.asset.fluid}
+          alt={image.altText}
+          className='image-container__image'
+          imgStyle={{
+            objectFit: `${objectFit || 'cover'}`,
+          }}
+        />
+      )}
 
       {title && (
         <section className='image-container__title'>
