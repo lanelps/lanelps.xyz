@@ -36,8 +36,9 @@
 }
 
 a:hover,
+a:hover *,
 button:hover {
-  transition: color 0s, border-color 0s, background-color 0s;
+  transition: color 0s, border-color 0s, background-color 0s !important;
 }
 
 html {
@@ -73,7 +74,7 @@ ul {
 
 a:hover {
   color: var(--blue-color);
-  border-bottom: 1px solid var(--blue-color);
+  border-bottom: 1px solid var(--blue-color) !important;
 }
 
 /* ----TOP LEVEL---- */
@@ -330,4 +331,15 @@ footer {
 /* ----ABOUT PAGE---- */
 .about__description {
   column-count: 2;
+}
+
+/* ----WORK PAGE---- */
+.work__projectList {
+  width: 60%;
+}
+.work__projectList > li a {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid transparent;
+  font-size: 2.4rem;
 }
