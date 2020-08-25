@@ -62,7 +62,7 @@ export default function SendGridForm() {
         required
       />
 
-      <input
+      <textarea
         type='text'
         name='message'
         value={form.message}
