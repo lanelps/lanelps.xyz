@@ -6,7 +6,16 @@
   --turq-color: #00a9d0;
   --bronze-color: #ba670d;
   --purple-color: #cbcbff;
+
   --font-family: 'IBM Plex Sans', sans-serif;
+  --font-size-1: 2.441rem;
+  --font-size-2: 1.25rem;
+
+  --grid-12: repeat(12, 1fr);
+  --grid-8: repeat(8, 1fr);
+  --grid-6: repeat(6, 1fr);
+  --grid-4: repeat(4, 1fr);
+  --grid-2: repeat(2, 1fr);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap');
@@ -22,6 +31,13 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  transition: color 0.4s ease, border-color 0.4s ease,
+    background-color 0.4s ease;
+}
+
+a:hover,
+button:hover {
+  transition: color 0s, border-color 0s, background-color 0s;
 }
 
 html {
@@ -33,29 +49,18 @@ html {
   overflow: visible;
 }
 
-/* ::before {
-  font-variation-settings: "wght" 400;
-} */
-
 h1 {
-  font-size: 3rem;
   font-weight: 500;
 }
 
-h2 {
-  font-size: 2.4rem;
-  font-weight: 400;
-}
-
+h2,
 h3 {
-  font-size: 2rem;
   font-weight: 400;
 }
 
 a {
   text-decoration: none;
   color: var(--main-color);
-  transition: color 0.4s ease;
 }
 
 b {
@@ -69,47 +74,35 @@ ul {
 a:hover {
   color: var(--blue-color);
   border-bottom: 1px solid var(--blue-color);
-  transition: color 0s;
 }
 
+/* ----TOP LEVEL---- */
 .page {
   background-color: var(--main-bg-color);
   padding: 4rem;
   color: var(--main-color);
-  font-size: 1.2rem;
+  font-size: var(--font-size-2);
   position: relative;
-  transition: background-color 0.4s ease, color 0.4s ease;
   height: 100vh;
 }
 
-.content {
-  position: fixed;
-  padding: 4rem;
-  border: 1px solid var(--main-color);
-  transition: border 0.4s;
-  width: calc(100vw - 8rem);
-  height: calc(100vh - 8rem);
-  background-color: transparent;
-  overflow-y: scroll;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 2rem;
-}
-
-.title {
+/* ----SEO----- */
+.title,
+.title-cash {
   position: relative;
-  font-size: 1.2rem;
-  font-variation-settings: 'wght' 400;
+  font-size: var(--font-size-2);
+  font-weight: 500;
 }
 
-.title::before {
+.title-cash::before {
   position: absolute;
-  font-size: 1.2rem;
   left: -1rem;
   color: var(--blue-color);
   content: '$';
+  font-weight: 400;
 }
 
+/* ----OLD STYLING---- */
 .bronze {
   position: relative;
 }
@@ -123,62 +116,19 @@ a:hover {
   position: absolute;
   left: -1rem;
   color: var(--bronze-color);
-  font-size: 1.2rem;
+  font-size: var(--font-size-2);
   content: '•';
 }
 
 .text {
-  font-size: 2.4rem;
-}
-
-.git {
-  position: absolute;
-  top: 1.5rem;
-  left: 4rem;
-}
-
-.git span:nth-child(1) {
-  color: var(--red-color);
-}
-
-.git span:nth-child(2) {
-  color: var(--turq-color);
-  cursor: pointer;
-}
-
-.git span:nth-child(3) {
-  color: var(--blue-color);
-}
-
-.nav {
-  position: absolute;
-  top: 1.5rem;
-  left: 4rem;
-  padding: 0 4rem;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  width: calc(100vw - 8rem);
-}
-
-.nav span:nth-child(1) {
-  grid-column: 3 / span 1;
-}
-
-.nav ul {
-  grid-column: 3 / span 6;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-}
-
-.header-title {
-  grid-column: 1 / span 6;
+  font-size: var(--font-size-1);
 }
 
 .vid {
   width: 100%;
   height: 100%;
   border: 1px solid var(--main-color);
-  transition: border 0.4s ease;
+  /* transition: border 0.4s ease; */
   grid-row: 1 / span 3;
 }
 
@@ -193,6 +143,85 @@ a:hover {
   display: none;
 }
 
+/* ----NAVIGATION---- */
+.git {
+  position: absolute;
+  top: 1.5rem;
+  left: 4rem;
+}
+
+.git span:nth-child(1) {
+  color: var(--red-color);
+}
+
+.git button:nth-child(2) {
+  color: var(--turq-color);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.git span:nth-child(3) {
+  color: var(--blue-color);
+}
+
+.nav {
+  position: absolute;
+  top: 1.5rem;
+  left: 4rem;
+  padding: 0 4rem;
+  display: grid;
+  grid-template-columns: var(--grid-12);
+  width: calc(100vw - 8rem);
+  gap: 2rem;
+}
+
+.nav span:nth-child(1) {
+  grid-column: 3 / span 1;
+}
+
+.nav ul {
+  grid-column: 3 / span 6;
+  display: grid;
+  grid-template-columns: var(--grid-6);
+  gap: 2rem;
+}
+
+/* ----MAIN CONTENT---- */
+.content {
+  position: fixed;
+  padding: 4rem;
+  border: 1px solid var(--main-color);
+  /* transition: border 0.4s; */
+  width: calc(100vw - 8rem);
+  height: calc(100vh - 8rem);
+  background-color: transparent;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: var(--grid-12);
+  gap: 2rem;
+}
+
+.container-1 {
+  grid-column: 1 / span 6;
+}
+
+.container-2 {
+  grid-column: 7 / span 6;
+}
+
+.container-1 > *,
+.container-2 > * {
+  width: 100%;
+}
+
+.header-title {
+  margin-bottom: 4rem;
+}
+
+/* ----FOOTER---- */
 footer {
   position: absolute;
   bottom: 1.5rem;
@@ -213,21 +242,51 @@ footer {
   margin-right: 2rem;
 }
 
-.info > li:nth-child(1) .title::before {
+.info > li:first-child .title::before {
+  position: relative;
+  margin-right: 0.5ch;
+  color: var(--blue-color);
   content: '$';
+  font-weight: 400;
 }
 
-.info > li .title::before {
-  content: '';
+/* ----IMAGE CONTAINER---- */
+.image-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--grid-6);
+  gap: 2rem;
 }
 
-.contact__detials {
-  grid-column: 1 / span 6;
+.image-container__image {
+  height: 36.1rem;
+  border: 1px solid var(--main-color);
+  grid-column: 1 / -1;
+  grid-row: 1;
 }
+
+.image-container__title,
+.image-container__description,
+.image-container__year {
+  grid-row: 2;
+}
+
+.image-container__title {
+  grid-column: 1 / 2;
+}
+
+.image-container__description {
+  grid-column: 2 / span 4;
+}
+
+.image-container__year {
+  text-align: right;
+  grid-column: 6 / 6;
+}
+
+/* ----CONTACT PAGE---- */
 
 .netlify-form {
-  grid-column: 7 / span 6;
-  grid-row: 1 / span 2;
   margin-top: 2rem;
 }
 
@@ -236,26 +295,39 @@ footer {
   height: 3.5rem;
   margin-bottom: 6rem;
   border: none;
-  font-size: 2.4rem;
+  font-size: var(--font-size-1);
   font-family: var(--font-family);
-  transition: background-color 0.4s ease, color 0.4s ease;
+  /* transition: background-color 0.4s ease, color 0.4s ease; */
 }
 
-.netlify-form > input {
+.netlify-form > input,
+.netlify-form > textarea {
   border-bottom: 1px solid var(--main-color);
   background: var(--main-bg-color);
   color: var(--main-color);
+}
+
+.netlify-form > textarea {
+  resize: vertical;
+  width: 100%;
+  min-height: 10rem;
+  overflow: visible;
 }
 
 .netlify-form > button {
   width: max-content;
   background: none;
   color: var(--main-color);
-  transition: color 0.4s ease;
+  /* transition: color 0.4s ease; */
 }
 
 .netlify-form > button:hover {
   cursor: pointer;
   color: var(--blue-color);
-  transition: color 0s;
+  /* transition: color 0s; */
+}
+
+/* ----ABOUT PAGE---- */
+.about__description {
+  column-count: 2;
 }
