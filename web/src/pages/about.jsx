@@ -43,7 +43,11 @@ const About = ({
         </section>
       </div>
       <div className='container-2'>
-        <ImageContainer {...imageContainer} objectFit='contain' />
+        <ImageContainer
+          {...imageContainer}
+          image={imageContainer.accessableImage.image}
+          objectFit='contain'
+        />
       </div>
     </Layout>
   )
