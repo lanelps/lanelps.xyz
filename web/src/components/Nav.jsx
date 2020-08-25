@@ -2,27 +2,21 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 export default function Nav() {
+  const pages = [
+    { id: 1, url: '/', name: 'Home' },
+    { id: 2, url: '/about', name: 'About' },
+    { id: 3, url: '/work', name: 'Work' },
+    { id: 4, url: '/contact', name: 'Contact' },
+    { id: 5, url: '/experiments', name: 'Experiments' },
+  ]
   return (
     <nav className='nav'>
       <ul>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <li>
-          <Link to='/about'>About</Link>
-        </li>
-        <li>
-          <Link to='/work'>Work</Link>
-        </li>
-        <li>
-          <Link to='/contact'>Contact</Link>
-        </li>
-        <li>
-          <Link to='/services'>Services</Link>
-        </li>
-        <li>
-          <Link to='/experiments'>Experiments</Link>
-        </li>
+        {pages.map((page) => (
+          <li key={page.id}>
+            <Link to={page.url}>{page.name}</Link>
+          </li>
+        ))}
       </ul>
     </nav>
   )
