@@ -24,6 +24,7 @@ module.exports = {
         projectId: 'k2d93j2x',
         dataset: 'production',
         token: process.env.SANITY_TOKEN,
+        watchMode: process.env.NODE_ENV === 'development',
       },
     },
   ],

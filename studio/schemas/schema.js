@@ -16,6 +16,7 @@ import contactItem from './objects/contactItem.js'
 import accessableImage from './objects/accessableImage.js'
 import author from './objects/author.js'
 import imageContainer from './objects/imageContainer.js'
+import portableText from './objects/portableText.js'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -38,5 +39,6 @@ export default createSchema({
     accessableImage,
     author,
     imageContainer,
+    portableText,
   ]),
 })

@@ -11,7 +11,7 @@ export const query = graphql`
         project: node {
           id
           name: projectName
-          description: projectDescription
+          description: _rawProjectDescription
           date: projectDate(formatString: "YYYY")
           images: projectImages {
             asset {
@@ -62,6 +62,7 @@ const Experiments = ({
             }}>
             <ImageContainer
               title={project.name}
+              description={project.description}
               year={project.date}
               image={project.images[0]}
               objectFit='contain'

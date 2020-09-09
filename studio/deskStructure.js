@@ -4,7 +4,7 @@ import Emoji from 'react-emoji-render'
 
 export default () =>
   S.list()
-    .title('Lane Le Prevost-Smith Website')
+    .title('lanelps.xyz')
     .items([
       S.listItem()
         .title('Site Settings')
@@ -26,22 +26,31 @@ export default () =>
         ),
       S.divider(),
       S.listItem()
-        .title('About Page')
-        .icon(() => <Emoji style={{ fontSize: 30 }} text='🙋🏽‍♂️' />)
+        .title('Pages')
+        .icon(() => <Emoji style={{ fontSize: 30 }} text='📚' />)
         .child(
-          S.editor()
-            .schemaType('aboutPage')
-            .documentId('aboutPage')
-            .title('About Page')
-        ),
-      S.listItem()
-        .title('Contact Page')
-        .icon(() => <Emoji style={{ fontSize: 30 }} text='📧' />)
-        .child(
-          S.editor()
-            .schemaType('contactPage')
-            .documentId('contactPage')
-            .title('Contact Page')
+          S.list()
+            .title('Pages')
+            .items([
+              S.listItem()
+                .title('About Page')
+                .icon(() => <Emoji style={{ fontSize: 30 }} text='📄' />)
+                .child(
+                  S.editor()
+                    .schemaType('aboutPage')
+                    .documentId('aboutPage')
+                    .title('About Page')
+                ),
+              S.listItem()
+                .title('Contact Page')
+                .icon(() => <Emoji style={{ fontSize: 30 }} text='📄' />)
+                .child(
+                  S.editor()
+                    .schemaType('contactPage')
+                    .documentId('contactPage')
+                    .title('Contact Page')
+                ),
+            ])
         ),
       S.listItem()
         .title('Projects')

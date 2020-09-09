@@ -13,9 +13,7 @@ export default {
     {
       name: 'projectDescription',
       title: 'Project Description',
-      type: 'text',
-      validation: (Rule) =>
-        Rule.max(1000).warning('Maybe keep it brief (1000 characters or less)'),
+      type: 'portableText',
     },
     {
       name: 'projectDate',
@@ -42,4 +40,10 @@ export default {
       of: [{ type: 'file' }],
     },
   ],
+  preview: {
+    select: {
+      title: 'projectName',
+      media: 'projectImages.0',
+    },
+  },
 }

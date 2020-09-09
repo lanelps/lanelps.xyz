@@ -1,7 +1,10 @@
+import { GrContactInfo } from 'react-icons/gr'
+
 export default {
   name: 'contactItem',
   title: 'Contact Item',
   type: 'object',
+  icon: GrContactInfo,
   fields: [
     {
       name: 'title',

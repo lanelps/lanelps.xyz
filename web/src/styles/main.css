@@ -38,6 +38,7 @@
 a:hover,
 a:hover *,
 button:hover {
+  cursor: pointer;
   transition: color 0s, border-color 0s, background-color 0s !important;
 }
 
