@@ -16,7 +16,7 @@ import contactItem from './objects/contactItem.js'
 import accessableImage from './objects/accessableImage.js'
 import author from './objects/author.js'
 import imageContainer from './objects/imageContainer.js'
-import portableText from './objects/portableText.js'
+import blockContent from './objects/blockContent.js'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -26,19 +26,20 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
-    //documents
     //singleton documents
     siteSettings,
     aboutPage,
     contactDetails,
     ContactPage,
+
     //documents
     projects,
+
     //objects
     contactItem,
     accessableImage,
     author,
     imageContainer,
-    portableText,
+    blockContent,
   ]),
 })

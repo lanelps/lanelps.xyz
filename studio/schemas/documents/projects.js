@@ -13,7 +13,12 @@ export default {
     {
       name: 'projectDescription',
       title: 'Project Description',
-      type: 'portableText',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
     },
     {
       name: 'projectDate',
@@ -27,11 +32,10 @@ export default {
     {
       name: 'projectImages',
       title: 'Project Images',
-      type: 'array',
+      type: 'image',
       options: {
         hotspot: true,
       },
-      of: [{ type: 'image' }],
     },
     {
       name: 'projectVideos',
