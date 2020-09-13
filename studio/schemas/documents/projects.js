@@ -47,7 +47,7 @@ export default {
   preview: {
     select: {
       title: 'projectName',
-      media: 'projectImages.0',
+      media: 'projectImages',
     },
   },
 }
