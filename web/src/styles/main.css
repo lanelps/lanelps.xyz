@@ -1,11 +1,11 @@
 :root {
-  --main-bg-color: #fff;
-  --main-color: #000;
-  --blue-color: #0066ff;
-  --red-color: #ff5f5f;
-  --turq-color: #00a9d0;
-  --bronze-color: #ba670d;
-  --purple-color: #cbcbff;
+  --color-main-bg: #fff;
+  --color-main: #000;
+  --color-blue: #0066ff;
+  --color-red: #ff5f5f;
+  --color-turq: #00a9d0;
+  --color-bronze: #ba670d;
+  --color-purple: #cbcbff;
 
   --font-family: 'IBM Plex Sans', sans-serif;
   --font-size-1: 2.441rem;
@@ -21,10 +21,10 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap');
 
 :selection {
-  background: var(--purple-color);
+  background: var(--color-purple);
 }
 ::-moz-selection {
-  background: var(--purple-color);
+  background: var(--color-purple);
 }
 
 * {
@@ -35,9 +35,23 @@
     background-color 0.4s ease;
 }
 
+button {
+  color: var(--color-main);
+  font-family: var(--font-family);
+  border: none;
+  border-bottom: 1px solid transparent;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-main);
+  border-bottom: 1px solid transparent;
+}
+
 a:hover,
 a:hover *,
-button:hover {
+button:hover,
+button:hover * {
   cursor: pointer;
   transition: color 0s, border-color 0s, background-color 0s !important;
 }
@@ -60,11 +74,6 @@ h3 {
   font-weight: 400;
 }
 
-a {
-  text-decoration: none;
-  color: var(--main-color);
-}
-
 b {
   font-weight: 500;
 }
@@ -73,16 +82,21 @@ ul {
   list-style: none;
 }
 
-a:hover {
-  color: var(--blue-color);
-  border-bottom: 1px solid var(--blue-color) !important;
+a:hover,
+button:hover {
+  color: var(--color-blue);
+  border-bottom: 1px solid var(--color-blue) !important;
+}
+
+.git button:hover {
+  border-bottom: 1px solid var(--color-turq) !important;
 }
 
 /* ----TOP LEVEL---- */
 .page {
-  background-color: var(--main-bg-color);
+  background-color: var(--color-main-bg);
   padding: 4rem;
-  color: var(--main-color);
+  color: var(--color-main);
   font-size: var(--font-size-2);
   position: relative;
   height: 100vh;
@@ -99,7 +113,7 @@ a:hover {
 .title-cash::before {
   position: absolute;
   left: -1rem;
-  color: var(--blue-color);
+  color: var(--color-blue);
   content: '$';
   font-weight: 400;
 }
@@ -110,14 +124,14 @@ a:hover {
 }
 
 .bronze a:hover {
-  color: var(--bronze-color);
-  border-bottom: 1px solid var(--bronze-color);
+  color: var(--color-bronze);
+  border-bottom: 1px solid var(--color-bronze);
 }
 
 .bronze::before {
   position: absolute;
   left: -1rem;
-  color: var(--bronze-color);
+  color: var(--color-bronze);
   font-size: var(--font-size-2);
   content: '•';
 }
@@ -129,7 +143,7 @@ a:hover {
 .vid {
   width: 100%;
   height: 100%;
-  border: 1px solid var(--main-color);
+  border: 1px solid var(--color-main);
   /* transition: border 0.4s ease; */
   grid-row: 1 / span 3;
 }
@@ -153,20 +167,19 @@ a:hover {
 }
 
 .git span:nth-child(1) {
-  color: var(--red-color);
+  color: var(--color-red);
 }
 
 .git button:nth-child(2) {
-  color: var(--turq-color);
+  color: var(--color-turq);
   cursor: pointer;
   margin: 0;
   padding: 0;
-  border: none;
   background-color: transparent;
 }
 
 .git span:nth-child(3) {
-  color: var(--blue-color);
+  color: var(--color-blue);
 }
 
 .nav {
@@ -195,7 +208,7 @@ a:hover {
 .content {
   position: fixed;
   padding: 4rem;
-  border: 1px solid var(--main-color);
+  border: 1px solid var(--color-main);
   /* transition: border 0.4s; */
   width: calc(100vw - 8rem);
   height: calc(100vh - 8rem);
@@ -247,7 +260,7 @@ footer {
 .info > li:first-child .title::before {
   position: relative;
   margin-right: 0.5ch;
-  color: var(--blue-color);
+  color: var(--color-blue);
   content: '$';
   font-weight: 400;
 }
@@ -262,7 +275,7 @@ footer {
 
 .image-container__image {
   height: 36.1rem;
-  border: 1px solid var(--main-color);
+  border: 1px solid var(--color-main);
   grid-column: 1 / -1;
   grid-row: 1;
 }
@@ -304,9 +317,9 @@ footer {
 
 .netlify-form > input,
 .netlify-form > textarea {
-  border-bottom: 1px solid var(--main-color);
-  background: var(--main-bg-color);
-  color: var(--main-color);
+  border-bottom: 1px solid var(--color-main);
+  background: var(--color-main-bg);
+  color: var(--color-main);
 }
 
 .netlify-form > textarea {
@@ -319,13 +332,13 @@ footer {
 .netlify-form > button {
   width: max-content;
   background: none;
-  color: var(--main-color);
+  color: var(--color-main);
   /* transition: color 0.4s ease; */
 }
 
 .netlify-form > button:hover {
   cursor: pointer;
-  color: var(--blue-color);
+  color: var(--color-blue);
   /* transition: color 0s; */
 }
 
@@ -338,9 +351,18 @@ footer {
 .work__projectList {
   width: 60%;
 }
-.work__projectList > li a {
+.work__projectList > li {
+  width: 100%;
+}
+
+.work__projectList > li button {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid transparent;
   font-size: 2.4rem;
+  border-bottom: 1px solid transparent;
 }
