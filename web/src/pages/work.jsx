@@ -41,13 +41,10 @@ const Experiments = ({
           <ul className='work__projectList'>
             {projects.map(({ project }) => (
               <li
-                key={project.id}
-                // onMouseEnter={() => setSelected(project.id)}
-                // onMouseLeave={() => setSelected('')}
-                onClick={() => setSelected(project.id)}>
-                <Link className='' to={`#`}>
+                key={project.id}>
+                <button onClick={() => setSelected(project.id)}>
                   <span>{project.name}</span> <span>{project.date}</span>
-                </Link>
+                </button>
               </li>
             ))}
           </ul>
