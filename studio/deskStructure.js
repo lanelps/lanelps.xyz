@@ -42,22 +42,22 @@ export default () =>
 										.title('Home')
 								),
 							S.listItem()
-								.title('About Page')
+								.title('About')
 								.icon(() => <Emoji style={{ fontSize: 30 }} text='📄' />)
 								.child(
 									S.editor()
 										.schemaType('aboutPage')
 										.documentId('aboutPage')
-										.title('About Page')
+										.title('About')
 								),
 							S.listItem()
-								.title('Contact Page')
+								.title('Contact')
 								.icon(() => <Emoji style={{ fontSize: 30 }} text='📄' />)
 								.child(
 									S.editor()
 										.schemaType('contactPage')
 										.documentId('contactPage')
-										.title('Contact Page')
+										.title('Contact')
 								),
 						])
 				),
