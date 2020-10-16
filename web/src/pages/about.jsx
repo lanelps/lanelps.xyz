@@ -4,12 +4,13 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ImageContainer from '../components/ImageContainer'
+import PortableText from '../components/PortableText'
 
 export const query = graphql`
   query AboutQuery {
     sanityAboutPage {
       title
-      personalBio
+      personalBio: _rawPersonalBio
       imageContainer {
         title
         description
@@ -29,23 +30,21 @@ export const query = graphql`
   }
 `
 
-const About = ({
-  data: {
-    sanityAboutPage: { title, personalBio, imageContainer },
-  },
-}) => {
+const About = ({ data: { sanityAboutPage: { title, personalBio, imageContainer } } }) => {
+
   return (
     <Layout title='About' url='/about' page='about'>
       <div className='container-1'>
         <Header title='About' text={title} />
         <section className='about__description'>
-          <p>{personalBio}</p>
+          <PortableText blocks={personalBio} />
         </section>
       </div>
       <div className='container-2'>
         <ImageContainer
           {...imageContainer}
           image={imageContainer.accessableImage.image}
+          altText={imageContainer.accessableImage.altText}
           objectFit='contain'
         />
       </div>
