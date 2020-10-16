@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import ImageContainer from '../components/ImageContainer'
@@ -42,7 +42,7 @@ const Experiments = ({
             {projects.map(({ project }) => (
               <li
                 key={project.id}>
-                <button onClick={() => setSelected(project.id)}>
+                <button onClick={() => setSelected(project.id)} style={project.id === selected ? { color: 'var(--color-blue)', borderBottom: '1px solid var(--color-blue)' } : {}}>
                   <span>{project.name}</span> <span>{project.date}</span>
                 </button>
               </li>
@@ -61,7 +61,7 @@ const Experiments = ({
               title={project.name}
               description={project.description}
               year={project.date}
-              image={project.images[0]}
+              image={project.images}
               objectFit='contain'
             />
           </div>
