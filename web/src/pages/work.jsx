@@ -14,11 +14,14 @@ export const query = graphql`
           description: _rawProjectDescription
           date: projectDate(formatString: "YYYY")
           images: projectImages {
-            asset {
-              fluid {
-                ...GatsbySanityImageFluid
+            image {
+              asset {
+                fluid {
+                  ...GatsbySanityImageFluid
+                }
               }
             }
+            altText
           }
         }
       }
@@ -61,7 +64,8 @@ const Experiments = ({
               title={project.name}
               description={project.description}
               year={project.date}
-              image={project.images}
+              image={project.images.image}
+              altText={project.images.altText}
               objectFit='contain'
             />
           </div>

@@ -1,17 +1,9 @@
 import React from 'react'
 import Img from 'gatsby-image'
-import PortableText from '@sanity/block-content-to-react'
 
-const ImageContainer = ({ title, description, year, image, objectFit }) => {
-  const serializers = {
-    marks: {
-      link: ({ children, mark }) => (
-        <a href={mark.href} target="_blank" rel='noopener noreferrer'>
-          {children}
-        </a>
-      )
-    }
-  }
+import PortableText from './PortableText'
+
+const ImageContainer = ({ title, description, year, image, altText, objectFit }) => {
 
   return (
     <section className='image-container'>
@@ -19,7 +11,7 @@ const ImageContainer = ({ title, description, year, image, objectFit }) => {
         <Img
           loading='eager'
           fluid={image.asset.fluid}
-          alt={image.altText}
+          alt={altText}
           className='image-container__image'
           imgStyle={{
             objectFit: `${objectFit || 'cover'}`,
@@ -37,7 +29,7 @@ const ImageContainer = ({ title, description, year, image, objectFit }) => {
       {description && (
         <section className='image-container__description'>
           <h3 className='title'>Description</h3>
-          <PortableText blocks={description} serializers={serializers} />
+          <PortableText blocks={description} />
         </section>
       )}
 
