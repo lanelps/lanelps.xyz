@@ -13,8 +13,6 @@ const ImageContainer = ({ title, description, year, image, objectFit }) => {
     }
   }
 
-  console.log("project image", image);
-
   return (
     <section className='image-container'>
       {image && (
