@@ -48,6 +48,21 @@ a {
   border-bottom: 1px solid transparent;
 }
 
+.image-container__description p,
+.about__description p {
+  margin: 1rem 0;
+}
+
+.image-container__description p:first-child,
+.about__description p:first-child {
+  margin-top: 0;
+}
+
+.image-container__description p:last-child,
+.about__description p:last-child {
+  margin-bottom: 0;
+}
+
 a:hover,
 a:hover *,
 button:hover,
