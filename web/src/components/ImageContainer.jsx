@@ -5,17 +5,15 @@ import PortableText from '@sanity/block-content-to-react'
 const ImageContainer = ({ title, description, year, image, objectFit }) => {
   const serializers = {
     marks: {
-      link: ({ children, mark }) => mark.blank ? (
+      link: ({ children, mark }) => (
         <a href={mark.href} target="_blank" rel='noopener noreferrer'>
           {children}
         </a>
-      ) : (
-          <a href={mark.href}>
-            {children}
-          </a>
-        )
+      )
     }
   }
+
+  console.log("project image", image);
 
   return (
     <section className='image-container'>
