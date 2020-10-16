@@ -10,7 +10,7 @@ const Home = () => {
   const { title, text } = {
     title: 'Lane Wirihana Le Prevost-Smith',
     text:
-      'Freelance Full-Stack Web Developer and Graphic Designer from Auckland, New Zealand.',
+      'I am a freelance Full-Stack Web Developer and Graphic Designer from Auckland, New Zealand. I create accessible and fast websites using the latest modern web technologies.',
   }
 
   return (
