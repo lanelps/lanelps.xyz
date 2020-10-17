@@ -9,14 +9,8 @@ const DarkModeProvider = ({ children }) => {
   useEffect(() => {
     if (time > 6 && time <= 18) {
       setIsDark(false)
-      document.documentElement.style.setProperty('--color-main-bg', '#fff')
-      document.documentElement.style.setProperty('--color-main', '#000')
-      document.documentElement.style.setProperty('--color-purple', '#cbcbff')
     } else {
       setIsDark(true)
-      document.documentElement.style.setProperty('--color-main-bg', '#000')
-      document.documentElement.style.setProperty('--color-main', '#fff')
-      document.documentElement.style.setProperty('--color-purple', '#51516e')
     }
   }, [time])
 
