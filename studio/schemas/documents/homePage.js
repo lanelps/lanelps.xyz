@@ -13,5 +13,10 @@ export default {
 			title: 'Text',
 			type: 'text',
 		},
+		{
+			name: 'showReel',
+			title: 'Show Reel',
+			type: 'file',
+		},
 	],
 }
