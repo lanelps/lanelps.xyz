@@ -20,24 +20,24 @@ const ImageContainer = ({ title, description, year, image, altText, objectFit })
       )}
 
       {title && (
-        <section className='image-container__title'>
+        <div className='image-container__title'>
           <h3 className='title-cash'>Title</h3>
           <p>{title}</p>
-        </section>
+        </div>
       )}
 
       {description && (
-        <section className='image-container__description'>
+        <div className='image-container__description'>
           <h3 className='title'>Description</h3>
           <PortableText blocks={description} />
-        </section>
+        </div>
       )}
 
       {year && (
-        <section className='image-container__year'>
+        <div className='image-container__year'>
           <h3 className='title'>Year</h3>
           <time dateTime={year}>{year}</time>
-        </section>
+        </div>
       )}
     </section>
   )
