@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function SendGridForm() {
+export default function NetlifyForm() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
 
   const handleInputChange = ({ target: { name, value } }) => {
