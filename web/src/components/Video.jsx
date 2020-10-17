@@ -1,13 +1,14 @@
-import React from "react"
+import React from 'react'
 
-import Particles from "../assets/video/lanelps_Particles.mp4"
-
-export default function Video() {
+const Video = ({ src }) => {
   return (
-    <div className='grid--col--7-13 vid'>
+    <section className='video-container'>
       <video autoPlay loop>
-        <source src={Particles} type='video/mp4' />
+        <source src={src} type='video/mp4' />
       </video>
-    </div>
+    </section>
   )
 }
+
+export default Video
+
