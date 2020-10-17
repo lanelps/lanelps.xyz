@@ -8,7 +8,6 @@ export default function Git() {
   const [branch, setBranch] = useState('(light-theme)')
 
   useEffect(() => {
-    console.log(isDark)
     if (isDark) {
       setBranch('(dark-theme)')
     } else {
