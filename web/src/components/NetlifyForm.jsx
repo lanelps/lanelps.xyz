@@ -43,16 +43,13 @@ const sendForm = async (values, setValues, initialState) => {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: encode({ 'form-name': 'contact', ...values }),
   })
-    // await fetch('httpstat.us/200', { method: 'GET' })
     .then((res) => {
       if (res.status === 200) {
         setValues(initialState)
-        console.log('Form Submit Success!', res.status)
       }
     })
     .catch((err) => {
       setValues(initialState)
-      console.error('Form Submit Error!', err)
     })
 }
 

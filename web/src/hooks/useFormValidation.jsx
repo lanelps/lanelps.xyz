@@ -9,11 +9,9 @@ const useFormValidation = (initialState, validate, sendForm) => {
     if (isSubmitting) {
       const noErrors = Object.keys(errors).length === 0
       if (noErrors) {
-        console.log("No Form Errors")
         sendForm(values, setValues, initialState)
         setIsSubmitting(false)
       } else {
-        console.log("Form Errors")
         setIsSubmitting(false)
       }
     }
