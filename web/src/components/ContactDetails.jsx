@@ -19,7 +19,6 @@ export default function ContactDetails() {
   return (
     <ul className='contact__detials'>
       {contactItems.map((contactItem) => {
-        console.log(contactItem)
         return (
           <li key={contactItem._key}>
             <h3>
