@@ -133,6 +133,18 @@ button:hover {
 	font-weight: 400;
 }
 
+.arrow {
+	position: relative;
+}
+
+.arrow::after {
+	pointer-events: none;
+	position: absolute;
+	right: -3ch;
+	color: var(--color-blue);
+	content: '—>';
+	font-weight: 400;
+}
 /* ----OLD STYLING---- */
 .bronze {
 	position: relative;
@@ -217,6 +229,11 @@ button:hover {
 	display: grid;
 	grid-template-columns: var(--grid-6);
 	gap: 2rem;
+}
+
+.nav a[aria-current='page'] {
+	color: var(--color-blue);
+	border-bottom: 1px solid var(--color-blue) !important;
 }
 
 /* ----MAIN CONTENT---- */
