@@ -248,6 +248,7 @@ button:hover {
 	overflow-y: scroll;
 	display: grid;
 	grid-template-columns: var(--grid-12);
+	grid-template-rows: minmax(min-content, max-content);
 	gap: 2rem;
 }
 
@@ -289,12 +290,16 @@ footer {
 	margin-right: 2rem;
 }
 
-.info > li:first-child .title::before {
+.info > li:first-child .title:before {
 	position: relative;
 	margin-right: 0.5ch;
 	color: var(--color-blue);
 	content: '$';
 	font-weight: 400;
+}
+
+.info .info-m {
+	display: none;
 }
 
 /* ----IMAGE CONTAINER---- */
@@ -423,4 +428,26 @@ footer {
 	justify-content: space-between;
 	font-size: 2.4rem;
 	border-bottom: 1px solid transparent;
+}
+
+@media only screen and (max-width: 1076px) {
+	.info .info-m {
+		display: inline-block;
+	}
+
+	.info .info-d {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.nav,
+	.content {
+		grid-template-columns: var(--grid-8);
+	}
+
+	.nav ul {
+		grid-column: 5 / -1;
+		grid-template-columns: var(--grid-4);
+	}
 }

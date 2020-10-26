@@ -23,12 +23,20 @@ export default function Footer() {
       <ul className='info'>
         {contactItems.map((contactItem) => {
           return (
-            <li key={contactItem._key}>
-              <span className='title'>{contactItem.title}: </span>
-              <a href={contactItem.link} target='_blank' rel='noreferrer'>
-                {contactItem.name}
-              </a>
-            </li>
+            <>
+              <li key={contactItem._key} className="info-d">
+                <span className='title'>{contactItem.title}: </span>
+                <a href={contactItem.link} target='_blank' rel='noreferrer'>
+                  {contactItem.name}
+                </a>
+              </li>
+
+              <li key={contactItem._key} className="info-m">
+                <a href={contactItem.link} target='_blank' rel='noreferrer'>
+                  {contactItem.title}
+                </a>
+              </li>
+            </>
           )
         })}
       </ul>
