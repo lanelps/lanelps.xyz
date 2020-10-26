@@ -476,6 +476,10 @@ footer {
 	.netlify-form {
 		grid-column: 5 / span 4;
 	}
+
+	.about .portable-text {
+		column-count: 1;
+	}
 }
 
 @media only screen and (max-width: 625px) {
