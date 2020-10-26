@@ -21,13 +21,9 @@ const Contact = ({
 }) => {
   return (
     <Layout title='Contact' url='/contact' page='contact'>
-      <div className='container-1'>
-        <Header title='contact' text={title} />
-        <ContactDetails />
-      </div>
-      <div className='container-2'>
-        <NetlifyForm />
-      </div>
+      <Header title='contact' text={title} />
+      <ContactDetails />
+      <NetlifyForm />
     </Layout>
   )
 }

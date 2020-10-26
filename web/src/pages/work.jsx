@@ -38,39 +38,31 @@ const Experiments = ({
 
   return (
     <Layout title='Work' url='/work' page='work'>
-      <div className='container-1'>
-        <header className='header-title'>
-          <h1 className='title-cash'>Work</h1>
-          <ul className='work__projectList'>
-            {projects.map(({ project }) => (
-              <li
-                key={project.id}>
-                <button onClick={() => setSelected(project.id)} style={project.id === selected ? { color: 'var(--color-blue)', borderBottom: '1px solid var(--color-blue)' } : {}}>
-                  <span>{project.name}</span> <span>{project.date}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </header>
-      </div>
-      <div className='container-2'>
-        {projects.map(({ project }) => (
-          <div
-            key={project.id}
-            style={{
-              display: `${project.id === selected ? 'block' : 'none'}`,
-            }}>
-            <ImageContainer
-              title={project.name}
-              description={project.description}
-              year={project.date}
-              image={project.images.image}
-              altText={project.images.altText}
-              objectFit='contain'
-            />
-          </div>
-        ))}
-      </div>
+      <header className='header-title'>
+        <h1 className='title-cash'>Work</h1>
+        <ul className='work__projectList'>
+          {projects.map(({ project }) => (
+            <li
+              key={project.id}>
+              <button onClick={() => setSelected(project.id)} style={project.id === selected ? { color: 'var(--color-blue)', borderBottom: '1px solid var(--color-blue)' } : {}}>
+                <span>{project.name}</span> <span>{project.date}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </header>
+      {projects.map(({ project }) => (
+        <ImageContainer
+          key={project.id}
+          title={project.name}
+          description={project.description}
+          year={project.date}
+          image={project.images.image}
+          altText={project.images.altText}
+          objectFit='contain'
+          display={project.id === selected ? 'grid' : 'none'}
+        />
+      ))}
     </Layout>
   )
 }

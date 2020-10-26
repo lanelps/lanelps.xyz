@@ -13,7 +13,7 @@ const serializers = {
 
 const PortableText = ({ blocks }) => {
   return (
-    <BlockContent blocks={blocks} serializers={serializers} />
+    <BlockContent blocks={blocks} serializers={serializers} className='portable-text' />
   )
 }
 

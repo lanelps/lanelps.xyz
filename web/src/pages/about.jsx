@@ -34,20 +34,14 @@ const About = ({ data: { sanityAboutPage: { title, personalBio, imageContainer }
 
   return (
     <Layout title='About' url='/about' page='about'>
-      <div className='container-1'>
-        <Header title='About' text={title} />
-        <section className='about__description'>
-          <PortableText blocks={personalBio} />
-        </section>
-      </div>
-      <div className='container-2'>
-        <ImageContainer
-          {...imageContainer}
-          image={imageContainer.accessableImage.image}
-          altText={imageContainer.accessableImage.altText}
-          objectFit='contain'
-        />
-      </div>
+      <Header title='About' text={title} />
+      <PortableText blocks={personalBio} />
+      <ImageContainer
+        {...imageContainer}
+        image={imageContainer.accessableImage.image}
+        altText={imageContainer.accessableImage.altText}
+        objectFit='contain'
+      />
     </Layout>
   )
 }

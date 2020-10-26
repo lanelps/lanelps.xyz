@@ -23,13 +23,9 @@ const Home = ({ data: { sanityHomePage } }) => {
 
   return (
     <Layout title='Home' url='/' page='home'>
-      <div className='container-1'>
-        <Header title={sanityHomePage.title} text={sanityHomePage.text} />
-        <Link to="/work" className="arrow">See more</Link>
-      </div>
-      <div className='container-2'>
-        <Video src={sanityHomePage.showReel.asset.url} />
-      </div>
+      <Header title={sanityHomePage.title} text={sanityHomePage.text} />
+      <Link to="/work" className="arrow">See more</Link>
+      <Video src={sanityHomePage.showReel.asset.url} />
     </Layout>
   )
 }

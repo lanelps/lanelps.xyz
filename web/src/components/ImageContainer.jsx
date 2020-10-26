@@ -3,10 +3,10 @@ import Img from 'gatsby-image'
 
 import PortableText from './PortableText'
 
-const ImageContainer = ({ title, description, year, image, altText, objectFit }) => {
+const ImageContainer = ({ title, description, year, image, altText, objectFit, display = 'grid' }) => {
 
   return (
-    <section className='image-container'>
+    <section className='image-container' style={{ display: display }}>
       {image && (
         <Img
           loading='eager'
