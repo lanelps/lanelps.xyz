@@ -3,10 +3,10 @@ import React from 'react'
 const Video = ({ src }) => {
   return (
     <section className='video-container'>
-      <video autoPlay loop>
+      <video playsInline autoPlay muted loop onLoadedData={(e) => e.target.play()}>
         <source src={src} type='video/mp4' />
       </video>
-    </section>
+    </section >
   )
 }
 
