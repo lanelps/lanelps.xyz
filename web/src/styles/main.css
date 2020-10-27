@@ -325,11 +325,16 @@ footer {
 }
 
 /* ----IMAGE CONTAINER---- */
-.image-container,
-.video-container {
+.image-container___overlay {
 	grid-column: 7 / span 6;
 	grid-row: 1 / -1;
-	position: absolute;
+	width: 100%;
+	position: relative;
+}
+
+.image-container,
+.video-container {
+	position: relative;
 	width: 100%;
 	height: min-content;
 	display: grid;
@@ -458,8 +463,10 @@ footer {
 .work .close-work {
 	grid-column: none;
 	position: absolute;
-	top: 0rem;
+	top: -2rem;
 	right: 0rem;
+	display: none;
+	z-index: 1;
 }
 
 @media only screen and (max-width: 1105px) {
@@ -493,15 +500,19 @@ footer {
 		grid-column: 1 / span 4;
 	}
 
-	.image-container,
+	.image-container___overlay {
+		grid-column: none;
+		position: absolute;
+		left: calc(-4rem - 1px);
+		top: calc(-4rem - 1px);
+		width: calc(100vw - (8rem - -1px));
+		padding: 4rem;
+		background-color: var(--color-main-bg);
+	}
+
 	.video-container,
 	.netlify-form {
 		grid-column: 5 / span 4;
-	}
-
-	.work .image-container {
-		grid-column: none;
-		top: 4rem;
 	}
 
 	.image-container__image,
@@ -510,7 +521,15 @@ footer {
 	}
 
 	.work .image-container__image {
-		height: 48.375rem;
+		height: 48.544rem;
+	}
+
+	.close-work.open {
+		display: block;
+	}
+
+	.close-work.closed {
+		display: none;
 	}
 
 	.about .portable-text {

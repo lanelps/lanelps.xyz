@@ -38,7 +38,7 @@ const Work = ({
 
   return (
     <Layout title='Work' url='/work' page='work'>
-      <header className='header-title' style={{ visibility: `${selected ? 'hidden' : 'visible'}`, pointerEvents: `${selected ? 'none' : 'all'}` }}>
+      <header className='header-title'>
         <h1 className='title-cash'>Work</h1>
         <ul className='work__projectList'>
           {projects.map(({ project }) => (
@@ -52,19 +52,19 @@ const Work = ({
         </ul>
       </header>
 
-      <button onClick={() => setSelected('')} className="close-work" style={{ display: selected ? 'block' : 'none' }}>close</button>
+      <button onClick={() => setSelected('')} className={`close-work ${selected ? 'open' : 'closed'}`}>close</button>
 
       {projects.map(({ project }) => (
-        <ImageContainer
-          key={project.id}
-          title={project.name}
-          description={project.description}
-          year={project.date}
-          image={project.images.image}
-          altText={project.images.altText}
-          objectFit='contain'
-          display={project.id === selected ? 'grid' : 'none'}
-        />
+        <div className="image-container___overlay" key={project.id} style={{ display: project.id === selected ? 'block' : 'none' }}>
+          <ImageContainer
+            title={project.name}
+            description={project.description}
+            year={project.date}
+            image={project.images.image}
+            altText={project.images.altText}
+            objectFit='contain'
+          />
+        </div>
       ))}
     </Layout>
   )
