@@ -31,6 +31,29 @@
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+	/* transition: color 0.4s ease, border-color 0.4s ease,
+		background-color 0.4s ease; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+span,
+p,
+strong,
+em,
+small,
+time,
+span time,
+span a,
+li span.title,
+input,
+textarea,
+form button {
 	transition: color 0.4s ease, border-color 0.4s ease,
 		background-color 0.4s ease;
 }
@@ -410,7 +433,6 @@ footer {
 	border: none;
 	font-size: var(--font-size-1);
 	font-family: var(--font-family);
-	/* transition: background-color 0.4s ease, color 0.4s ease; */
 }
 
 .netlify-form .form___input-container {
@@ -419,7 +441,7 @@ footer {
 
 .netlify-form .form___input {
 	border-bottom: 1px solid var(--color-main);
-	background: var(--color-main-bg);
+	background-color: transparent;
 	color: var(--color-main);
 }
 
