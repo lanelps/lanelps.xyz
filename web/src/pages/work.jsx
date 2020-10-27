@@ -55,16 +55,16 @@ const Work = ({
       <button onClick={() => setSelected('')} className={`close-work ${selected ? 'open' : 'closed'}`}>close</button>
 
       {projects.map(({ project }) => (
-        <div className="image-container___overlay" key={project.id} style={{ display: project.id === selected ? 'block' : 'none' }}>
-          <ImageContainer
-            title={project.name}
-            description={project.description}
-            year={project.date}
-            image={project.images.image}
-            altText={project.images.altText}
-            objectFit='contain'
-          />
-        </div>
+        <ImageContainer
+          key={project.id}
+          title={project.name}
+          description={project.description}
+          year={project.date}
+          image={project.images.image}
+          altText={project.images.altText}
+          objectFit='contain'
+          display={project.id === selected ? 'block' : 'none'}
+        />
       ))}
     </Layout>
   )
