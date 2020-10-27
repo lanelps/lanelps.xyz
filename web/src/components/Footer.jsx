@@ -40,9 +40,9 @@ export default function Footer() {
           )
         })}
       </ul>
-      <span>
-        © Lane Le Prevost-Smith <time dateTime={date}>{date}</time>
-      </span>
+      <div>
+        <span>© Lane Le Prevost-Smith </span><time dateTime={date}>{date}</time>
+      </div>
     </footer>
   )
 }
