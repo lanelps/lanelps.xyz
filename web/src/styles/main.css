@@ -242,16 +242,16 @@ button:hover {
 
 /* ----MAIN CONTENT---- */
 .content {
-	position: fixed;
 	padding: 4rem;
 	border: 1px solid var(--color-main);
-	width: calc(100vw - 8rem);
 	height: calc(100vh - 8rem);
-	background-color: transparent;
 	overflow-y: scroll;
 }
 
 .content___overlay {
+	padding-bottom: 2rem;
+	position: relative;
+	background-color: transparent;
 	display: grid;
 	grid-template-columns: var(--grid-12);
 	grid-template-rows: minmax(min-content, max-content);
@@ -458,8 +458,8 @@ footer {
 .work .close-work {
 	grid-column: none;
 	position: absolute;
-	top: 1rem;
-	right: 4rem;
+	top: 0rem;
+	right: 0rem;
 }
 
 @media only screen and (max-width: 1105px) {
@@ -501,7 +501,7 @@ footer {
 
 	.work .image-container {
 		grid-column: none;
-		padding: 0px 4rem;
+		top: 4rem;
 	}
 
 	.image-container__image,
@@ -624,13 +624,8 @@ footer {
 		grid-column: 4;
 	}
 
-	.work .close-work {
-		top: 1rem;
-		right: 2rem;
-	}
-
 	.work .image-container {
-		top: 4rem;
+		top: 2rem;
 		padding: 0;
 		max-width: calc(100vw - (8rem + 2px));
 	}
