@@ -29,7 +29,7 @@ export const query = graphql`
   }
 `
 
-const Experiments = ({
+const Work = ({
   data: {
     allSanityProjects: { projects },
   },
@@ -38,7 +38,7 @@ const Experiments = ({
 
   return (
     <Layout title='Work' url='/work' page='work'>
-      <header className='header-title'>
+      <header className='header-title' style={{ visibility: `${selected ? 'hidden' : 'visible'}`, pointerEvents: `${selected ? 'none' : 'all'}` }}>
         <h1 className='title-cash'>Work</h1>
         <ul className='work__projectList'>
           {projects.map(({ project }) => (
@@ -51,6 +51,9 @@ const Experiments = ({
           ))}
         </ul>
       </header>
+
+      <button onClick={() => setSelected('')} className="close-work" style={{ display: selected ? 'block' : 'none' }}>close</button>
+
       {projects.map(({ project }) => (
         <ImageContainer
           key={project.id}
@@ -67,4 +70,4 @@ const Experiments = ({
   )
 }
 
-export default Experiments
+export default Work

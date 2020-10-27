@@ -21,7 +21,7 @@ export default function Footer() {
   return (
     <footer>
       <ul className='info'>
-        {contactItems.map((contactItem) => {
+        {contactItems.map((contactItem, index) => {
           return (
             <>
               <li key={contactItem._key} className="info-d">
@@ -31,7 +31,7 @@ export default function Footer() {
                 </a>
               </li>
 
-              <li key={contactItem._key} className="info-m">
+              <li key={`${contactItem._key} ${index}`} className="info-m">
                 <a href={contactItem.link} target='_blank' rel='noreferrer'>
                   {contactItem.title}
                 </a>
