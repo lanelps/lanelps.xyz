@@ -40,7 +40,7 @@ export default function Nav() {
       </nav>
 
       <button onClick={() => setMenu(!menu)} className='menu-button' aria-expanded={menu} aria-controls="mobile-menu">{menu ? 'Close' : 'Menu'}</button>
-      <div className='mobile-nav' style={{ display: menu ? 'block' : 'none' }}>
+      <section className='mobile-nav' style={{ display: menu ? 'block' : 'none' }}>
         <nav>
           <ul id="mobile-menu">
             {pages.map((page) => (
@@ -63,7 +63,7 @@ export default function Nav() {
             })}
           </ul>
         </footer>
-      </div>
+      </section>
     </>
   )
 }
