@@ -764,4 +764,8 @@ footer {
 	footer {
 		width: calc(100vw - 4rem);
 	}
+
+	.footer-nav {
+		width: calc(100% - 4rem);
+	}
 }
