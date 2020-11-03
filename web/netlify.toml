@@ -4,3 +4,7 @@
     publish = '/public'
     # functions = 'functions'
 
+[[redirects]]
+    from = "*/admin"
+    to = "https://admin.lanelps.xyz/"
+    status = 301
