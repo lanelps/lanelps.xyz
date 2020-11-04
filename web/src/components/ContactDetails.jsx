@@ -23,7 +23,9 @@ export default function ContactDetails() {
           <li key={contactItem._key}>
             <h3>
               <b>{contactItem.title}: </b>
-              <a href={contactItem.link} target="_blank">{contactItem.name}</a>
+              <a href={contactItem.link} target='_blank'>
+                {contactItem.name}
+              </a>
             </h3>
           </li>
         )

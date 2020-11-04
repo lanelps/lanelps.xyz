@@ -33,8 +33,14 @@ const useFormValidation = (initialState, validate, sendForm) => {
     setErrors(validationErrors)
   }
 
-  return { formSubmit, handleInputChange, handleBlur, values, errors, isSubmitting }
-
+  return {
+    formSubmit,
+    handleInputChange,
+    handleBlur,
+    values,
+    errors,
+    isSubmitting,
+  }
 }
 
 export default useFormValidation

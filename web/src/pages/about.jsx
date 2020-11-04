@@ -30,8 +30,11 @@ export const query = graphql`
   }
 `
 
-const About = ({ data: { sanityAboutPage: { title, personalBio, imageContainer } } }) => {
-
+const About = ({
+  data: {
+    sanityAboutPage: { title, personalBio, imageContainer },
+  },
+}) => {
   return (
     <Layout title='About' url='/about' page='about'>
       <Header title='About' text={title} />

@@ -11,9 +11,7 @@ export default function Layout({ title, url, page, children }) {
       <Nav />
       <Git />
       <main id='content' className='content'>
-        <div className='content___overlay'>
-          {children}
-        </div>
+        <div className='content___overlay'>{children}</div>
       </main>
       <Footer />
     </div>

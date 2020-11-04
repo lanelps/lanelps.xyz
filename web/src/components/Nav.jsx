@@ -39,13 +39,23 @@ export default function Nav() {
         </ul>
       </nav>
 
-      <button onClick={() => setMenu(!menu)} className='menu-button' aria-expanded={menu} aria-controls="mobile-menu">{menu ? 'Close' : 'Menu'}</button>
-      <section className='mobile-nav' style={{ display: menu ? 'block' : 'none' }}>
+      <button
+        onClick={() => setMenu(!menu)}
+        className='menu-button'
+        aria-expanded={menu}
+        aria-controls='mobile-menu'>
+        {menu ? 'Close' : 'Menu'}
+      </button>
+      <section
+        className='mobile-nav'
+        style={{ display: menu ? 'block' : 'none' }}>
         <nav>
-          <ul id="mobile-menu">
+          <ul id='mobile-menu'>
             {pages.map((page) => (
               <li key={page.id}>
-                <Link to={page.url} onClick={() => setMenu(false)}>{page.name}</Link>
+                <Link to={page.url} onClick={() => setMenu(false)}>
+                  {page.name}
+                </Link>
               </li>
             ))}
           </ul>
@@ -54,7 +64,7 @@ export default function Nav() {
           <ul>
             {contactItems.map((contactItem, index) => {
               return (
-                <li key={`${contactItem._key} ${index}`} className="info-m">
+                <li key={`${contactItem._key} ${index}`} className='info-m'>
                   <a href={contactItem.link} target='_blank' rel='noreferrer'>
                     {contactItem.title}
                   </a>

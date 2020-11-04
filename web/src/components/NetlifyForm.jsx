@@ -4,7 +4,7 @@ import useFormValidation from '../hooks/useFormValidation'
 const INITIAL_STATE = {
   name: '',
   email: '',
-  message: ''
+  message: '',
 }
 
 const validateForm = (values) => {
@@ -54,8 +54,14 @@ const sendForm = async (values, setValues, initialState) => {
 }
 
 export default function NetlifyForm() {
-
-  const { formSubmit, handleInputChange, handleBlur, values, errors, isSubmitting } = useFormValidation(INITIAL_STATE, validateForm, sendForm)
+  const {
+    formSubmit,
+    handleInputChange,
+    handleBlur,
+    values,
+    errors,
+    isSubmitting,
+  } = useFormValidation(INITIAL_STATE, validateForm, sendForm)
 
   return (
     <form
@@ -67,7 +73,7 @@ export default function NetlifyForm() {
       data-netlify-honeypot='bot-field'>
       <input type='hidden' name='form-name' value='contact' />
 
-      <div className="form___input-container">
+      <div className='form___input-container'>
         <input
           name='name'
           value={values.name}
@@ -76,10 +82,10 @@ export default function NetlifyForm() {
           placeholder='Name*'
           className={`form___input ${errors.name && 'error-input'}`}
         />
-        {errors.name && <p className="error-text">{errors.name}</p>}
+        {errors.name && <p className='error-text'>{errors.name}</p>}
       </div>
 
-      <div className="form___input-container">
+      <div className='form___input-container'>
         <input
           name='email'
           value={values.email}
@@ -88,10 +94,10 @@ export default function NetlifyForm() {
           placeholder='Email*'
           className={`form___input ${errors.email && 'error-input'}`}
         />
-        {errors.email && <p className="error-text">{errors.email}</p>}
+        {errors.email && <p className='error-text'>{errors.email}</p>}
       </div>
 
-      <div className="form___input-container">
+      <div className='form___input-container'>
         <textarea
           name='message'
           value={values.message}
@@ -100,10 +106,15 @@ export default function NetlifyForm() {
           placeholder='Message*'
           className={`form___input ${errors.message && 'error-input'}`}
         />
-        {errors.message && <p className="error-text">{errors.message}</p>}
+        {errors.message && <p className='error-text'>{errors.message}</p>}
       </div>
 
-      <button disabled={isSubmitting} type='submit' className={Object.keys(errors).length !== 0 && 'error'}>Send</button>
+      <button
+        disabled={isSubmitting}
+        type='submit'
+        className={Object.keys(errors).length !== 0 && 'error'}>
+        Send
+      </button>
     </form>
   )
 }

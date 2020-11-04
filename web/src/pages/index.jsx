@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from "gatsby"
+import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/Layout.jsx'
 import Header from '../components/Header'
@@ -20,11 +20,12 @@ export const query = graphql`
 `
 
 const Home = ({ data: { sanityHomePage } }) => {
-
   return (
     <Layout title='Home' url='/' page='home'>
       <Header title={sanityHomePage.title} text={sanityHomePage.text} />
-      <Link to="/work" className="arrow">See more</Link>
+      <Link to='/work' className='arrow'>
+        See more
+      </Link>
       <Video src={sanityHomePage.showReel.asset.url} />
     </Layout>
   )

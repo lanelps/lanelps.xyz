@@ -42,9 +42,17 @@ const Work = ({
         <h1 className='title-cash'>Work</h1>
         <ul className='work__projectList'>
           {projects.map(({ project }) => (
-            <li
-              key={project.id}>
-              <button onClick={() => setSelected(project.id)} style={project.id === selected ? { color: 'var(--color-blue)', borderBottom: '1px solid var(--color-blue)' } : {}}>
+            <li key={project.id}>
+              <button
+                onClick={() => setSelected(project.id)}
+                style={
+                  project.id === selected
+                    ? {
+                        color: 'var(--color-blue)',
+                        borderBottom: '1px solid var(--color-blue)',
+                      }
+                    : {}
+                }>
                 <span>{project.name}</span> <span>{project.date}</span>
               </button>
             </li>
@@ -52,7 +60,11 @@ const Work = ({
         </ul>
       </header>
 
-      <button onClick={() => setSelected('')} className={`close-work ${selected ? 'open' : 'closed'}`}>close</button>
+      <button
+        onClick={() => setSelected('')}
+        className={`close-work ${selected ? 'open' : 'closed'}`}>
+        close
+      </button>
 
       {projects.map(({ project }) => (
         <ImageContainer

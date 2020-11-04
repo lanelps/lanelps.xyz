@@ -24,14 +24,14 @@ export default function Footer() {
         {contactItems.map((contactItem, index) => {
           return (
             <>
-              <li key={contactItem._key} className="info-d">
+              <li key={contactItem._key} className='info-d'>
                 <span className='title'>{contactItem.title}: </span>
                 <a href={contactItem.link} target='_blank' rel='noreferrer'>
                   {contactItem.name}
                 </a>
               </li>
 
-              <li key={`${contactItem._key} ${index}`} className="info-m">
+              <li key={`${contactItem._key} ${index}`} className='info-m'>
                 <a href={contactItem.link} target='_blank' rel='noreferrer'>
                   {contactItem.title}
                 </a>
@@ -41,7 +41,8 @@ export default function Footer() {
         })}
       </ul>
       <div>
-        <span>© Lane Le Prevost-Smith </span><time dateTime={date}>{date}</time>
+        <span>© Lane Le Prevost-Smith </span>
+        <time dateTime={date}>{date}</time>
       </div>
     </footer>
   )
