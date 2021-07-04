@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "sane-gatsby-tinderbox"
+    "name": "lanelps.xyz"
   },
   "api": {
-    "projectId": "ell80k7a",
+    "projectId": "k2d93j2x",
     "dataset": "production"
   },
   "plugins": [
@@ -14,9 +14,9 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/dashboard",
-    "dashboard-widget-document-list",
     "barcode-input",
-    "media"
+    "media",
+    "netlify-deploy-status-badge"
   ],
   "env": {
     "development": {
