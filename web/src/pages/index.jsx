@@ -8,10 +8,8 @@ const Home = () => {
     <Layout title="Home" page="home" url="/">
       <h1
         css={[
-          tw`relative w-auto text-blurple top-[calc(1vh)]`,
-          css`
-            font-family: Arial;
-          `,
+          tw`relative w-auto top-[calc(1vh)] font-main font-normal text-body text-black`,
+          css``,
         ]}
       >
         Hello World!
