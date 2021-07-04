@@ -6,7 +6,9 @@ const useSanitySiteSettings = () => {
       sanitySiteSettings {
         siteTitle: title
         description
-        author
+        author {
+          name
+        }
         domain
         keywords
         indexed
