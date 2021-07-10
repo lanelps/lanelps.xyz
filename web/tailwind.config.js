@@ -2,7 +2,7 @@ const defaultTheme = require(`tailwindcss/defaultTheme`);
 
 module.exports = {
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     colors: {
       transparent: 'transparent',
@@ -16,7 +16,7 @@ module.exports = {
       purple: `#cbcbff`
     },
     fontFamily: {
-      main: `IBM Plex Sans`
+      main: [`IBM Plex Sans`, ...defaultTheme.fontFamily.sans]
     },
     fontSize: {
       heading: [`24px`, `1`],
