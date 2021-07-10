@@ -19,6 +19,7 @@
     "browser-monads": "^1.0.0",
     "gatsby": "^3.8.1",
     "gatsby-plugin-emotion": "^6.8.0",
+    "gatsby-plugin-google-tagmanager": "^3.9.0",
     "gatsby-plugin-image": "^1.8.0",
     "gatsby-plugin-manifest": "^3.8.0",
     "gatsby-plugin-react-helmet": "^4.8.0",
