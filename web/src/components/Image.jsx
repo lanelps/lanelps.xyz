@@ -12,7 +12,7 @@ const Image = ({ image, alt, loading, title, _css }) => {
       )) || (
         <GatsbyImage
           image={imageData}
-          alt={alt || ""}
+          alt={alt || image?.altText || ""}
           loading={loading || "lazy"}
           title={title || ""}
           css={_css}

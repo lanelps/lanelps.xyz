@@ -1,8 +1,10 @@
 const defaultTheme = require(`tailwindcss/defaultTheme`);
+const plugin = require("tailwindcss/plugin");
 
 module.exports = {
+  mode: `jit`,
   purge: [],
-  darkMode: false,
+  darkMode: `class`,
   theme: {
     colors: {
       transparent: 'transparent',
@@ -19,13 +21,38 @@ module.exports = {
       main: [`IBM Plex Sans`, ...defaultTheme.fontFamily.sans]
     },
     fontSize: {
-      heading: [`24px`, `1`],
-      body: [`13px`, `1`]
+      heading: [`24px`, `1.2`],
+      body: [`13px`, `auto`]
     },
-    extend: {},
+    screens: {
+      xs: {
+        min: `321px`
+      },
+      sm: {
+        min: `768px`
+      },
+      md: {
+        min: `1025px`
+      },
+      lg: {
+        min: `1440px`
+      },
+      xl: {
+        min: `1920px`
+      }
+    },
+    extend: {
+      transitionDuration: {
+        '400': '400ms'
+      },
+      height: {
+        'min': 'min-content'
+      }
+    },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+  ],
 }

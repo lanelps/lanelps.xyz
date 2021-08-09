@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import BlockContent from "@sanity/block-content-to-react";
 import { getGatsbyImageData } from "gatsby-source-sanity";
+import tw, { css } from "twin.macro";
 
 import Image from "~components/Image.jsx";
+import Go from "~components/Go.jsx";
 
 const PortableText = ({ blocks, serializer, _css }) => {
   const sanityConfig = {
@@ -61,9 +63,9 @@ const PortableText = ({ blocks, serializer, _css }) => {
       strong: ({ children }) => <strong>{children}</strong>,
       em: ({ children }) => <em>{children}</em>,
       link: ({ children, mark }) => (
-        <a href={mark.href} target="_blank" rel="noopener noreferrer">
+        <Go to={mark.href} newTab>
           {children}
-        </a>
+        </Go>
       ),
     },
   });
@@ -73,7 +75,18 @@ const PortableText = ({ blocks, serializer, _css }) => {
   if (blocks) {
     return (
       <BlockContent
-        css={_css}
+        css={[
+          _css,
+          css`
+            & > * {
+              margin-bottom: 1rem;
+            }
+
+            & > *:last-child {
+              margin-bottom: 0;
+            }
+          `,
+        ]}
         blocks={blocks}
         serializers={serializer || serializers}
       />

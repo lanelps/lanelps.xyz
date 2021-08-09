@@ -1,15 +1,25 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
-export const AppContext = createContext({});
+export const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
-  const [state, setState] = useState(null);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDark]);
 
   return (
-    <AppContext.Provider value={{ state, setState }}>
+    <AppContext.Provider value={{ isDark, setIsDark }}>
       {children}
     </AppContext.Provider>
   );
 };
 
-export default AppProvider;
+export default AppContext;
+
+export { AppProvider };

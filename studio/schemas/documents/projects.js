@@ -11,6 +11,14 @@ export default {
 				Rule.max(30).warning('Shorter titles are usually better'),
 		},
 		{
+			name: 'slug',
+			title: 'url',
+			type: 'slug',
+			options: {
+				source: 'projectName'
+			  }
+		},
+		{
 			name: 'projectDescription',
 			title: 'Project Description',
 			type: 'array',
@@ -30,18 +38,16 @@ export default {
 			},
 		},
 		{
-			name: 'projectImages',
-			title: 'Project Images',
-			type: 'accessableImage',
-			options: {
-				hotspot: true,
-			},
+			name: 'images',
+			title: 'Images',
+			type: 'array',
+			of: [{ type: 'altImage' }],
 		},
 	],
 	preview: {
 		select: {
 			title: 'projectName',
-			media: 'projectImages.image',
+			media: 'images.0',
 		},
 	},
 }

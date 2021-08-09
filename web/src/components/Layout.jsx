@@ -1,9 +1,15 @@
 import React from "react";
-import { Global, css } from "@emotion/react";
-import { GlobalStyles as BaseStyles } from "twin.macro";
-import SEO from "../components/SEO";
+import { Global } from "@emotion/react";
+import tw, { GlobalStyles as BaseStyles, css, theme } from "twin.macro";
+import { useMediaQuery } from "react-responsive";
 
-export default function Layout({ title, url, page, children, _css }) {
+import SEO from "../components/SEO";
+import Git from "../components/Git";
+import Header from "../components/Header";
+import MobileHeader from "../components/MobileHeader";
+import Footer from "../components/Footer";
+
+export default function Layout({ title, url, children, _css }) {
   const customStyles = css`
     @font-face {
       font-family: "IBM Plex Sans";
@@ -20,16 +26,40 @@ export default function Layout({ title, url, page, children, _css }) {
       font-weight: 500;
       font-display: fallback;
     }
+
+    :root {
+      font-size: 10px;
+    }
   `;
+
+  const isMobile = useMediaQuery({
+    query: `(min-device-width: ${theme`screens.xs.min`})`,
+  });
+
   return (
     <>
       <BaseStyles />
       <Global styles={customStyles} />
-      <div className={`page ${page && page}`}>
+      <div
+        css={[
+          tw`relative h-screen p-16 bg-white font-main text-body dark:bg-black text-black dark:text-white transition-colors duration-400`,
+          css``,
+        ]}
+      >
         <SEO title={title} url={url} />
-        <main id="content" className="content" css={_css}>
-          {children}
+        <Git />
+        {isMobile ? <Header /> : <MobileHeader />}
+        <main
+          id="content"
+          css={[
+            tw`relative h-full p-16 border border-black dark:border-white overflow-y-scroll`,
+          ]}
+        >
+          <div css={[tw`relative w-full h-auto grid grid-cols-12 gap-8`]}>
+            {children}
+          </div>
         </main>
+        <Footer />
       </div>
     </>
   );

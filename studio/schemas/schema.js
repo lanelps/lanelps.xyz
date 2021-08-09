@@ -18,6 +18,7 @@ import accessableImage from './objects/accessableImage.js'
 import author from './objects/author.js'
 import imageContainer from './objects/imageContainer.js'
 import blockContent from './objects/blockContent.js'
+import altImage from './objects/altImage.js'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -42,5 +43,6 @@ export default createSchema({
 		author,
 		imageContainer,
 		blockContent,
+		altImage
 	]),
 })

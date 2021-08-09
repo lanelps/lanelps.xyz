@@ -4,33 +4,34 @@ import tw from "twin.macro";
 
 import Layout from "~components/Layout";
 import Title from "~components/Title";
-import Video from "~components/Video";
+import Image from "~components/Image";
 
-const Home = ({ data: { sanityHomePage } }) => {
+const About = ({ data: { sanityAboutPage } }) => {
   return (
-    <Layout title="Home" url="/">
+    <Layout title="About" url="/about">
       <section tw="sticky block h-min col-start-1 col-span-6 top-0">
-        <Title title={sanityHomePage.title} text={sanityHomePage.text} />
+        <Title title={sanityAboutPage.title} text={sanityAboutPage.text} />
       </section>
 
       <section tw="col-start-7 col-span-6">
-        <Video src={sanityHomePage.showReel.asset.url} autoPlay loop />
+        <Image image={sanityAboutPage.image} />
       </section>
     </Layout>
   );
 };
 
-export default Home;
+export default About;
 
 export const query = graphql`
-  query Home {
-    sanityHomePage {
+  query About {
+    sanityAboutPage {
       title
       text
-      showReel {
+      image {
         asset {
-          url
+          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
         }
+        altText
       }
     }
   }

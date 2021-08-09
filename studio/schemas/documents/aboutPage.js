@@ -3,12 +3,25 @@ export default {
 	title: 'About Page',
 	type: 'document',
 	fields: [
-		{ name: 'title', title: 'Title', type: 'string' },
-		{ name: 'personalBio', title: 'Personal Bio', type: 'blockContent' },
+		{ 
+			name: 'title', 
+			title: 'Title', 
+			type: 'string' 
+		},
 		{
-			name: 'imageContainer',
-			title: 'Image Container',
-			type: 'imageContainer',
+			name: 'text',
+			title: 'Text',
+			type: 'text',
+		},
+		{ 
+			name: 'personalBio', 
+			title: 'Personal Bio', 
+			type: 'blockContent' 
+		},
+		{
+			name: 'image',
+			title: 'Image',
+			type: 'altImage',
 		},
 	],
 }
