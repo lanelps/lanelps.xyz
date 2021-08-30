@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import tw, { css } from "twin.macro";
 
@@ -10,10 +10,6 @@ const Work = ({ data: { allSanityProjects } }) => {
   const projects = allSanityProjects.edges.map(({ node }) => node);
 
   const [hovered, setHovered] = useState(null);
-
-  useEffect(() => {
-    console.log(`hovered`, hovered);
-  }, [hovered]);
 
   return (
     <Layout title="Work" url="/work">
