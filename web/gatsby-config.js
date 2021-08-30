@@ -1,14 +1,14 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+});
 
 module.exports = {
   siteMetadata: {
-    title: `Sane-Gatsby Tinderbox`,
-    titleTemplate: `%s - Sane-Gatsby Tinderbox`,
-    description: `Boilerplate for Sanity + Gatsby`,
+    title: `Lane Le Prevost-Smith`,
+    titleTemplate: `%s - Lane Le Prevost-Smith`,
+    description: `Personal Website`,
     author: `Lane Wirihana Le Prevost-Smith`,
-    siteUrl: 'http://example.com',
+    siteUrl: "http://example.com",
     keywords: ``,
     image: `/share.jpg`,
     fbAppId: ``,
@@ -16,13 +16,13 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-source-sanity',
+      resolve: "gatsby-source-sanity",
       options: {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_DATASET,
         token: process.env.SANITY_TOKEN,
-        watchMode: true,
-      },
+        watchMode: true
+      }
     },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-image`,
@@ -31,8 +31,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        icon: `${__dirname}/static/favicon.png`,
-      },
+        icon: `${__dirname}/static/favicon.png`
+      }
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
@@ -42,5 +42,5 @@ module.exports = {
         id: process.env.GTM_ID
       }
     }
-  ],
-}
+  ]
+};
