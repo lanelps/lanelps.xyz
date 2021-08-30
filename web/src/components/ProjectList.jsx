@@ -1,10 +1,9 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import tw, { css } from "twin.macro";
 
 import Go from "~components/Go";
-import AppContext from "../context/AppContext";
 
-const ProjectList = ({ projects, _css, pathname }) => {
+const ProjectList = ({ projects, _css, hovered }) => {
   return (
     <ul
       css={[
@@ -13,7 +12,7 @@ const ProjectList = ({ projects, _css, pathname }) => {
             margin-bottom: 0;
           }
         `,
-        _css,
+        _css
       ]}
     >
       {projects.map((project, index) => {
@@ -22,23 +21,17 @@ const ProjectList = ({ projects, _css, pathname }) => {
           projectIndex = `0${projectIndex}`;
         }
 
-        let selected;
-
-        if (pathname) {
-          if (pathname === `/work/${project.slug.current}`) {
-            selected = true;
-          } else {
-            selected = false;
-          }
-        }
-
         return (
-          <li key={project.id} tw="mb-2">
+          <li
+            key={project.id}
+            tw="mb-2"
+            onMouseEnter={() => hovered(project.id)}
+            onMouseLeave={() => hovered(null)}
+          >
             <Go
               to={`/work/${project.slug.current}`}
               _css={[
-                tw`w-full flex justify-between font-main text-heading hover:opacity-100`,
-                pathname && !selected && tw`opacity-50`,
+                tw`w-full flex justify-between font-main text-heading hover:opacity-100`
               ]}
             >
               <div tw="flex gap-[1ch]">

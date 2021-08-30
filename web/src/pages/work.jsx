@@ -1,21 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import tw, { css } from "twin.macro";
 
 import Layout from "~components/Layout";
-import Title from "~components/Title";
 import ProjectList from "~components/ProjectList";
+import Image from "~components/Image";
 
 const Work = ({ data: { allSanityProjects } }) => {
   const projects = allSanityProjects.edges.map(({ node }) => node);
 
-  // const projects = Array(50).fill({
-  //   projectName: `Test Project`,
-  //   projectDate: `2021`,
-  //   slug: {
-  //     current: `test`,
-  //   },
-  // });
+  const [hovered, setHovered] = useState(null);
+
+  useEffect(() => {
+    console.log(`hovered`, hovered);
+  }, [hovered]);
 
   return (
     <Layout title="Work" url="/work">
@@ -25,13 +23,23 @@ const Work = ({ data: { allSanityProjects } }) => {
         </h1>
         <ProjectList
           projects={projects}
+          hovered={setHovered}
           _css={[
             tw`overflow-y-scroll`,
             css`
               flex: 1 0 0px;
-            `,
+            `
           ]}
         />
+      </section>
+
+      <section tw="col-start-7 col-span-6">
+        {projects.map(project => {
+          if (hovered === project.id && project.cover) {
+            return <Image image={project.cover} />;
+          }
+          return null;
+        })}
       </section>
     </Layout>
   );
@@ -50,6 +58,12 @@ export const query = graphql`
           }
           projectName
           projectDate(formatString: "YYYY")
+          cover {
+            asset {
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            }
+            altText
+          }
         }
       }
     }
