@@ -1,7 +1,7 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const Image = ({ image, alt, loading, title, _css }) => {
+const Image = ({ image, alt, loading, objectFit, title, _css }) => {
   const imageData = getImage(image.asset);
   const src = imageData?.images?.fallback?.src;
 
@@ -16,6 +16,7 @@ const Image = ({ image, alt, loading, title, _css }) => {
           loading={loading || "lazy"}
           title={title || ""}
           css={_css}
+          objectFit={objectFit || "cover"}
         />
       )}
     </>
