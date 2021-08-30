@@ -10,7 +10,7 @@ const About = ({ data: { sanityAboutPage } }) => {
   return (
     <Layout title="About" url="/about">
       <section tw="sticky block h-min col-start-1 col-span-6 top-0">
-        <Title title={sanityAboutPage.title} text={sanityAboutPage.text} />
+        <Title title={sanityAboutPage.title} text={sanityAboutPage._rawBody} />
       </section>
 
       <section tw="col-start-7 col-span-6">
@@ -26,7 +26,7 @@ export const query = graphql`
   query About {
     sanityAboutPage {
       title
-      text
+      _rawBody
       image {
         asset {
           gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])

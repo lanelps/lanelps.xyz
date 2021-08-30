@@ -10,7 +10,7 @@ const Home = ({ data: { sanityHomePage } }) => {
   return (
     <Layout title="Home" url="/">
       <section tw="sticky block h-min col-start-1 col-span-6 top-0">
-        <Title title={sanityHomePage.title} text={sanityHomePage.text} />
+        <Title title={sanityHomePage.title} text={sanityHomePage._rawBody} />
       </section>
 
       <section tw="col-start-7 col-span-6">
@@ -26,7 +26,7 @@ export const query = graphql`
   query Home {
     sanityHomePage {
       title
-      text
+      _rawBody
       showReel {
         asset {
           url

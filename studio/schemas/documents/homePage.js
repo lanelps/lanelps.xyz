@@ -1,22 +1,22 @@
 export default {
-	name: 'homePage',
-	title: 'Home',
-	type: 'document',
-	fields: [
-		{
-			name: 'title',
-			title: 'Title',
-			type: 'string',
-		},
-		{
-			name: 'text',
-			title: 'Text',
-			type: 'text',
-		},
-		{
-			name: 'showReel',
-			title: 'Show Reel',
-			type: 'file',
-		},
-	],
-}
+  name: "homePage",
+  title: "Home",
+  type: "document",
+  fields: [
+    {
+      name: "title",
+      title: "Title",
+      type: "string"
+    },
+    {
+      name: "body",
+      title: "Body",
+      type: "simpleBlock"
+    },
+    {
+      name: "showReel",
+      title: "Show Reel",
+      type: "file"
+    }
+  ]
+};
