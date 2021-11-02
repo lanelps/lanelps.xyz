@@ -1,0 +1,10 @@
+name = "lanelps"
+type = "webpack"
+account_id="e4c42867cfa86d8200289b6d1458deed"
+workers_dev = true
+route = ''
+zone_id = ''
+usage_model = ''
+compatibility_flags = []
+site = {bucket = "./public",entry-point = "workers-site"}
+compatibility_date = "2021-10-10"
