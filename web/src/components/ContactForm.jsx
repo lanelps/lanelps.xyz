@@ -42,7 +42,8 @@ const ContactForm = () => {
         'Content-Type': 'application/json'
       },
       method: 'POST'
-    }).then(res => res.json());
+    });
+    // .then(res => res.json());
 
     setIsSubmitting(false);
 

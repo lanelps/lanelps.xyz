@@ -31,7 +31,17 @@ export async function onRequestOptions(context) {
 export async function onRequestPost(context) {
   const { request } = context;
 
-  return new Response(handlePost(request));
+  // return new Response(handlePost(request));
+
+  const reqBody = await request.json();
+
+  console.log(`Form Submitted!!`, reqBody);
+
+  return new Response('Form Submitted!', {
+    statusText: 'OK',
+    status: 200,
+    headers: corsHeaders
+  });
 }
 
 /*
