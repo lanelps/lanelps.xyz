@@ -2,12 +2,25 @@ import React, { useState, useEffect } from 'react';
 import tw, { css } from 'twin.macro';
 
 const ContactForm = () => {
+  /*================================================================*/
+  /* State */
+
   const [form, setForm] = useState({
     name: ``,
     email: ``,
     subject: ``,
     message: ``
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  /*================================================================*/
+  /* useEffect */
+
+  useEffect(() => {}, [isSubmitting]);
+
+  /*================================================================*/
+  /* Methods */
 
   const handleChange = e => {
     setForm({
@@ -19,7 +32,9 @@ const ContactForm = () => {
   const handleSubmit = async e => {
     e.preventDefault();
 
-    fetch(`http://127.0.0.1:8787/`, {
+    setIsSubmitting(true);
+
+    const response = await fetch(`/api/send-grid`, {
       body: JSON.stringify({
         ...form
       }),
@@ -27,7 +42,11 @@ const ContactForm = () => {
         'Content-Type': 'application/json'
       },
       method: 'POST'
-    });
+    }).then(res => res.json());
+
+    setIsSubmitting(false);
+
+    console.log(`form submit response`, response);
   };
 
   return (
@@ -49,6 +68,7 @@ const ContactForm = () => {
         value={form.name}
         placeholder="Name*"
         onChange={handleChange}
+        disabled={isSubmitting}
       />
 
       <input
@@ -58,6 +78,7 @@ const ContactForm = () => {
         value={form.email}
         placeholder="Email*"
         onChange={handleChange}
+        disabled={isSubmitting}
       />
 
       <input
@@ -67,6 +88,7 @@ const ContactForm = () => {
         value={form.subject}
         placeholder="Subject*"
         onChange={handleChange}
+        disabled={isSubmitting}
       />
 
       <textarea
@@ -76,9 +98,10 @@ const ContactForm = () => {
         value={form.message}
         placeholder="Message*"
         onChange={handleChange}
+        disabled={isSubmitting}
       />
 
-      <input type="submit" value="Send" />
+      <input type="submit" value="Send" disabled={isSubmitting} />
     </form>
   );
 };
