@@ -9,7 +9,9 @@
     "dev": "gatsby develop",
     "start": "gatsby develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "wrangler-dev": "npx wrangler pages dev -- npx gatsby develop",
+    "wrangler-serve": "npx wrangler pages dev ./public"
   },
   "dependencies": {
     "@emotion/react": "^11.7.0",
@@ -35,7 +37,8 @@
     "react-use-scroll": "^1.0.3",
     "swiper": "^7.3.1",
     "tailwindcss": "^2.2.19",
-    "twin.macro": "^2.8.1"
+    "twin.macro": "^2.8.1",
+    "wrangler": "^0.0.0-beta.6"
   },
   "devDependencies": {
     "dotenv": "^10.0.0"
