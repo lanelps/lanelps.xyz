@@ -4,25 +4,35 @@ const corsHeaders = {
   'Access-Control-Max-Age': '86400'
 };
 
-addEventListener('fetch', event => {
-  const { request } = event;
-  const { method } = request;
+// export async function onRequest(context) {
+//   const { request } = context;
 
-  if (method === 'OPTIONS') {
-    // Handle CORS preflight requests
-    event.respondWith(handleOptions(request));
-  } else if (method === 'POST') {
-    event.respondWith(handlePost(request));
-    return;
-  } else {
-    event.respondWith(
-      new Response(`Method unsupported: ${request.method}`, {
-        status: 500
-      })
-    );
-    return;
-  }
-});
+//   if (request.method === 'OPTIONS') {
+//     // Handle CORS preflight requests
+//     return new Response(handleOptions(request));
+//   } else if (request.method === 'POST') {
+//     return new Response(handlePost(request));
+//   } else {
+//     return new Response(
+//       new Response(`Method unsupported: ${request.method}`, {
+//         status: 500
+//       })
+//     );
+//   }
+// }
+
+export async function onRequestOptions(context) {
+  const { request } = context;
+
+  // Handle CORS preflight requests
+  return new Response(handleOptions(request));
+}
+
+export async function onRequestPost(context) {
+  const { request } = context;
+
+  return new Response(handlePost(request));
+}
 
 /*
  * HANDLE OPTIONS REQUEST
