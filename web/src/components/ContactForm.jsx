@@ -65,17 +65,6 @@ const ContactForm = () => {
 
     setIsSubmitting(true);
 
-    // setTimeout(() => {
-    //   setIsSubmitting(false);
-    //   clearForm();
-
-    //   setFormSubmitted(true);
-
-    //   setTimeout(() => {
-    //     setFormSubmitted(false);
-    //   }, 2000);
-    // }, 3000);
-
     const response = await fetch(`/api/send-grid`, {
       body: JSON.stringify({
         ...form

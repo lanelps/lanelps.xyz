@@ -1,5 +1,5 @@
 const corsHeaders = {
-  'Access-Control-Allow-Origin': 'http://localhost:8000',
+  'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN,
   'Access-Control-Allow-Methods': 'GET,HEAD,POST,OPTIONS',
   'Access-Control-Max-Age': '86400'
 };
@@ -87,7 +87,7 @@ function handleOptions({ headers }) {
 async function handlePost(request) {
   const reqBody = await request.json();
 
-  if (!SENDGRID_API_KEY) {
+  if (!process.env.SENDGRID_API_KEY) {
     console.error(`SENDGRID_API_KEY undefined`);
 
     return new Response('missing information', {
@@ -154,7 +154,7 @@ async function sendEmail({ email, name, message, subject }) {
       ]
     }),
     headers: {
-      Authorization: `Bearer ${SENDGRID_API_KEY}`,
+      Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
       'Content-Type': 'application/json'
     },
     method: 'POST'
