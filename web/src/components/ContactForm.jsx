@@ -5,18 +5,11 @@ const ContactForm = () => {
   /*================================================================*/
   /* State */
 
-  // const [form, setForm] = useState({
-  //   name: ``,
-  //   email: ``,
-  //   subject: ``,
-  //   message: ``
-  // });
-
   const [form, setForm] = useState({
-    name: `Lane Le Prevost-Smith`,
-    email: `lanelps@gmail.com`,
-    subject: `Test`,
-    message: `Hello Harry!`
+    name: ``,
+    email: ``,
+    subject: ``,
+    message: ``
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -65,7 +58,7 @@ const ContactForm = () => {
 
     setIsSubmitting(true);
 
-    const response = await fetch(`/api/send-grid`, {
+    await fetch(`/api/send-grid`, {
       body: JSON.stringify({
         ...form
       }),
@@ -73,12 +66,17 @@ const ContactForm = () => {
         'Content-Type': 'application/json'
       },
       method: 'POST'
-    }).then(res => res.json());
+    })
+      .then(res => res.json())
+      .catch(error => {
+        console.error(error);
+        clearForm();
+        setIsSubmitting(false);
+        setFormSubmitted(false);
+      });
 
-    console.log(`form response`, response);
-
-    setIsSubmitting(false);
     clearForm();
+    setIsSubmitting(false);
     setFormSubmitted(true);
 
     setTimeout(() => {
