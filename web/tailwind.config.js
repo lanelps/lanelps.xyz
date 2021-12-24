@@ -1,5 +1,5 @@
 const defaultTheme = require(`tailwindcss/defaultTheme`);
-const plugin = require("tailwindcss/plugin");
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   mode: `jit`,
@@ -26,7 +26,7 @@ module.exports = {
     },
     screens: {
       xs: {
-        min: `321px`
+        min: `428px`
       },
       sm: {
         min: `768px`
@@ -43,16 +43,15 @@ module.exports = {
     },
     extend: {
       transitionDuration: {
-        '400': '400ms'
+        400: '400ms'
       },
       height: {
-        'min': 'min-content'
+        min: 'min-content'
       }
-    },
+    }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
-  plugins: [
-  ],
-}
+  plugins: []
+};
