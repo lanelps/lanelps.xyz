@@ -5,8 +5,6 @@ import { css } from 'twin.macro';
 import defaultSerialiser from '../utils/serialisers';
 
 const PortableText = ({ blocks, serializer, _css }) => {
-  //
-
   if (blocks) {
     return (
       <BlockContent
