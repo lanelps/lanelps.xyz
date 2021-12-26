@@ -23,7 +23,10 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
-exports.createPages = async ({ graphql, actions: { createPage } }) => {
+exports.createPages = async ({
+  graphql,
+  actions: { createPage, createRedirect }
+}) => {
   const { data, errors } = await graphql(`
     {
       allSanityProjects {
@@ -53,5 +56,10 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       component: require.resolve('./src/templates/project.jsx'),
       context: { id }
     });
+  });
+
+  createRedirect({
+    fromPath: `/admin`,
+    toPath: `https://lanelps.sanity.studio/desk`
   });
 };
