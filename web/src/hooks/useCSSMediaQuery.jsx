@@ -20,8 +20,6 @@ const useCSSMediaQuery = () => {
     query: `(min-width: ${theme`screens.md.min`})`
   });
 
-  console.log(`media queries`, { isMobile, isTablet, isDesktop });
-
   return { isMobile, isTablet, isDesktop };
 };
 
