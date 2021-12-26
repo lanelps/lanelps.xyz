@@ -1,18 +1,26 @@
 import { theme } from 'twin.macro';
 import { useMediaQuery } from 'react-responsive';
 
+const splitMedia = mediaQuery => {
+  return +mediaQuery.split(`px`)[0];
+};
+
 const useCSSMediaQuery = () => {
   const isMobile = useMediaQuery({
-    query: `(min-device-width: 0px)`
+    query: `(min-width: 0px) and (max-width: ${theme`screens.xs.min`})`
   });
 
   const isTablet = useMediaQuery({
-    query: `(min-device-width: ${theme`screens.sm.min`})`
+    query: `(min-width: ${
+      splitMedia(theme`screens.xs.min`) + 1
+    }px) and (max-width: ${splitMedia(theme`screens.md.min`) - 1}px)`
   });
 
   const isDesktop = useMediaQuery({
-    query: `(min-device-width: ${theme`screens.md.min`})`
+    query: `(min-width: ${theme`screens.md.min`})`
   });
+
+  console.log(`media queries`, { isMobile, isTablet, isDesktop });
 
   return { isMobile, isTablet, isDesktop };
 };
