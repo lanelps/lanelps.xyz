@@ -14,8 +14,7 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "barcode-input",
-    "media",
-    "netlify-deploy-status-badge"
+    "media"
   ],
   "env": {
     "development": {

@@ -31,7 +31,6 @@
     "react-icons": "^4.3.1",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.13",
     "sanity-plugin-media": "^1.4.4",
-    "sanity-plugin-netlify-deploy-status-badge": "^0.0.3",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {}
