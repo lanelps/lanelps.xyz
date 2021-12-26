@@ -13,7 +13,7 @@ const Home = ({ data: { sanityHomePage } }) => {
         <Title title={sanityHomePage.title} text={sanityHomePage._rawBody} />
       </section>
 
-      <section tw="md:col-start-7 col-span-full md:col-span-6">
+      <section tw="md:col-start-7 col-span-full md:col-span-6 order-first md:order-1 mb-16 md:mb-0">
         <Video src={sanityHomePage.showReel.asset.url} autoPlay loop />
       </section>
     </Layout>

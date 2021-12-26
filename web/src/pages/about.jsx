@@ -13,7 +13,7 @@ const About = ({ data: { sanityAboutPage } }) => {
         <Title title={sanityAboutPage.title} text={sanityAboutPage._rawBody} />
       </section>
 
-      <section tw="md:col-start-7 col-span-full md:col-span-6">
+      <section tw="md:col-start-7 col-span-full md:col-span-6 order-first md:order-1 mb-16 md:mb-0">
         <Image image={sanityAboutPage.image} />
       </section>
     </Layout>

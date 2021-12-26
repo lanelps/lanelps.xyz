@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "gatsby";
-import tw, { css } from "twin.macro";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'gatsby';
+import tw, { css } from 'twin.macro';
 
 const Go = ({ children, debug, _css, onClick, newTab, parameters, to }) => {
   const [parameterString, setParameterString] = useState(``);
@@ -15,7 +15,7 @@ const Go = ({ children, debug, _css, onClick, newTab, parameters, to }) => {
         transition: color 0s, border-color 0s, background-color 0s;
       }
     `,
-    _css,
+    _css
   ];
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Go = ({ children, debug, _css, onClick, newTab, parameters, to }) => {
 
     let newParameterString = ``;
 
-    Object.keys(parameters).forEach((key) => {
+    Object.keys(parameters).forEach(key => {
       const parameter = parameters[key];
 
       if (!key || typeof key !== `string` || key === ``) {

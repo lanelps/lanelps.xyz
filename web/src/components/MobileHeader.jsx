@@ -47,11 +47,19 @@ const MobileHeader = () => {
 
   return (
     <>
-      {/* <section tw="" style={{ display: menu ? 'block' : 'none' }}>
+      <section
+        css={[
+          tw`absolute top-0 right-0 bottom-0 flex flex-col justify-between left-0 m-8 p-8 border bg-white dark:bg-black text-black dark:text-white z-20 transition-all duration-400`,
+          menu
+            ? tw`opacity-100 pointer-events-auto`
+            : tw`opacity-0 pointer-events-none`
+        ]}
+        aria-hidden={!menu}
+      >
         <nav>
-          <ul id="mobile-menu">
+          <ul tw="text-heading">
             {pages.map(page => (
-              <li key={page.id}>
+              <li key={page.id} tw="mb-4">
                 <Go to={page.url} onClick={() => setMenu(false)}>
                   {page.name}
                 </Go>
@@ -60,11 +68,11 @@ const MobileHeader = () => {
           </ul>
         </nav>
 
-        <footer className="footer-nav">
-          <ul>
+        <footer>
+          <ul tw="text-body">
             {contactItems.map((contactItem, index) => {
               return (
-                <li key={`${contactItem._key} ${index}`} className="info-m">
+                <li key={`${contactItem._key} ${index}`} tw="mb-2">
                   <Go to={contactItem.link} newTab>
                     {contactItem.title}
                   </Go>
@@ -73,7 +81,7 @@ const MobileHeader = () => {
             })}
           </ul>
         </footer>
-      </section> */}
+      </section>
 
       <button
         onClick={() => setMenu(!menu)}

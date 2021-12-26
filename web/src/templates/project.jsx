@@ -75,7 +75,7 @@ const Project = ({ data: { sanityProject } }) => {
         </ul>
       </section>
 
-      <section tw="md:col-start-7 col-span-full md:col-span-6 order-first md:order-1">
+      <section tw="md:col-start-7 col-span-full md:col-span-6 order-first md:order-1 mb-16 md:mb-0">
         {sanityProject?.images[0] && (
           <>
             {isDesktop ? (
