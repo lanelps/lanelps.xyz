@@ -20,8 +20,9 @@ module.exports = {
       main: [`IBM Plex Sans`, ...defaultTheme.fontFamily.sans]
     },
     fontSize: {
-      heading: [`24px`, `1.2`],
-      body: [`13px`, `auto`]
+      'heading-md': [`24px`, `1.2`],
+      heading: [`20px`, `normal`],
+      body: [`13px`, `normal`]
     },
     screens: {
       xs: {

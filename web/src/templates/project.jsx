@@ -1,18 +1,22 @@
-import React from "react";
-import { graphql } from "gatsby";
-import tw, { css } from "twin.macro";
+import React from 'react';
+import { graphql } from 'gatsby';
+import tw, { css } from 'twin.macro';
+import { useCSSMediaQuery } from '~hooks';
 
-import Layout from "~components/Layout";
-import Image from "~components/Image";
-import Go from "~components/Go";
-import PortableText from "~components/PortableText";
+import Layout from '~components/Layout';
+import Image from '~components/Image';
+import Go from '~components/Go';
+import PortableText from '~components/PortableText';
+import SwiperCarousel from '~components/SwiperCarousel';
 
-import { simple } from "../utils/serialisers";
+import { simple } from '../utils/serialisers';
 
 const Project = ({ data: { sanityProject } }) => {
+  const { isDesktop } = useCSSMediaQuery();
+
   return (
     <Layout title="Work" url="/work">
-      <section tw="sticky flex flex-col items-stretch h-[calc(100vh - 16rem)] col-start-1 col-span-6 top-0">
+      <section tw="relative md:sticky flex flex-col items-stretch h-auto md:h-[calc(100vh - 16rem)] col-start-1 col-span-full md:col-span-6 top-0">
         <header tw="flex justify-between mb-4">
           <h1 tw="before:(content['$'] absolute left-[-1rem] font-normal text-blue) font-main font-medium text-body mb-2">
             {sanityProject.name}
@@ -71,17 +75,30 @@ const Project = ({ data: { sanityProject } }) => {
         </ul>
       </section>
 
-      <section tw="col-start-7 col-span-6">
+      <section tw="md:col-start-7 col-span-full md:col-span-6 order-first md:order-1">
         {sanityProject?.images[0] && (
-          <ul tw="relative w-full">
-            {sanityProject.images.map(image => (
-              <li key={image._key} tw="mb-8">
-                <figure>
-                  <Image image={image} />
-                </figure>
-              </li>
-            ))}
-          </ul>
+          <>
+            {isDesktop ? (
+              <ul tw="relative w-full">
+                {sanityProject.images.map(image => (
+                  <li key={image._key} tw="mb-8">
+                    <figure>
+                      <Image image={image} />
+                    </figure>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <SwiperCarousel
+                options={{ loop: true }}
+                slides={sanityProject.images.map(image => (
+                  <figure>
+                    <Image image={image} />
+                  </figure>
+                ))}
+              />
+            )}
+          </>
         )}
       </section>
     </Layout>

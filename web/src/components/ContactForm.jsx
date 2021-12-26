@@ -87,7 +87,7 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      tw="w-full flex flex-col font-main text-heading"
+      tw="w-full flex flex-col font-main text-heading md:text-heading-md"
     >
       <input
         type="text"

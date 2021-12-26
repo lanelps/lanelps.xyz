@@ -14,7 +14,9 @@ export const simple = {
   types: {
     block: props => {
       if (props.node.style === `normal`) {
-        return <p tw="font-main text-heading">{props.children}</p>;
+        return (
+          <p tw="font-main text-heading md:text-heading-md">{props.children}</p>
+        );
       }
     }
   },

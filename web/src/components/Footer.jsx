@@ -1,13 +1,13 @@
-import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import tw, { css } from "twin.macro";
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import tw, { css } from 'twin.macro';
 
-import Go from "../components/Go";
+import Go from '../components/Go';
 
 export default function Footer() {
   const date = new Date().getFullYear();
   const {
-    sanityContactDetails: { contactItems },
+    sanityContactDetails: { contactItems }
   } = useStaticQuery(graphql`
     query ContactDetailsFooter {
       sanityContactDetails {
@@ -24,7 +24,7 @@ export default function Footer() {
   return (
     <footer
       css={[
-        tw`absolute w-[calc(100% - 8rem)] bottom-[1.5rem] flex justify-between`,
+        tw`absolute md:w-[calc(100% - 8rem)] bottom-[1.5rem] flex justify-between`
       ]}
     >
       <ul tw="flex gap-8">

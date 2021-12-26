@@ -3,10 +3,10 @@
 
 /* eslint-disable react/prop-types */
 
-import React, { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import "swiper/swiper-bundle.css";
+import 'swiper/css/bundle';
 
 const SwiperCarousel = ({ _css, id, loop, options, nav, slides }) => {
   // ===========================================================================
@@ -46,7 +46,7 @@ const SwiperCarousel = ({ _css, id, loop, options, nav, slides }) => {
         }}
         {...options}
       >
-        {slides.map((slide) => (
+        {slides.map(slide => (
           <SwiperSlide>{slide}</SwiperSlide>
         ))}
       </Swiper>
@@ -55,7 +55,7 @@ const SwiperCarousel = ({ _css, id, loop, options, nav, slides }) => {
         nav({
           current,
           next,
-          prev,
+          prev
         })}
     </>
   );

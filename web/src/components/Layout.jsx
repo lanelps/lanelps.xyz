@@ -40,24 +40,29 @@ export default function Layout({ title, url, children, _css }) {
       <Global styles={customStyles} />
       <div
         css={[
-          tw`relative h-screen p-16 bg-white font-main text-body dark:bg-black text-black dark:text-white transition-colors duration-400`,
+          tw`relative h-screen p-8 md:p-16 bg-white font-main text-body dark:bg-black text-black dark:text-white transition-colors duration-400`,
           css``
         ]}
       >
         <SEO title={title} url={url} />
         <Git />
-        {isMobile ? <Header /> : <MobileHeader />}
+        {!isMobile ? <Header /> : <MobileHeader />}
+
         <main
           id="content"
           css={[
-            tw`relative h-full p-16 border border-black dark:border-white overflow-y-scroll transition-colors duration-400`
+            tw`relative h-full p-8 md:p-16 border border-black dark:border-white overflow-y-scroll transition-colors duration-400`
           ]}
         >
-          <div css={[tw`relative w-full h-auto grid grid-cols-12 gap-8`]}>
+          <div
+            css={[
+              tw`relative w-full h-auto grid grid-cols-4 md:grid-cols-12 gap-x-4 md:gap-x-8`
+            ]}
+          >
             {children}
           </div>
         </main>
-        <Footer />
+        {!isMobile && <Footer />}
       </div>
     </>
   );

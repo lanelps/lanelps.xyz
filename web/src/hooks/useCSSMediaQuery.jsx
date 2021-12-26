@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 
 const useCSSMediaQuery = () => {
   const isMobile = useMediaQuery({
-    query: `(min-device-width: ${theme`screens.xs.min`})`
+    query: `(min-device-width: 0px)`
   });
 
   const isTablet = useMediaQuery({

@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import React, { useState } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import tw, { css } from 'twin.macro';
 
-import Go from "../components/Go";
+import Go from '../components/Go';
 
 const MobileHeader = () => {
   const {
-    sanityContactDetails: { contactItems },
+    sanityContactDetails: { contactItems }
   } = useStaticQuery(graphql`
     query ContactDetailsMobileNav {
       sanityContactDetails {
@@ -23,36 +24,33 @@ const MobileHeader = () => {
     {
       id: 1,
       url: `/`,
-      name: `Home`,
+      name: `Home`
     },
     {
       id: 2,
       url: `/about`,
-      name: `About`,
+      name: `About`
     },
     {
       id: 3,
       url: `/work`,
-      name: `Work`,
+      name: `Work`
     },
     {
       id: 4,
       url: `/contact`,
-      name: `Contact`,
-    },
+      name: `Contact`
+    }
   ];
 
   const [menu, setMenu] = useState(false);
 
   return (
     <>
-      <section
-        className="mobile-nav"
-        style={{ display: menu ? "block" : "none" }}
-      >
+      {/* <section tw="" style={{ display: menu ? 'block' : 'none' }}>
         <nav>
           <ul id="mobile-menu">
-            {pages.map((page) => (
+            {pages.map(page => (
               <li key={page.id}>
                 <Go to={page.url} onClick={() => setMenu(false)}>
                   {page.name}
@@ -61,6 +59,7 @@ const MobileHeader = () => {
             ))}
           </ul>
         </nav>
+
         <footer className="footer-nav">
           <ul>
             {contactItems.map((contactItem, index) => {
@@ -74,15 +73,15 @@ const MobileHeader = () => {
             })}
           </ul>
         </footer>
-      </section>
+      </section> */}
 
       <button
         onClick={() => setMenu(!menu)}
-        className="menu-button"
+        tw="absolute top-[0] right-8"
         aria-expanded={menu}
         aria-controls="mobile-menu"
       >
-        {menu ? "Close" : "Menu"}
+        {menu ? 'Close' : 'Menu'}
       </button>
     </>
   );
