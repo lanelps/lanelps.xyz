@@ -34,7 +34,7 @@
     "react-intersection-observer": "^8.33.1",
     "react-responsive": "^8.2.0",
     "react-use-scroll": "^1.0.3",
-    "swiper": "^7.3.4",
+    "swiper": "^7.4.1",
     "tailwindcss": "^3.0.7",
     "twin.macro": "^2.8.2"
   },
