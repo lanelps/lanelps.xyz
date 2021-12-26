@@ -32,7 +32,7 @@ export default function Layout({ title, url, children, _css }) {
     }
   `;
 
-  const { isMobile } = useCSSMediaQuery();
+  const { isDesktop } = useCSSMediaQuery();
 
   return (
     <>
@@ -46,7 +46,7 @@ export default function Layout({ title, url, children, _css }) {
       >
         <SEO title={title} url={url} />
         <Git />
-        {!isMobile ? <Header /> : <MobileHeader />}
+        {isDesktop ? <Header /> : <MobileHeader />}
 
         <main
           id="content"
@@ -62,7 +62,7 @@ export default function Layout({ title, url, children, _css }) {
             {children}
           </div>
         </main>
-        {!isMobile && <Footer />}
+        {isDesktop && <Footer />}
       </div>
     </>
   );

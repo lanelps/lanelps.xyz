@@ -90,7 +90,7 @@ const Project = ({ data: { sanityProject } }) => {
               </ul>
             ) : (
               <SwiperCarousel
-                options={{ loop: true }}
+                options={{ loop: true, simulateTouch: true }}
                 slides={sanityProject.images.map(image => (
                   <figure>
                     <Image image={image} />
