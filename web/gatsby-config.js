@@ -1,4 +1,4 @@
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
 
@@ -8,7 +8,7 @@ module.exports = {
     titleTemplate: `%s - Lane Le Prevost-Smith`,
     description: `Personal Website`,
     author: `Lane Wirihana Le Prevost-Smith`,
-    siteUrl: "http://example.com",
+    siteUrl: 'http://example.com',
     keywords: ``,
     image: `/share.jpg`,
     fbAppId: ``,
@@ -16,7 +16,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-source-sanity",
+      resolve: 'gatsby-source-sanity',
       options: {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_DATASET,
@@ -41,6 +41,7 @@ module.exports = {
       options: {
         id: process.env.GTM_ID
       }
-    }
+    },
+    `gatsby-plugin-gatsby-cloud`
   ]
 };
