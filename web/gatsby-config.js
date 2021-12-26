@@ -2,6 +2,10 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
 
+const isProd = process.env.NODE_ENV === 'production';
+const previewEnabled =
+  (process.env.GATSBY_IS_PREVIEW || 'false').toLowerCase() === 'true';
+
 module.exports = {
   siteMetadata: {
     title: `Lane Le Prevost-Smith`,
@@ -21,7 +25,8 @@ module.exports = {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_DATASET,
         token: process.env.SANITY_TOKEN,
-        watchMode: true
+        watchMode: !isProd,
+        overlayDrafts: !isProd || previewEnabled
       }
     },
     `gatsby-plugin-emotion`,
