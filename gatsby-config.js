@@ -7,9 +7,16 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `Gatsby Tinderbox`,
+    author: `Lane Le Prevost-Smith`,
     description: `Bare bones boilerplate for Gatsby`,
-    author: `Lane Le Prevost-Smith`
+    facebook: ``,
+    instagram: ``,
+    image: `/images/denada-share.jpg`,
+    keywords: ``,
+    siteLanguage: `en_AU`,
+    siteUrl: `https://www.example.com`,
+    title: `Gatsby Tinderbox`,
+    titleTemplate: `%s - Gatsby Tinderbox`
   },
   plugins: [
     `gatsby-transformer-sharp`,
