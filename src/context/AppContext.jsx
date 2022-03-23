@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import { globalHistory } from "@reach/router";
 
@@ -37,16 +37,14 @@ const AppProvider = ({ children }) => {
   // ---------------------------------------------------------------------------
   // render
 
+  const providerProps = useMemo(() => ({
+    pathname,
+    menuActive,
+    setMenuActive
+  }));
+
   return (
-    <AppContext.Provider
-      value={{
-        pathname,
-        menuActive,
-        setMenuActive
-      }}
-    >
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={providerProps}>{children}</AppContext.Provider>
   );
 };
 
