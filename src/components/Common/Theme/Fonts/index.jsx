@@ -26,14 +26,9 @@ const Fonts = () => (
 
       // common //
       .d1,
-      .d2,
       .h1,
-      .h2,
       .b1,
-      .b2,
-      .b3,
-      .tag,
-      .button {
+      .caption {
         font-family: ${FK_GROTESK_TEXT_GROUP};
         font-weight: normal;
       }
@@ -46,29 +41,11 @@ const Fonts = () => (
         letter-spacing: -0.01em;
       }
 
-      .d2 {
-        font-size: 36px;
-        line-height: 1.025;
-        letter-spacing: -0.02em;
-      }
-
       // headings //
       .h1 {
         font-size: 28px;
         line-height: 1;
         letter-spacing: -0.03em;
-      }
-
-      .h2 {
-        font-size: 20px;
-        line-height: 1;
-        letter-spacing: -0.01em;
-      }
-
-      .h3 {
-        font-size: 34px;
-        line-height: 1.2;
-        letter-spacing: -0.01em;
       }
 
       // body //
@@ -79,30 +56,12 @@ const Fonts = () => (
         letter-spacing: -0.01em;
       }
 
-      .b2 {
-        font-size: 14px;
-        line-height: 1.2;
-        letter-spacing: -0.005em;
-      }
-
-      .b3 {
-        font-size: 20px;
-        line-height: 1.2;
-        letter-spacing: 0em;
-      }
-
       // other //
 
-      .tag {
+      .caption {
         font-size: 12px;
         line-height: 1.2;
         letter-spacing: 0.02em;
-      }
-
-      .button {
-        font-size: 18px;
-        line-height: 1.15;
-        letter-spacing: 0.04em;
       }
 
       // breakpoints (ASC) //
@@ -120,24 +79,12 @@ const Fonts = () => (
           font-size: min(10.42vw, 150px);
         }
 
-        .d2 {
-          font-size: 100px;
-          line-height: 1;
-          letter-spacing: -0.02em;
-        }
-
         // headings //
 
         .h1 {
           font-size: 60px;
           line-height: 1.2;
           letter-spacing: -0.03em;
-        }
-
-        .h2 {
-          font-size: 45px;
-          line-height: 1.2;
-          letter-spacing: -0.01em;
         }
 
         // body //
@@ -148,15 +95,9 @@ const Fonts = () => (
           letter-spacing: -0.01em;
         }
 
-        .b2 {
-          font-size: 24px;
-          line-height: 1.2;
-          letter-spacing: -0.005em;
-        }
-
         // other //
 
-        .tag {
+        .caption {
           font-size: 14px;
           line-height: 1.2;
           letter-spacing: 0.01em;

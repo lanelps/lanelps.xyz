@@ -2,7 +2,7 @@ import React from "react";
 import { css, Global } from "@emotion/react";
 import { Animations, Colors, Fonts } from "~components";
 
-import "~/node_modules/modern-normalize/modern-normalize.css";
+import "~node_modules/modern-normalize/modern-normalize.css";
 
 const Theme = () => (
   <>
