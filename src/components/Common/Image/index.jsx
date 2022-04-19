@@ -64,6 +64,9 @@ const Image = ({ className, image, alt, loading, title, contain }) => {
           src={src}
           alt={alt || ``}
           title={title || alt || ``}
+          loading="lazy"
+          width="100%"
+          height="100%"
         />
       )) || (
         <GatsbyImage
