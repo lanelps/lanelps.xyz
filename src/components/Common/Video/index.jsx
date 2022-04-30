@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  background-size: cover !important;
+  position: relative;
+  > div,
+  iframe {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s;
+  }
 `;
 
 const VideoElement = styled.video`
@@ -14,33 +21,24 @@ const VideoElement = styled.video`
   transition: opacity 1s;
 `;
 
-const Video = ({ id, src, type = `video/mp4`, placeholder, className }) => {
-  const [loaded, setLoaded] = useState(false);
+const Video = ({ id, src, type = `video/mp4`, className, isMuted }) => {
+  const ref = useRef(null);
 
   useEffect(() => {
-    const video = document.getElementById(id);
-    video.addEventListener(`loadeddata`, () => setLoaded(true), false);
-    // Force video to show after 4 seconds incase
-    // loadeddata listener does not fire
-    setTimeout(() => {
-      if (!loaded) setLoaded(true);
-    }, 4000);
-  }, []);
+    if (!ref.current) {
+      return;
+    }
+
+    if (isMuted) {
+      // open bug since 2017 that you cannot set muted in video element https://github.com/facebook/react/issues/10389
+      ref.current.defaultMuted = true;
+      ref.current.muted = true;
+    }
+  }, [src]);
 
   return (
-    <Container
-      className={`${className || ``}`}
-      style={{ background: `url('${placeholder}') center no-repeat` }}
-    >
-      <VideoElement
-        preload="true"
-        autoPlay
-        playsInline
-        muted
-        loop
-        id={id}
-        style={{ opacity: loaded ? 1 : 0 }}
-      >
+    <Container className={className}>
+      <VideoElement ref={ref} id={id} autoPlay playsInline loop>
         <source src={src} type={type} />
         Sorry, your browser doesn&#39;t support embedded videos.
       </VideoElement>

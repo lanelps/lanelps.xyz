@@ -10,16 +10,7 @@ import { Link } from "gatsby";
  * @param  {props} props Noted in PropTypes below
  * @return {node}        The resulting link node with mutated URLs
  */
-const Go = ({
-  _css,
-  children,
-  className,
-  debug,
-  onClick,
-  newTab,
-  parameters,
-  to
-}) => {
+const Go = ({ children, className, debug, onClick, parameters, to }) => {
   const [parameterString, setParameterString] = useState(``);
 
   /**
@@ -85,7 +76,6 @@ const Go = ({
             className={className}
             css={css`
               display: inline-block;
-              ${_css};
             `}
             onClick={onClick}
           >
@@ -100,7 +90,6 @@ const Go = ({
           className={className}
           css={css`
             display: inline-block;
-            ${_css};
           `}
         >
           {children}
@@ -111,21 +100,17 @@ const Go = ({
 };
 
 Go.defaultProps = {
-  _css: {},
   className: ``,
   debug: false,
   onClick: () => {},
-  newTab: false,
   parameters: null
 };
 
 Go.propTypes = {
-  _css: PropTypes.shape({}),
   className: PropTypes.string,
   debug: PropTypes.bool,
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
-  newTab: PropTypes.bool,
   parameters: PropTypes.shape({}),
   to: PropTypes.string.isRequired
 };

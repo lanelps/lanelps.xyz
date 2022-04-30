@@ -10,15 +10,6 @@ export const hexToRgb = (hex) => {
     : null;
 };
 
-export const MEDIA_QUERIES = {
-  tablet: `@media only screen and (min-width: 768px)`,
-  desktop: `@media only screen and (min-width: 1025px)`,
-  large: `@media only screen and (min-width: 1281px)`,
-  wide: `@media only screen and (min-width: 1441px)`,
-  ultrawide: `@media only screen and (min-width: 1920px)`,
-  hoverable: `@media not all and (hover: none)`
-};
-
 export const remToPx = (rem) => {
   if (typeof window === `undefined`) {
     return rem;

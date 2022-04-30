@@ -24,7 +24,9 @@ const Fonts = () => (
         font-style: normal;
       }
 
+      //
       // common //
+
       .d1,
       .h1,
       .b1,
@@ -33,6 +35,7 @@ const Fonts = () => (
         font-weight: normal;
       }
 
+      //
       // display //
 
       .d1 {
@@ -41,13 +44,16 @@ const Fonts = () => (
         letter-spacing: -0.01em;
       }
 
+      //
       // headings //
+
       .h1 {
         font-size: 28px;
         line-height: 1;
         letter-spacing: -0.03em;
       }
 
+      //
       // body //
 
       .b1 {
@@ -56,6 +62,7 @@ const Fonts = () => (
         letter-spacing: -0.01em;
       }
 
+      //
       // other //
 
       .caption {
@@ -64,6 +71,7 @@ const Fonts = () => (
         letter-spacing: 0.02em;
       }
 
+      //
       // breakpoints (ASC) //
 
       ${breakpoint(`tablet`)} {
@@ -73,12 +81,14 @@ const Fonts = () => (
       }
 
       ${breakpoint(`large-tablet`)} {
+        //
         // display //
 
         .d1 {
           font-size: min(10.42vw, 150px);
         }
 
+        //
         // headings //
 
         .h1 {
@@ -87,6 +97,7 @@ const Fonts = () => (
           letter-spacing: -0.03em;
         }
 
+        //
         // body //
 
         .b1 {
@@ -95,6 +106,7 @@ const Fonts = () => (
           letter-spacing: -0.01em;
         }
 
+        //
         // other //
 
         .caption {

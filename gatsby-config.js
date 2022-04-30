@@ -8,12 +8,12 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     author: `Lane Le Prevost-Smith`,
-    description: `Bare bones boilerplate for Gatsby`,
+    description: `A bare bones Gatsby boilerplate`,
     facebook: ``,
     instagram: ``,
-    image: `/images/denada-share.jpg`,
+    image: `/share.jpg`,
     keywords: ``,
-    siteLanguage: `en_AU`,
+    siteLanguage: `en`,
     siteUrl: `https://www.example.com`,
     title: `Gatsby Tinderbox`,
     titleTemplate: `%s - Gatsby Tinderbox`
@@ -32,7 +32,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        icon: `${__dirname}/src/assets/images/favicon.jpg`
+        icon: `${__dirname}/static/favicon.jpg`
       }
     },
     `gatsby-plugin-react-helmet`,
