@@ -74,13 +74,13 @@ const Fonts = () => (
       //
       // breakpoints (ASC) //
 
-      ${breakpoint(`tablet`)} {
+      ${breakpoint(`md-t`)} {
         .d1 {
           font-size: 13.48vw;
         }
       }
 
-      ${breakpoint(`large-tablet`)} {
+      ${breakpoint(`lg-t`)} {
         //
         // display //
 

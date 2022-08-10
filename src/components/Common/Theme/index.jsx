@@ -1,11 +1,14 @@
 import React from "react";
-import { css, Global } from "@emotion/react";
-import { Animations, Colors, Fonts } from "~components";
+import { Global } from "@emotion/react";
+import { GlobalStyles as BaseStyles, css } from "twin.macro";
+
+import { Animations, Fonts } from "~components";
 
 import "~node_modules/modern-normalize/modern-normalize.css";
 
 const Theme = () => (
   <>
+    <BaseStyles />
     <Global
       styles={css`
         html {
@@ -77,15 +80,10 @@ const Theme = () => (
           padding: 0;
           margin: 0;
         }
-
-        :root {
-          --browser-height: 100%;
-        }
       `}
     />
 
     <Animations />
-    <Colors />
     <Fonts />
   </>
 );

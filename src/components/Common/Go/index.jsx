@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import { css } from "@emotion/react";
 import { Link } from "gatsby";
 
@@ -97,22 +96,6 @@ const Go = ({ children, className, debug, onClick, parameters, to }) => {
       )}
     </>
   );
-};
-
-Go.defaultProps = {
-  className: ``,
-  debug: false,
-  onClick: () => {},
-  parameters: null
-};
-
-Go.propTypes = {
-  className: PropTypes.string,
-  debug: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func,
-  parameters: PropTypes.shape({}),
-  to: PropTypes.string.isRequired
 };
 
 export default Go;

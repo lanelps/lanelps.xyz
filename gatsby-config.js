@@ -29,7 +29,6 @@ module.exports = {
         path: `${__dirname}/src/assets/images`
       }
     },
-    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

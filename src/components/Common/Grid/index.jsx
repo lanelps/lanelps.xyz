@@ -1,6 +1,5 @@
 import React from "react";
 import { css } from "@emotion/react";
-import PropTypes from "prop-types";
 import { remToPx } from "~utils/helpers";
 import { breakpoint } from "~utils/css";
 
@@ -39,7 +38,7 @@ const Grid = ({ children, className, node }) => {
           gap: 0 ${GRID_MOBILE_GAP_REM}rem;
           padding: 0 ${GRID_MOBILE_PADDING_REM}rem;
 
-          ${breakpoint(`large-tablet`)} {
+          ${breakpoint(`lg-t`)} {
             gap: 0 ${GRID_GAP_REM}rem;
             padding: 0 ${GRID_PADDING_REM}rem;
           }
@@ -49,14 +48,6 @@ const Grid = ({ children, className, node }) => {
       {children}
     </G>
   );
-};
-
-Grid.defaultProps = {
-  node: `div`
-};
-Grid.propTypes = {
-  children: PropTypes.node.isRequired,
-  node: PropTypes.string
 };
 
 export default Grid;

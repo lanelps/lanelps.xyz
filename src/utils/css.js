@@ -1,20 +1,20 @@
-const BREAKPOINTS = {
-  giant: `2200px`,
-  "large-desktop": `1600px`,
-  desktop: `1440px`,
-  "small-desktop": `1260px`,
-  "large-tablet": `1025px`,
-  tablet: `769px`,
-  "small-tablet": `660px`,
-  "large-mobile": `500px`,
-  mobile: `400px`,
-  "small-mobile": `340px`
-};
+/* eslint-disable import/prefer-default-export */
+import { theme } from "twin.macro";
 
 export const breakpoint = (key, bound = `min`) => {
-  if (!BREAKPOINTS?.[key]) {
+  const screens = theme`screens`;
+
+  if (!screens?.[key]) {
     return `@media `;
   }
 
-  return `@media only screen and (${bound}-width: ${BREAKPOINTS[key]}) `;
+  return `@media only screen and (${bound}-width: ${screens[key]}) `;
+};
+
+export const getColor = (color) => {
+  if (color?.charAt(0) === `#`) {
+    return color;
+  }
+
+  return theme`colors`[color] || null;
 };
