@@ -37,6 +37,14 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-emotion`
+    `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.SANITY_DATASET,
+        token: process.env.SANITY_TOKEN
+      }
+    }
   ]
 };
