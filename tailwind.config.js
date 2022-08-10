@@ -18,12 +18,7 @@ const createTailWindGrid = (size = 12) => {
 const { gridSpan, gridColumns } = createTailWindGrid();
 
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true
-  },
-  plugins: [],
-  purge: [
+  content: [
     `./components/**/*.{js,ts,jsx,tsx}`,
     `./pages/**/*.{js,ts,jsx,tsx}`,
     `./templates/**/*.{js,ts,jsx,tsx}`
@@ -82,5 +77,6 @@ module.exports = {
     gridColumnStart: gridColumns,
     gridColumnEnd: gridColumns
   },
-  variants: {}
+  variants: {},
+  plugins: []
 };
