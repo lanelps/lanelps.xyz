@@ -1,4 +1,4 @@
-// const defaultTheme = require(`tailwindcss/defaultTheme`);
+const defaultTheme = require(`tailwindcss/defaultTheme`);
 
 const createTailWindGrid = (size = 12) => {
   const gridSpan = { "span-full": `1 / -1` };
@@ -37,12 +37,18 @@ module.exports = {
       "grey-20": `#DDDEE2`,
       "grey-10": `#F0F0F0`
     },
-    // fontFamily: {
-    //   head: [`Replica LL`, ...defaultTheme.fontFamily.sans],
-    //   body: [`Replica LL`, ...defaultTheme.fontFamily.sans],
-    //   mono: [`Replica LL`, ...defaultTheme.fontFamily.mono]
-    // },
-    // fontSize: {},
+    fontFamily: {
+      main: [`FK Grotesk`, ...defaultTheme.fontFamily.sans]
+    },
+    fontSize: {
+      name: [
+        `16px`,
+        {
+          lineHeight: `1`,
+          letterSpacing: `0.1em`
+        }
+      ]
+    },
     screens: {
       "xl-d": `2200px`,
       "lg-d": `1600px`,
