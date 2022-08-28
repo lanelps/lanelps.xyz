@@ -67,9 +67,22 @@ const Go = ({ children, className, debug, onClick, parameters, to }) => {
 
   return (
     <>
-      {(!href.includes(`http`) &&
-        !href.includes(`mailto`) &&
-        !href.includes(`tel`) && (
+      {href.includes(`http`) ||
+        href.includes(`mailto`) ||
+        href.includes(`tel`) || (
+          <a
+            href={href}
+            onClick={onClick}
+            rel="noopener noreferrer"
+            target="_blank"
+            className={className}
+            css={css`
+              display: inline-block;
+            `}
+          >
+            {children}
+          </a>
+        ) || (
           <Link
             to={href}
             className={className}
@@ -80,20 +93,7 @@ const Go = ({ children, className, debug, onClick, parameters, to }) => {
           >
             {children}
           </Link>
-        )) || (
-        <a
-          href={href}
-          onClick={onClick}
-          rel="noopener noreferrer"
-          target="_blank"
-          className={className}
-          css={css`
-            display: inline-block;
-          `}
-        >
-          {children}
-        </a>
-      )}
+        )}
     </>
   );
 };

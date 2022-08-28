@@ -41,11 +41,18 @@ module.exports = {
       main: [`FK Grotesk`, ...defaultTheme.fontFamily.sans]
     },
     fontSize: {
-      name: [
-        `16px`,
+      desktop: [
+        `62px`,
         {
-          lineHeight: `1`,
-          letterSpacing: `0.1em`
+          lineHeight: `68.2px`,
+          letterSpacing: `0em`
+        }
+      ],
+      mobile: [
+        `30px`,
+        {
+          lineHeight: `33px`,
+          letterSpacing: `0em`
         }
       ]
     },
