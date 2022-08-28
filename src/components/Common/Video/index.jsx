@@ -21,7 +21,15 @@ const VideoElement = styled.video`
   transition: opacity 1s;
 `;
 
-const Video = ({ id, src, type = `video/mp4`, className, isMuted }) => {
+const Video = ({
+  autoPlay = true,
+  className,
+  id,
+  isMuted = true,
+  loop = true,
+  src,
+  type = `video/mp4`
+}) => {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -38,7 +46,13 @@ const Video = ({ id, src, type = `video/mp4`, className, isMuted }) => {
 
   return (
     <Container className={className}>
-      <VideoElement ref={ref} id={id} autoPlay playsInline loop>
+      <VideoElement
+        ref={ref}
+        id={id}
+        autoPlay={autoPlay}
+        playsInline
+        loop={loop}
+      >
         <source src={src} type={type} />
         Sorry, your browser doesn&#39;t support embedded videos.
       </VideoElement>

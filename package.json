@@ -6,13 +6,10 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "clean-cache": "gatsby clean",
+    "clean": "gatsby clean",
     "dev": "gatsby develop",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "lighthouse": "lighthouse {{urlHere}} --view",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "serve": "gatsby serve"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",

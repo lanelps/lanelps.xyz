@@ -2,7 +2,7 @@ import React from "react";
 import { Global } from "@emotion/react";
 import { GlobalStyles as BaseStyles, css } from "twin.macro";
 
-import { Animations, Fonts } from "~components";
+import { Fonts } from "~components";
 
 import "~node_modules/modern-normalize/modern-normalize.css";
 
@@ -83,7 +83,6 @@ const Theme = () => (
       `}
     />
 
-    <Animations />
     <Fonts />
   </>
 );
