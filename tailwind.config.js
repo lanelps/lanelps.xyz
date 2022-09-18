@@ -57,25 +57,27 @@ module.exports = {
       ]
     },
     screens: {
-      "xl-d": `2200px`,
-      "lg-d": `1600px`,
+      "xxl-d": `1728px`,
+      "xl-d": `1728px`,
+      "lg-d": `1512px`,
       "md-d": `1440px`,
-      "sm-d": `1260px`,
+      "sm-d": `1280px`,
       //
-      "lg-t": `1025px`,
-      "md-t": `769px`,
-      "sm-t": `660px`,
+      "lg-t": `1024px`,
+      "md-t": `834px`,
+      "sm-t": `744px`,
       //
-      "lg-m": `500px`,
-      "md-m": `400px`,
-      "sm-m": `375px`
+      "lg-m": `428px`,
+      "md-m": `414px`,
+      "sm-m": `360px`,
+      "xs-m": `320px`
     },
     transitionTimingFunction: {
       DEFAULT: `cubic-bezier(0.215, 0.61, 0.355, 1)`
     },
     transitionDuration: {
-      DEFAULT: `300ms`
-      // 1000: `1000ms`
+      DEFAULT: `300ms`,
+      1000: `1000ms`
     },
     keyframes: {
       appear: {
