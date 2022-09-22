@@ -1,5 +1,5 @@
 import React from "react";
-import { css, Global } from "@emotion/react";
+import { css, Global } from "twin.macro";
 
 import FK_GROTESK_REGULAR_WOFF from "~assets/fonts/FKGrotesk-Regular.woff";
 import FK_GROTESK_REGULAR_WOFF2 from "~assets/fonts/FKGrotesk-Regular.woff2";
