@@ -19,7 +19,7 @@ const Button = ({
 }) => {
   if (to) {
     return (
-      <Go to={to}>
+      <Go to={to} tw="relative block">
         <Container
           type={type}
           className={className}
