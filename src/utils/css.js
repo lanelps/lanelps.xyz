@@ -18,3 +18,36 @@ export const getColor = (color) => {
 
   return theme`colors`[color] || null;
 };
+
+export const setTheme = () => {
+  if (typeof window === `undefined`) return;
+
+  if (
+    localStorage.theme === `dark` ||
+    (!(`theme` in localStorage) &&
+      window.matchMedia(`(prefers-color-scheme: dark)`).matches)
+  ) {
+    document.documentElement.classList.add(`dark`);
+    localStorage.setItem(`theme`, `dark`);
+  } else {
+    document.documentElement.classList.remove(`dark`);
+    localStorage.setItem(`theme`, `light`);
+  }
+};
+
+export const handleThemetoggle = () => {
+  if (typeof window === `undefined` || !(`theme` in localStorage)) return;
+
+  const colorTheme = localStorage.getItem(`theme`);
+
+  if (colorTheme === `dark`) {
+    document.documentElement.classList.add(`dark`);
+    localStorage.setItem(`theme`, `dark`);
+    return;
+  }
+
+  if (colorTheme === `light`) {
+    document.documentElement.classList.remove(`dark`);
+    localStorage.setItem(`theme`, `light`);
+  }
+};

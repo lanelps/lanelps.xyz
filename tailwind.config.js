@@ -1,4 +1,5 @@
 const defaultTheme = require(`tailwindcss/defaultTheme`);
+const twAnimation = require(`tailwindcss-animation`);
 
 const createTailWindGrid = (size = 12) => {
   const gridSpan = { "span-full": `1 / -1` };
@@ -18,11 +19,13 @@ const createTailWindGrid = (size = 12) => {
 const { gridSpan, gridColumns } = createTailWindGrid();
 
 module.exports = {
+  darkMode: `class`,
   content: [
     `./components/**/*.{js,ts,jsx,tsx}`,
     `./pages/**/*.{js,ts,jsx,tsx}`,
     `./templates/**/*.{js,ts,jsx,tsx}`
   ],
+  plugins: [twAnimation],
   theme: {
     colors: {
       transparent: `transparent`,
@@ -38,7 +41,7 @@ module.exports = {
       "grey-10": `#F0F0F0`
     },
     fontFamily: {
-      main: [`FK Grotesk`, ...defaultTheme.fontFamily.sans]
+      main: [`Helvetica Neue`, ...defaultTheme.fontFamily.sans]
     },
     fontSize: {
       desktop: [
@@ -57,7 +60,7 @@ module.exports = {
       ]
     },
     screens: {
-      "xxl-d": `1728px`,
+      "xxl-d": `1920px`,
       "xl-d": `1728px`,
       "lg-d": `1512px`,
       "md-d": `1440px`,
@@ -81,17 +84,40 @@ module.exports = {
     },
     keyframes: {
       appear: {
-        "0%": { opacity: `0`, transform: `translate3d(0, 1rem, 0)` },
-        "100%": { opacity: `1`, transform: `translate3d(0, 0, 0)` }
+        "0%": { opacity: `0` },
+        "100%": { opacity: `1` }
+      },
+      "appear-up": {
+        "0%": { opacity: `0`, transform: `translateY(calc(100% + 1rem))` },
+        "100%": { opacity: `1`, transform: `translateY(0%)` }
+      },
+      "appear-down": {
+        "0%": { opacity: `0`, transform: `translateY(calc(-100% - 1rem))` },
+        "100%": { opacity: `1`, transform: `translateY(0%)` }
       }
     },
     animation: {
-      appear: `appear 1s ease-in-out infinite`
+      appear: `appear 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards`,
+      "appear-up": `appear-up 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards`,
+      "appear-down": `appear-down 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards`
     },
+    animationDelay: {
+      300: `300ms`,
+      1000: `1000ms`
+    },
+    // animationDuration: {
+    //   // 300: `300ms`,
+    //   // 1000: `1000ms`
+    // },
+    // animationIteration: {
+    //   // 2: `2`
+    // },
+    // animationTiming: {
+    //   // cubic: `cubic-bezier(0.215, 0.61, 0.355, 1)`
+    // },
     gridColumn: gridSpan,
     gridColumnStart: gridColumns,
     gridColumnEnd: gridColumns
   },
-  variants: {},
-  plugins: []
+  variants: {}
 };
