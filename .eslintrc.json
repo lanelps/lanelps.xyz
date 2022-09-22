@@ -51,7 +51,7 @@
           ["~data", "./src/data"],
           ["~hooks", "./src/hooks"],
           ["~node_modules", "./node_modules"],
-          // ["~sanity", "./src/sanity"],
+          ["~sanity", "./src/sanity"],
           ["~templates", "./src/templates"],
           ["~utils", "./src/utils"]
         ],
