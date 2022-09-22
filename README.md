@@ -1,3 +1,3 @@
-# Gatsby Tinerbox
+# Sane Gatsby Tinerbox
 
-## A bare bones Gatsby boilerplate
+## A bare bones Gatsby boilerplate with Sanity CMS
