@@ -1,52 +1,38 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react';
+import { graphql } from 'gatsby';
+import tw from 'twin.macro';
 
-import Layout from '../components/Layout'
-import Header from '../components/Header'
-import ImageContainer from '../components/ImageContainer'
-import PortableText from '../components/PortableText'
+import Layout from '~components/Layout';
+import Title from '~components/Title';
+import Image from '~components/Image';
+
+const About = ({ data: { sanityAboutPage } }) => {
+  return (
+    <Layout title="About" url="/about">
+      <section tw="relative md:sticky block h-min col-start-1 col-span-full md:col-span-6 top-0">
+        <Title title={sanityAboutPage.title} text={sanityAboutPage._rawBody} />
+      </section>
+
+      <section tw="md:col-start-7 col-span-full md:col-span-6 order-first md:order-1 mb-16 md:mb-0">
+        <Image image={sanityAboutPage.image} />
+      </section>
+    </Layout>
+  );
+};
+
+export default About;
 
 export const query = graphql`
-  query AboutQuery {
+  query About {
     sanityAboutPage {
       title
-      personalBio: _rawPersonalBio
-      imageContainer {
-        title
-        description
-        year(formatString: "YYYY")
-        accessableImage {
-          image {
-            asset {
-              fluid {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-          altText
+      _rawBody
+      image {
+        asset {
+          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
         }
+        altText
       }
     }
   }
-`
-
-const About = ({
-  data: {
-    sanityAboutPage: { title, personalBio, imageContainer },
-  },
-}) => {
-  return (
-    <Layout title='About' url='/about' page='about'>
-      <Header title='About' text={title} />
-      <PortableText blocks={personalBio} />
-      <ImageContainer
-        {...imageContainer}
-        image={imageContainer.accessableImage.image}
-        altText={imageContainer.accessableImage.altText}
-        objectFit='contain'
-      />
-    </Layout>
-  )
-}
-
-export default About
+`;

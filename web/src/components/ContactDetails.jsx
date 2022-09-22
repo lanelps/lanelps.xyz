@@ -1,5 +1,5 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 export default function ContactDetails() {
   const {
@@ -15,21 +15,21 @@ export default function ContactDetails() {
         }
       }
     }
-  `)
+  `);
   return (
-    <ul className='contact__detials'>
+    <ul className="contact__detials">
       {contactItems.map((contactItem) => {
         return (
           <li key={contactItem._key}>
             <h3>
               <b>{contactItem.title}: </b>
-              <a href={contactItem.link} target='_blank'>
+              <a href={contactItem.link} target="_blank">
                 {contactItem.name}
               </a>
             </h3>
           </li>
-        )
+        );
       })}
     </ul>
-  )
+  );
 }

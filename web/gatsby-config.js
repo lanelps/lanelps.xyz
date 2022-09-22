@@ -1,31 +1,52 @@
-require('dotenv').config()
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
+const isProd = process.env.NODE_ENV === 'production';
+const previewEnabled =
+  (process.env.GATSBY_IS_PREVIEW || 'false').toLowerCase() === 'true';
 
 module.exports = {
   siteMetadata: {
     title: `Lane Le Prevost-Smith`,
-    description: `Freelance Full-Stack Web Developer and Graphic Designer from Auckland, New Zealand.`,
-    author: `Lane Le Prevost-Smith`,
-    siteUrl: 'https://lanelps.xyz',
-    phone: '+64226954688',
-    email: 'lanelps@gmail.com',
+    titleTemplate: `%s - Lane Le Prevost-Smith`,
+    description: `Personal Website`,
+    author: `Lane Wirihana Le Prevost-Smith`,
+    siteUrl: 'http://example.com',
+    keywords: ``,
+    image: `/share.jpg`,
+    fbAppId: ``,
+    twitterUsername: ``
   },
   plugins: [
     {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.SANITY_DATASET,
+        token: process.env.SANITY_TOKEN,
+        watchMode: !isProd,
+        overlayDrafts: !isProd || previewEnabled
+      }
+    },
+    `gatsby-plugin-emotion`,
+    `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        icon: `${__dirname}/src/assets/img/favicon.png`,
-      },
+        icon: `${__dirname}/static/favicon.png`
+      }
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     {
-      resolve: 'gatsby-source-sanity',
+      resolve: `gatsby-plugin-google-tagmanager`,
       options: {
-        projectId: 'k2d93j2x',
-        dataset: 'production',
-        token: process.env.SANITY_TOKEN,
-        watchMode: process.env.NODE_ENV === 'development',
-      },
+        id: process.env.GTM_ID
+      }
     },
-  ],
-}
+    `gatsby-plugin-gatsby-cloud`
+  ]
+};

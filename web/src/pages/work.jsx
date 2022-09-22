@@ -1,25 +1,66 @@
-import React, { useState } from 'react'
-import { graphql } from 'gatsby'
+import React, { useState } from 'react';
+import { graphql } from 'gatsby';
+import tw, { css } from 'twin.macro';
+import { useCSSMediaQuery } from '~hooks';
 
-import Layout from '../components/Layout'
-import ImageContainer from '../components/ImageContainer'
+import Layout from '~components/Layout';
+import ProjectList from '~components/ProjectList';
+import Image from '~components/Image';
+
+const Work = ({ data: { allSanityProjects } }) => {
+  const { isMobile } = useCSSMediaQuery();
+  const [hovered, setHovered] = useState(null);
+
+  const projects = allSanityProjects.edges.map(({ node }) => node);
+
+  return (
+    <Layout title="Work" url="/work">
+      <section tw="relative md:sticky md:flex flex-col items-stretch h-full md:h-[calc(100vh - 16rem)] col-start-1 col-span-full md:col-span-6 top-0">
+        <h1 tw="before:(content['$'] absolute left-[-1rem] font-normal text-blue) font-main font-medium mb-2">
+          Work
+        </h1>
+        <ProjectList
+          projects={projects}
+          hovered={setHovered}
+          _css={[
+            tw`overflow-y-scroll`,
+            css`
+              flex: 1 0 0px;
+            `,
+          ]}
+        />
+      </section>
+
+      {!isMobile && (
+        <section tw="md:col-start-7 col-span-full md:col-span-6">
+          {projects.map((project) => {
+            if (hovered === project.id && project.cover) {
+              return <Image image={project.cover} />;
+            }
+            return null;
+          })}
+        </section>
+      )}
+    </Layout>
+  );
+};
+
+export default Work;
 
 export const query = graphql`
-  query ProjectsQuery {
+  query Work {
     allSanityProjects(sort: { fields: projectDate, order: DESC }) {
-      projects: edges {
-        project: node {
+      edges {
+        node {
           id
-          name: projectName
-          description: _rawProjectDescription
-          date: projectDate(formatString: "YYYY")
-          images: projectImages {
-            image {
-              asset {
-                fluid {
-                  ...GatsbySanityImageFluid
-                }
-              }
+          slug {
+            current
+          }
+          projectName
+          projectDate(formatString: "YYYY")
+          cover {
+            asset {
+              gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
             altText
           }
@@ -27,59 +68,4 @@ export const query = graphql`
       }
     }
   }
-`
-
-const Work = ({
-  data: {
-    allSanityProjects: { projects },
-  },
-}) => {
-  const [selected, setSelected] = useState('')
-
-  return (
-    <Layout title='Work' url='/work' page='work'>
-      <header className='header-title'>
-        <h1 className='title-cash'>Work</h1>
-        <ul className='work__projectList'>
-          {projects.map(({ project }) => (
-            <li key={project.id}>
-              <button
-                onClick={() => setSelected(project.id)}
-                style={
-                  project.id === selected
-                    ? {
-                        color: 'var(--color-blue)',
-                        borderBottom: '1px solid var(--color-blue)',
-                      }
-                    : {}
-                }>
-                <span>{project.name}</span> <span>{project.date}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-      </header>
-
-      <button
-        onClick={() => setSelected('')}
-        className={`close-work ${selected ? 'open' : 'closed'}`}>
-        close
-      </button>
-
-      {projects.map(({ project }) => (
-        <ImageContainer
-          key={project.id}
-          title={project.name}
-          description={project.description}
-          year={project.date}
-          image={project.images.image}
-          altText={project.images.altText}
-          objectFit='contain'
-          display={project.id === selected ? 'block' : 'none'}
-        />
-      ))}
-    </Layout>
-  )
-}
-
-export default Work
+`;

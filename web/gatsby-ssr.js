@@ -1,7 +1,14 @@
-import React from 'react'
-import { DarkModeProvider } from './src/context/DarkModeContext'
-import './src/styles/main.css'
+/**
+ * Implement Gatsby's Browser APIs in this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/browser-apis/
+ */
+
+import React from 'react';
+import { AppProvider } from '~context/AppContext.jsx';
 
 export const wrapRootElement = ({ element }) => (
-  <DarkModeProvider>{element}</DarkModeProvider>
-)
+  <>
+    <AppProvider>{element}</AppProvider>
+  </>
+);

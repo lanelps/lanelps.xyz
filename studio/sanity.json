@@ -5,18 +5,16 @@
   },
   "api": {
     "projectId": "k2d93j2x",
-    "dataset": "production",
-    "basePath": "/"
+    "dataset": "production"
   },
   "plugins": [
     "@sanity/base",
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/dashboard",
     "@sanity/desk-tool",
-    "dashboard-widget-document-list",
-    "dashboard-widget-netlify"
+    "barcode-input",
+    "media"
   ],
   "env": {
     "development": {
@@ -35,10 +33,6 @@
     {
       "implements": "part:@sanity/dashboard/config",
       "path": "./dashboardConfig.js"
-    },
-    {
-      "implements": "part:@sanity/base/theme/variables/override-style",
-      "path": "main.css"
     }
   ]
 }

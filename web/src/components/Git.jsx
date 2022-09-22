@@ -1,31 +1,34 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react';
+import tw, { css } from 'twin.macro';
 
-import DarkModeContext from '../context/DarkModeContext'
+import AppContext from '../context/AppContext';
 
-export default function Git() {
-  const { isDark, setIsDark } = useContext(DarkModeContext)
+const Git = () => {
+  const { isDark, setIsDark } = useContext(AppContext);
 
-  const [branch, setBranch] = useState('(light-theme)')
+  const [branch, setBranch] = useState('(mā)');
 
   useEffect(() => {
     if (isDark) {
-      setBranch('(dark-theme)')
+      setBranch('(pango)');
     } else {
-      setBranch('(light-theme)')
+      setBranch('(mā)');
     }
-  }, [isDark])
+  }, [isDark]);
 
   const dayNightClick = () => {
-    setIsDark(!isDark)
-  }
+    setIsDark(!isDark);
+  };
 
   return (
-    <div className='git'>
-      <span>lanelps </span>
-      <button onClick={dayNightClick} tabIndex={0}>
+    <div css={[tw`absolute top-0 md:top-[1.5rem] z-10`]}>
+      <span tw="text-red">lanelps </span>
+      <button onClick={dayNightClick} tabIndex={0} tw="text-turq">
         {branch}
       </button>
-      <span> website</span>
+      <span tw="text-blue"> website</span>
     </div>
-  )
-}
+  );
+};
+
+export default Git;

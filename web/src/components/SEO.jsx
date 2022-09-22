@@ -1,31 +1,20 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import { Helmet } from 'react-helmet';
+
+import useSanitySiteSettings from '../hooks/useSanitySiteSettings';
 
 export default function SEO({ title, url }) {
   const {
     sanitySiteSettings: {
       siteTitle,
-      description,
       author,
       domain,
       keywords,
       indexed,
+      description,
     },
-  } = useStaticQuery(graphql`
-    query {
-      sanitySiteSettings {
-        siteTitle: title
-        description
-        author {
-          name
-        }
-        domain
-        keywords
-        indexed
-      }
-    }
-  `)
+  } = useSanitySiteSettings();
+
   return (
     <Helmet
       htmlAttributes={{
@@ -38,7 +27,7 @@ export default function SEO({ title, url }) {
           content: '',
         },
         { name: 'description', content: description },
-        { name: 'author', content: author.name },
+        { name: 'author', content: author },
         {
           name: 'keywords',
           content: `${keywords.map((keyword) => keyword)}`,
@@ -51,8 +40,9 @@ export default function SEO({ title, url }) {
           name: 'googlebot',
           content: `${indexed ? 'index, follow' : 'noindex, nofollow'}`,
         },
-      ].concat([])}>
-      <link rel='canonical' href={`${domain}${url && url}`} />
+      ].concat([])}
+    >
+      <link rel="canonical" href={`${domain}${url && url}`} />
     </Helmet>
-  )
+  );
 }

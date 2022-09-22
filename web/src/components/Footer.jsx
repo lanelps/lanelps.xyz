@@ -1,8 +1,11 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import tw, { css } from 'twin.macro';
+
+import Go from '../components/Go';
 
 export default function Footer() {
-  const date = new Date().getFullYear()
+  const date = new Date().getFullYear();
   const {
     sanityContactDetails: { contactItems },
   } = useStaticQuery(graphql`
@@ -16,34 +19,33 @@ export default function Footer() {
         }
       }
     }
-  `)
+  `);
 
   return (
-    <footer>
-      <ul className='info'>
+    <footer
+      css={[
+        tw`absolute md:w-[calc(100% - 8rem)] bottom-[1.5rem] flex justify-between`,
+      ]}
+    >
+      <ul tw="flex gap-8">
         {contactItems.map((contactItem, index) => {
           return (
-            <>
-              <li key={contactItem._key} className='info-d'>
-                <span className='title'>{contactItem.title}: </span>
-                <a href={contactItem.link} target='_blank' rel='noreferrer'>
-                  {contactItem.name}
-                </a>
-              </li>
-
-              <li key={`${contactItem._key} ${index}`} className='info-m'>
-                <a href={contactItem.link} target='_blank' rel='noreferrer'>
-                  {contactItem.title}
-                </a>
-              </li>
-            </>
-          )
+            <li
+              key={contactItem._key}
+              tw="first-of-type:before:(content['$'] relative mr-[.5ch] text-blue)"
+            >
+              <h3 tw="font-medium inline">{contactItem.title}: </h3>
+              <Go to={contactItem.link} newTab>
+                {contactItem.name}
+              </Go>
+            </li>
+          );
         })}
       </ul>
-      <div>
-        <span>© Lane Le Prevost-Smith </span>
+      <p>
+        <span>© Lane Wirihana Le Prevost-Smith </span>
         <time dateTime={date}>{date}</time>
-      </div>
+      </p>
     </footer>
-  )
+  );
 }

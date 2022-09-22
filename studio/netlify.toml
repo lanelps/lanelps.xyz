@@ -4,6 +4,6 @@
     status = 301
 
 [build]
-    base = "studio/"
+    base = "studio"
     publish = '/dist'
     command= "sanity build"
