@@ -117,6 +117,8 @@ export const splitCamelCase = (word) =>
 export const arrayHasDuplicateValues = (array) =>
   array.length !== new Set(array).size;
 
+export const createUniqueArray = (array) => [...new Set(array)];
+
 export const deviceType = () => {
   if (typeof window === `undefined`) return null;
 
