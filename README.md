@@ -1,3 +1,3 @@
-# sane-gatsby-tinderbox
+# Sane Gatsby Tinerbox
 
-Remember to add environment variables for Sanity project ID, dataset name and project token inside the `web/` folder.
+## A bare bones Gatsby boilerplate with Sanity CMS
