@@ -39,7 +39,7 @@
       "react/jsx-no-useless-fragment": 0,
       "react/react-in-jsx-scope": 0,
       "react/prop-types": 0,
-      "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+      "react/no-unknown-property": ["error", { "ignore": ["tw", "css"] }],
       "semi": [2, "always"]
     },
     "settings": {

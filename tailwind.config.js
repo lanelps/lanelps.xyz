@@ -29,32 +29,37 @@ module.exports = {
   theme: {
     colors: {
       transparent: `transparent`,
-      black: `#000000`,
-      white: `#FFFFFF`,
-      //
-      "grey-70": `#1E1E1E`,
-      "grey-60": `#323232`,
-      "grey-50": `#4F4F4F`,
-      "grey-40": `#969696`,
-      "grey-30": `#BEBEBE`,
-      "grey-20": `#DDDEE2`,
-      "grey-10": `#F0F0F0`
+      current: `currentColor`,
+      black: `#000`,
+      white: `#FFF`,
+      blue: `#0066ff`,
+      red: `#ff5f5f`,
+      turq: `#00a9d0`,
+      bronze: `#ba670d`,
+      purple: `#cbcbff`
     },
     fontFamily: {
-      main: [`Helvetica Neue`, ...defaultTheme.fontFamily.sans]
+      main: [`IBM Plex Sans`, ...defaultTheme.fontFamily.sans]
     },
     fontSize: {
-      desktop: [
-        `62px`,
+      "heading-md": [
+        `24px`,
         {
-          lineHeight: `68.2px`,
+          lineHeight: `1.2`,
           letterSpacing: `0em`
         }
       ],
-      mobile: [
-        `30px`,
+      heading: [
+        `62px`,
         {
-          lineHeight: `33px`,
+          lineHeight: `1`,
+          letterSpacing: `0em`
+        }
+      ],
+      body: [
+        `13px`,
+        {
+          lineHeight: `1`,
           letterSpacing: `0em`
         }
       ]
@@ -117,7 +122,12 @@ module.exports = {
     // },
     gridColumn: gridSpan,
     gridColumnStart: gridColumns,
-    gridColumnEnd: gridColumns
+    gridColumnEnd: gridColumns,
+    extend: {
+      height: {
+        min: `min-content`
+      }
+    }
   },
   variants: {}
 };

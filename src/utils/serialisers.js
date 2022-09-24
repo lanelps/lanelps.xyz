@@ -1,9 +1,8 @@
-import React from 'react';
-import tw from 'twin.macro';
-import { getGatsbyImageData } from 'gatsby-source-sanity';
+import React from "react";
+import tw from "twin.macro";
+import { getGatsbyImageData } from "gatsby-source-sanity";
 
-import Go from '../components/Go';
-import Image from '~components/Image.jsx';
+import { Go, Image } from "~components";
 
 const sanityConfig = {
   projectId: process.env.SANITY_PROJECT_ID,
@@ -12,7 +11,7 @@ const sanityConfig = {
 
 export const simple = {
   types: {
-    block: props => {
+    block: (props) => {
       if (props.node.style === `normal`) {
         return (
           <p tw="font-main text-heading md:text-heading-md">{props.children}</p>
@@ -33,7 +32,7 @@ export const simple = {
 
 export default {
   types: {
-    block: props => {
+    block: (props) => {
       switch (props.node.style) {
         case `h1`:
           return <h1>{props.children}</h1>;
@@ -58,7 +57,7 @@ export default {
           return <p>{props.children}</p>;
       }
     },
-    blockImage: props => {
+    blockImage: (props) => {
       const { image } = props.node;
 
       const fluidProps = getGatsbyImageData(

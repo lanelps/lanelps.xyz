@@ -1,15 +1,16 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import tw, { css } from 'twin.macro';
-import { useCSSMediaQuery } from '~hooks';
+import React from "react";
+import { graphql } from "gatsby";
+import tw, { css } from "twin.macro";
+import { useCSSMediaQuery } from "~hooks";
 
-import Layout from '~components/Layout';
-import Image from '~components/Image';
-import Go from '~components/Go';
-import PortableText from '~components/PortableText';
-import SwiperCarousel from '~components/SwiperCarousel';
-
-import { simple } from '../utils/serialisers';
+import { simple } from "~utils/serialisers";
+import {
+  Layout,
+  Image,
+  Go,
+  PortableText,
+  SwiperCarousel
+} from "~components/Layout";
 
 const Project = ({ data: { sanityProject } }) => {
   const { isDesktop } = useCSSMediaQuery();
@@ -80,7 +81,7 @@ const Project = ({ data: { sanityProject } }) => {
           <>
             {isDesktop ? (
               <ul tw="relative w-full">
-                {sanityProject.images.map(image => (
+                {sanityProject.images.map((image) => (
                   <li key={image._key} tw="mb-8">
                     <figure>
                       <Image image={image} />
@@ -91,7 +92,7 @@ const Project = ({ data: { sanityProject } }) => {
             ) : (
               <SwiperCarousel
                 options={{ loop: true, simulateTouch: true }}
-                slides={sanityProject.images.map(image => (
+                slides={sanityProject.images.map((image) => (
                   <figure>
                     <Image image={image} />
                   </figure>
@@ -126,3 +127,33 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = () => {
+  const seo = {
+    title: `Gatsby Tinderbox`,
+    description: `A simplified bare-bones starter for Gatsby`,
+    domain: `https://example.com/`,
+    keywords: [`boilerplate`],
+    favicon: {
+      mimeType: `image/jpg`,
+      url: `/favicon.jpg`
+    }
+  };
+
+  return (
+    <>
+      <title>{seo?.title}</title>
+      <meta name="description" content={seo?.description} />
+      <meta name="keywords" content={seo?.keywords} />
+      <link rel="icon" type={seo?.favicon?.mimeType} href={seo?.favicon?.url} />
+
+      {/* open graph/ twitter */}
+      <meta property="og:title" content={seo?.title} />
+      <meta property="og:type" content="website" />
+      <meta property="og:description" content={seo?.description} />
+      <meta property="og:image" content={seo.image.url} />
+      <meta property="og:url" content={seo.domain} />
+      <meta name="twitter:card" content="summary_large_image" />
+    </>
+  );
+};

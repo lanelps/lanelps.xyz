@@ -50,15 +50,8 @@ if (GATSBY_CMD !== `serve`) {
  */
 const seoPlugins = () => {
   const plugins = [];
-
-  plugins.push(`gatsby-plugin-react-helmet`);
   plugins.push({
     resolve: `gatsby-plugin-robots-txt`,
-    options: {
-      configFile: isPreview
-        ? path.join(__dirname, `config/robots-txt.staging.js`)
-        : path.join(__dirname, `config/robots-txt.production.js`)
-    }
   });
   plugins.push({
     resolve: `gatsby-plugin-sitemap`,
@@ -279,16 +272,16 @@ const sanityPlugins = () => {
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    author: `Lane Le Prevost-Smith`,
-    description: `A bare bones Sanity Gatsby boilerplate`,
+    author: `Lane Wirihana Le Prevost-Smith`,
+    description: `Personal Website`,
     facebook: ``,
     instagram: ``,
     image: `/share.jpg`,
     keywords: ``,
     siteLanguage: `en`,
     siteUrl: GATSBY_SITE_URL + pathPrefix,
-    title: `Sane Gatsby Tinderbox`,
-    titleTemplate: `%s - Sane Gatsby Tinderbox`
+    title: `Lane Wirihana Le Prevost-Smith`,
+    titleTemplate: `%s - Lane Wirihana Le Prevost-Smith`
   },
   trailingSlash: `always`,
   pathPrefix,

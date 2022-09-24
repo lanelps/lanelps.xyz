@@ -15,6 +15,8 @@ const AppProvider = ({ children }) => {
   const [pathname, setPathname] = useState(null);
   const [menuActive, setMenuActive] = useState(false);
 
+  const [isDark, setIsDark] = useState(false);
+
   // ---------------------------------------------------------------------------
   // methods
 
@@ -33,13 +35,23 @@ const AppProvider = ({ children }) => {
     });
   }, []);
 
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add(`dark`);
+    } else {
+      document.documentElement.classList.remove(`dark`);
+    }
+  }, [isDark]);
+
   // ---------------------------------------------------------------------------
   // render
 
   const providerProps = useMemo(() => ({
     pathname,
     menuActive,
-    setMenuActive
+    setMenuActive,
+    isDark,
+    setIsDark
   }));
 
   return (

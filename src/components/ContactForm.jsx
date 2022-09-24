@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import tw, { css, theme } from 'twin.macro';
+import React, { useState, useEffect } from "react";
+import tw, { css, theme } from "twin.macro";
 
 const ContactForm = () => {
-  /*================================================================*/
+  /*= =============================================================== */
   /* State */
 
   const [form, setForm] = useState({
@@ -17,7 +17,7 @@ const ContactForm = () => {
 
   const [submitText, setSubmitText] = useState(`Submit`);
 
-  /*================================================================*/
+  /*= ================================================================ */
   /* useEffect */
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const ContactForm = () => {
     }
   }, [formSubmitted]);
 
-  /*================================================================*/
+  /*= =============================================================== */
   /* Methods */
 
   const clearForm = () => {
@@ -46,14 +46,14 @@ const ContactForm = () => {
     });
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     setIsSubmitting(true);
@@ -63,12 +63,12 @@ const ContactForm = () => {
         ...form
       }),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": `application/json`
       },
-      method: 'POST'
+      method: `POST`
     })
-      .then(res => res.json())
-      .catch(error => {
+      .then((res) => res.json())
+      .catch((error) => {
         console.error(error);
         clearForm();
         setIsSubmitting(false);

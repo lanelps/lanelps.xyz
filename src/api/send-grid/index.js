@@ -1,17 +1,18 @@
-const sgMail = require('@sendgrid/mail');
+const sgMail = require(`@sendgrid/mail`);
+
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const corsHeaders = {
-  'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN,
-  'Access-Control-Allow-Methods': 'GET,HEAD,POST,OPTIONS',
-  'Access-Control-Max-Age': '86400'
+  "Access-Control-Allow-Origin": process.env.ALLOWED_ORIGIN,
+  "Access-Control-Allow-Methods": `GET,HEAD,POST,OPTIONS`,
+  "Access-Control-Max-Age": `86400`
 };
 
 const sendGridEmail = async (req, res) => {
   const { email, name, message, subject } = req.body;
 
   if (req.method === `OPTIONS`) {
-    Object.keys(corsHeaders).forEach(key => {
+    Object.keys(corsHeaders).forEach((key) => {
       res.setHeader(key, corsHeaders[key]);
     });
   }
@@ -26,11 +27,11 @@ const sendGridEmail = async (req, res) => {
   if (!process.env.SENDGRID_API_KEY) {
     console.error(`SENDGRID_API_KEY undefined`);
 
-    return res.status(500).json({ body: 'missing information' });
+    return res.status(500).json({ body: `missing information` });
   }
 
   if (!email) {
-    res.status(500).json({ body: 'email is undefined' });
+    res.status(500).json({ body: `email is undefined` });
   }
 
   try {

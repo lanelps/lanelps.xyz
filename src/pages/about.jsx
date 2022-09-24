@@ -2,31 +2,32 @@ import React from "react";
 import { graphql } from "gatsby";
 import tw from "twin.macro";
 
-import { Layout, Image, Title, Video } from "~components";
+import { Layout, Title, Image } from "~components";
 
-const Index = ({ data: { sanityHomePage } }) => (
-  <Layout title="Home" url="/">
+const About = ({ data: { sanityAboutPage } }) => (
+  <Layout title="About" url="/about">
     <section tw="relative md:sticky block h-min col-start-1 col-span-full md:col-span-6 top-0">
-      <Title title={sanityHomePage.title} text={sanityHomePage._rawBody} />
+      <Title title={sanityAboutPage.title} text={sanityAboutPage._rawBody} />
     </section>
 
     <section tw="md:col-start-7 col-span-full md:col-span-6 order-first md:order-1 mb-16 md:mb-0">
-      <Video src={sanityHomePage.showReel.asset.url} autoPlay loop />
+      <Image image={sanityAboutPage.image} />
     </section>
   </Layout>
 );
 
-export default Index;
+export default About;
 
 export const query = graphql`
-  query Home {
-    sanityHomePage {
+  query About {
+    sanityAboutPage {
       title
       _rawBody
-      showReel {
+      image {
         asset {
-          url
+          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
         }
+        altText
       }
     }
   }
@@ -37,12 +38,11 @@ export const Head = () => {
     title: `Gatsby Tinderbox`,
     description: `A simplified bare-bones starter for Gatsby`,
     domain: `https://example.com/`,
+    keywords: [`boilerplate`],
     favicon: {
       mimeType: `image/jpg`,
       url: `/favicon.jpg`
-    },
-    keywords: [`boilerplate`],
-    robots: `index, follow`
+    }
   };
 
   return (
@@ -50,9 +50,6 @@ export const Head = () => {
       <title>{seo?.title}</title>
       <meta name="description" content={seo?.description} />
       <meta name="keywords" content={seo?.keywords} />
-      <meta name="robots" content={seo?.robots} />
-      <meta name="googlebot" content={seo?.robots} />
-      <link rel="canonical" href={seo.domain} />
       <link rel="icon" type={seo?.favicon?.mimeType} href={seo?.favicon?.url} />
 
       {/* open graph/ twitter */}

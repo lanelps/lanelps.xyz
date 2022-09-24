@@ -1,3 +1,1 @@
-# Sane Gatsby Tinerbox
-
-## A bare bones Gatsby boilerplate with Sanity CMS
+# Lane Wirihana Le Prevost-Smith
