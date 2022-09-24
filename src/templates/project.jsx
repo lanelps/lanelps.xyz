@@ -32,7 +32,7 @@ const Project = ({ data: { sanityProject } }) => {
 
             <Go
               to={sanityProject.website}
-              _css={[tw`font-main font-medium text-body`]}
+              css={[tw`font-main font-medium text-body`]}
               newTab
             >
               {sanityProject.website}

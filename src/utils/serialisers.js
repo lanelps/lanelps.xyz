@@ -23,7 +23,7 @@ export const simple = {
     strong: ({ children }) => <strong>{children}</strong>,
     em: ({ children }) => <em>{children}</em>,
     link: ({ children, mark }) => (
-      <Go to={mark.href} newTab _css={[tw``]}>
+      <Go to={mark.href} newTab css={[tw``]}>
         {children}
       </Go>
     )

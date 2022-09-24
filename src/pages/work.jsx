@@ -20,7 +20,7 @@ const Work = ({ data: { allSanityProjects } }) => {
         <ProjectList
           projects={projects}
           hovered={setHovered}
-          _css={[
+          css={[
             tw`overflow-y-scroll`,
             css`
               flex: 1 0 0px;
