@@ -1,9 +1,0 @@
-[[redirects]]
-    from = "/*"
-    to = "https://admin.lanelps.xyz/"
-    status = 301
-
-[build]
-    base = "studio"
-    publish = '/dist'
-    command= "sanity build"

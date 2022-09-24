@@ -45,12 +45,28 @@ export default {
             type: 'object',
             fields: [
               {
-                title: 'URL',
                 name: 'href',
+                title: 'URL',
                 type: 'url',
+                validation: Rule => Rule.uri({
+                  scheme: ['http', 'https', 'mailto', 'tel']
+                })
               },
             ],
           },
+          {
+            name: 'internalLink',
+            title: 'Internal link',
+            type: 'object',
+            fields: [
+              {
+                name: 'href',
+                title: 'URL',
+                type: `string`
+              }
+            ]
+          }
+
         ],
       },
     },

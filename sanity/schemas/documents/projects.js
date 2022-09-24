@@ -21,12 +21,7 @@ export default {
     {
       name: 'projectDescription',
       title: 'Project Description',
-      type: 'array',
-      of: [
-        {
-          type: 'block',
-        },
-      ],
+      type: 'text',
     },
     {
       name: 'projectDate',

@@ -9,9 +9,9 @@ export default {
       type: 'string',
     },
     {
-      name: 'Body',
-      title: 'Text',
-      type: 'simpleBlock',
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
     },
   ],
 };

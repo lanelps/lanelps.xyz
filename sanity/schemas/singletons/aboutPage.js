@@ -9,13 +9,8 @@ export default {
       type: 'string',
     },
     {
-      name: 'Body',
-      title: 'Text',
-      type: 'simpleBlock',
-    },
-    {
-      name: 'personalBio',
-      title: 'Personal Bio',
+      name: 'body',
+      title: 'Body',
       type: 'blockContent',
     },
     {

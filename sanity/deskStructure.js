@@ -1,29 +1,23 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { pages } from "./desk/pages";
-import { settings } from "./desk/settings";
+
+import singletons from "./desk/singletons";
+import documents from "./desk/documents";
 
 const DOCUMENT_TYPES_IN_STRUCTURE = [
-  `article.editorial`,
-  `article.info`,
-  `collection`,
-  `home`,
-  `media.tag`,
-  `page`,
-  `product`,
-  `productVariant`,
-  `settings`
+  `projects`,
+  `aboutPage`,
+  `contactPage`,
+  `homePage`
 ];
 
 export default () =>
-  // prettier-ignore
-
   S.list()
     .title(`Content`)
     .items([
-      pages,
+      ...singletons,
       S.divider(),
-      settings,
+      ...documents,
       S.divider(),
       ...S.documentTypeListItems().filter(listItem => !DOCUMENT_TYPES_IN_STRUCTURE.includes(listItem.getId()))
     ]
-    );
+  );
