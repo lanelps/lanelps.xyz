@@ -1,19 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
 import tw, { css } from "twin.macro";
-import { useCSSMediaQuery } from "~hooks";
+
+import { Layout, Image, Go, PortableText, SwiperCarousel } from "~components";
+import { useDevice } from "~hooks";
 
 import { simple } from "~utils/serialisers";
-import {
-  Layout,
-  Image,
-  Go,
-  PortableText,
-  SwiperCarousel
-} from "~components/Layout";
 
 const Project = ({ data: { sanityProject } }) => {
-  const { isDesktop } = useCSSMediaQuery();
+  const { isDesktop } = useDevice();
 
   return (
     <Layout title="Work" url="/work">
@@ -130,14 +125,15 @@ export const query = graphql`
 
 export const Head = () => {
   const seo = {
-    title: `Gatsby Tinderbox`,
-    description: `A simplified bare-bones starter for Gatsby`,
-    domain: `https://example.com/`,
-    keywords: [`boilerplate`],
+    title: `Project`,
+    description: ``,
+    domain: `https://lanelps.xyz/work/project`,
     favicon: {
       mimeType: `image/jpg`,
       url: `/favicon.jpg`
-    }
+    },
+    keywords: [``],
+    robots: `index, follow`
   };
 
   return (
@@ -145,6 +141,9 @@ export const Head = () => {
       <title>{seo?.title}</title>
       <meta name="description" content={seo?.description} />
       <meta name="keywords" content={seo?.keywords} />
+      <meta name="robots" content={seo?.robots} />
+      <meta name="googlebot" content={seo?.robots} />
+      <link rel="canonical" href={seo.domain} />
       <link rel="icon" type={seo?.favicon?.mimeType} href={seo?.favicon?.url} />
 
       {/* open graph/ twitter */}

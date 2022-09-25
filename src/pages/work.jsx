@@ -1,25 +1,23 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
 import tw, { css } from "twin.macro";
-import { useCSSMediaQuery } from "~hooks";
 
 import { Layout, ProjectList, Image } from "~components";
 
 const Work = ({ data: { allSanityProjects } }) => {
-  const { isMobile } = useCSSMediaQuery();
-  const [hovered, setHovered] = useState(null);
+  // const [hovered, setHovered] = useState(null);
 
   const projects = allSanityProjects.edges.map(({ node }) => node);
 
   return (
-    <Layout title="Work" url="/work">
+    <Layout>
       <section tw="relative md:sticky md:flex flex-col items-stretch h-full md:h-[calc(100vh - 16rem)] col-start-1 col-span-full md:col-span-6 top-0">
         <h1 tw="before:(content['$'] absolute left-[-1rem] font-normal text-blue) font-main font-medium mb-2">
           Work
         </h1>
         <ProjectList
           projects={projects}
-          hovered={setHovered}
+          // hovered={setHovered}
           css={[
             tw`overflow-y-scroll`,
             css`
@@ -29,7 +27,7 @@ const Work = ({ data: { allSanityProjects } }) => {
         />
       </section>
 
-      {!isMobile && (
+      {/* {!isMobile && (
         <section tw="md:col-start-7 col-span-full md:col-span-6">
           {projects.map((project) => {
             if (hovered === project.id && project.cover) {
@@ -38,7 +36,7 @@ const Work = ({ data: { allSanityProjects } }) => {
             return null;
           })}
         </section>
-      )}
+      )} */}
     </Layout>
   );
 };
@@ -70,14 +68,15 @@ export const query = graphql`
 
 export const Head = () => {
   const seo = {
-    title: `Gatsby Tinderbox`,
-    description: `A simplified bare-bones starter for Gatsby`,
-    domain: `https://example.com/`,
-    keywords: [`boilerplate`],
+    title: `Work`,
+    description: ``,
+    domain: `https://lanelps.xyz/work`,
     favicon: {
       mimeType: `image/jpg`,
       url: `/favicon.jpg`
-    }
+    },
+    keywords: [``],
+    robots: `index, follow`
   };
 
   return (
@@ -85,6 +84,9 @@ export const Head = () => {
       <title>{seo?.title}</title>
       <meta name="description" content={seo?.description} />
       <meta name="keywords" content={seo?.keywords} />
+      <meta name="robots" content={seo?.robots} />
+      <meta name="googlebot" content={seo?.robots} />
+      <link rel="canonical" href={seo.domain} />
       <link rel="icon" type={seo?.favicon?.mimeType} href={seo?.favicon?.url} />
 
       {/* open graph/ twitter */}

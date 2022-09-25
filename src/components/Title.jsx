@@ -1,9 +1,9 @@
 import React from "react";
 import tw from "twin.macro";
 
-import PortableText from "./PortableText";
+import { PortableText } from "~components";
 
-import { simple } from "../utils/serialisers";
+import { simple } from "~utils/serialisers";
 
 const Title = ({ title, text, className }) => (
   <header className={className} css={[tw`mb-8`]}>

@@ -2,16 +2,16 @@ import React from "react";
 import { graphql } from "gatsby";
 import tw from "twin.macro";
 
-import { Layout, Image, Title, Video } from "~components";
+import { Layout, Title, Video } from "~components";
 
 const Index = ({ data: { sanityHomePage } }) => (
-  <Layout title="Home" url="/">
+  <Layout>
     <section tw="relative md:sticky block h-min col-start-1 col-span-full md:col-span-6 top-0">
       <Title title={sanityHomePage.title} text={sanityHomePage._rawBody} />
     </section>
 
     <section tw="md:col-start-7 col-span-full md:col-span-6 order-first md:order-1 mb-16 md:mb-0">
-      <Video src={sanityHomePage.showReel.asset.url} autoPlay loop />
+      <Video src={sanityHomePage.showReel.asset.url} />
     </section>
   </Layout>
 );
@@ -34,9 +34,9 @@ export const query = graphql`
 
 export const Head = () => {
   const seo = {
-    title: `Gatsby Tinderbox`,
-    description: `A simplified bare-bones starter for Gatsby`,
-    domain: `https://example.com/`,
+    title: ``,
+    description: ``,
+    domain: `https://lanelps.xyz/`,
     favicon: {
       mimeType: `image/jpg`,
       url: `/favicon.jpg`
