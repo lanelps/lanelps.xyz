@@ -5,8 +5,6 @@ import tw, { css } from "twin.macro";
 import { Layout, Image, Go, PortableText, SwiperCarousel } from "~components";
 import { useDevice } from "~hooks";
 
-import { simple } from "~utils/serialisers";
-
 const Project = ({ data: { sanityProject } }) => {
   const { isDesktop } = useDevice();
 
@@ -14,20 +12,20 @@ const Project = ({ data: { sanityProject } }) => {
     <Layout title="Work" url="/work">
       <section tw="relative lg-t:sticky flex flex-col items-stretch h-auto lg-t:h-[calc(100vh - 16rem)] col-start-1 col-span-full lg-t:col-span-6 top-0">
         <header tw="flex justify-between mb-4">
-          <h1 tw="before:(content['$'] absolute left-[-1rem] font-normal text-blue) font-main font-medium text-body mb-2">
+          <h1 tw="before:(content['$'] absolute left-[-1rem] font-normal text-blue) font-main font-medium text-main mb-2">
             {sanityProject.name}
           </h1>
 
-          <date tw="font-main font-medium text-body">{sanityProject.date}</date>
+          <date tw="font-main font-medium text-main">{sanityProject.date}</date>
         </header>
 
         <ul tw="">
           <li tw="flex justify-between mb-3 pb-1 border-b">
-            <h3 tw="font-main font-medium text-body">Website</h3>
+            <h3 tw="font-main font-medium text-main">Website</h3>
 
             <Go
               to={sanityProject.website}
-              css={[tw`font-main font-medium text-body`]}
+              css={[tw`font-main font-medium text-main`]}
               newTab
             >
               {sanityProject.website}
@@ -35,9 +33,9 @@ const Project = ({ data: { sanityProject } }) => {
           </li>
 
           <li tw="flex justify-between mb-3 pb-1 border-b">
-            <h3 tw="font-main font-medium text-body">Role</h3>
+            <h3 tw="font-main font-medium text-main">Role</h3>
 
-            <p tw="font-main font-medium text-body">
+            <p tw="font-main font-medium text-main">
               {sanityProject.role.map((job, index, array) => (
                 <span>
                   {job}
@@ -48,9 +46,9 @@ const Project = ({ data: { sanityProject } }) => {
           </li>
 
           <li tw="flex justify-between mb-3 pb-1 border-b">
-            <h3 tw="font-main font-medium text-body">Team</h3>
+            <h3 tw="font-main font-medium text-main">Team</h3>
 
-            <p tw="font-main font-medium text-body">
+            <p tw="font-main font-medium text-main">
               {sanityProject.team.map((member, index, array) => (
                 <span>
                   {member}
@@ -61,12 +59,9 @@ const Project = ({ data: { sanityProject } }) => {
           </li>
 
           <li tw="">
-            <h3 tw="font-main font-medium text-body mb-4">Description</h3>
+            <h3 tw="font-main font-medium text-main mb-4">Description</h3>
 
-            <PortableText
-              blocks={sanityProject.description}
-              serializer={simple}
-            />
+            <PortableText blocks={sanityProject.description} />
           </li>
         </ul>
       </section>
