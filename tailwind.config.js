@@ -30,37 +30,20 @@ module.exports = {
     colors: {
       transparent: `transparent`,
       current: `currentColor`,
-      black: `#000`,
-      white: `#FFF`,
-      blue: `#0066ff`,
-      red: `#ff5f5f`,
-      turq: `#00a9d0`,
-      bronze: `#ba670d`,
-      purple: `#cbcbff`
+      black: `#000000`,
+      white: `#FFFFFF`,
+      blue: `#0066FF`,
+      orange: `#FF9900`
     },
     fontFamily: {
       main: [`IBM Plex Sans`, ...defaultTheme.fontFamily.sans]
     },
     fontSize: {
-      "heading-md": [
-        `24px`,
+      main: [
+        `18px`,
         {
           lineHeight: `1.2`,
-          letterSpacing: `0em`
-        }
-      ],
-      heading: [
-        `62px`,
-        {
-          lineHeight: `1`,
-          letterSpacing: `0em`
-        }
-      ],
-      body: [
-        `13px`,
-        {
-          lineHeight: `1`,
-          letterSpacing: `0em`
+          letterSpacing: `0`
         }
       ]
     },
