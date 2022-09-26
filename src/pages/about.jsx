@@ -2,17 +2,21 @@ import React from "react";
 import { graphql } from "gatsby";
 import tw from "twin.macro";
 
-import { Layout, Title, Image } from "~components";
+import { Layout, Grid, Image, StickyWrapper, PortableText } from "~components";
+
+const ImageWrapper = tw.div`w-full col-span-full md-t:col-span-2`;
 
 const About = ({ data: { sanityAboutPage } }) => (
   <Layout>
-    <section tw="relative lg-t:sticky block h-min col-start-1 col-span-full lg-t:col-span-6 top-0">
-      <Title title={sanityAboutPage.title} text={sanityAboutPage._rawBody} />
-    </section>
+    <Grid>
+      <StickyWrapper tw="col-span-full md-t:col-span-1">
+        <PortableText blocks={sanityAboutPage?._rawBody} />
+      </StickyWrapper>
 
-    <section tw="lg-t:col-start-7 col-span-full lg-t:col-span-6 order-first lg-t:order-1 mb-16 lg-t:mb-0">
-      <Image image={sanityAboutPage.image} />
-    </section>
+      <ImageWrapper>
+        <Image image={sanityAboutPage.image} />
+      </ImageWrapper>
+    </Grid>
   </Layout>
 );
 
@@ -25,7 +29,11 @@ export const query = graphql`
       _rawBody
       image {
         asset {
-          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          gatsbyImageData(
+            width: 1440
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
         altText
       }
