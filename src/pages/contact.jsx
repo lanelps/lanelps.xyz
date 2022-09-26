@@ -2,20 +2,27 @@ import React from "react";
 import { graphql } from "gatsby";
 import tw from "twin.macro";
 
-import { Layout, Title, ContactForm } from "~components";
+import {
+  Layout,
+  Grid,
+  StickyWrapper,
+  ContactForm,
+  PortableText
+} from "~components";
+
+const FormWrapper = tw.div`w-full col-span-full md-t:col-span-2`;
 
 const Contact = ({ data: { sanityContactPage } }) => (
   <Layout>
-    <section tw="relative lg-t:sticky block h-min col-start-1 col-span-full lg-t:col-span-6 top-0">
-      <Title
-        title={sanityContactPage.title}
-        text={sanityContactPage._rawBody}
-      />
-    </section>
+    <Grid>
+      <StickyWrapper tw="col-span-full md-t:col-span-1">
+        <PortableText blocks={sanityContactPage?._rawBody} />
+      </StickyWrapper>
 
-    <section tw="lg-t:col-start-7 col-span-full lg-t:col-span-6">
-      <ContactForm />
-    </section>
+      <FormWrapper>
+        <ContactForm />
+      </FormWrapper>
+    </Grid>
   </Layout>
 );
 
