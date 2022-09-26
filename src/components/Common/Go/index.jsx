@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { css } from "twin.macro";
+import tw, { css } from "twin.macro";
 import { Link } from "gatsby";
+
+const linkStyles = [
+  tw`inline-block font-main text-main hover:(italic text-blue)`,
+  css``
+];
 
 /**
  * -----------------------------------------------------------------------------
@@ -83,23 +88,14 @@ const Go = ({ children, className, debug, onClick, parameters, to }) => {
         rel="noopener noreferrer"
         target="_blank"
         className={className}
-        css={css`
-          display: inline-block;
-        `}
+        css={linkStyles}
       >
         {children}
       </a>
     );
   }
   return (
-    <Link
-      to={href}
-      className={className}
-      css={css`
-        display: inline-block;
-      `}
-      onClick={onClick}
-    >
+    <Link to={href} className={className} css={linkStyles} onClick={onClick}>
       {children}
     </Link>
   );
