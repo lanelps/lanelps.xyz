@@ -16,10 +16,10 @@ const Work = ({ data: { allSanityProjects } }) => {
     if (!hovered) return;
 
     const newActiveImage = projects.filter(
-      (project) => project.id === hovered
+      (project) => project?.id === hovered
     )[0];
 
-    setActiveImage(newActiveImage.cover);
+    setActiveImage(newActiveImage?.cover);
   }, [hovered, projects]);
 
   return (
