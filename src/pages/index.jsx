@@ -2,17 +2,20 @@ import React from "react";
 import { graphql } from "gatsby";
 import tw from "twin.macro";
 
-import { Layout, Title, Video } from "~components";
+import { Layout, Grid, Video, PortableText, StickyWrapper } from "~components";
 
 const Index = ({ data: { sanityHomePage } }) => (
   <Layout>
-    <section tw="relative lg-t:sticky block h-min col-start-1 col-span-full lg-t:col-span-6 top-0">
-      <Title title={sanityHomePage.title} text={sanityHomePage._rawBody} />
-    </section>
+    <Grid>
+      <StickyWrapper tw="col-span-full md-t:col-span-1">
+        <PortableText blocks={sanityHomePage?._rawBody} />
+      </StickyWrapper>
 
-    <section tw="lg-t:col-start-7 col-span-full lg-t:col-span-6 order-first lg-t:order-1 mb-16 lg-t:mb-0">
-      <Video src={sanityHomePage.showReel.asset.url} />
-    </section>
+      <Video
+        src={sanityHomePage?.showReel?.asset?.url}
+        tw="w-full col-span-full md-t:col-span-2"
+      />
+    </Grid>
   </Layout>
 );
 
@@ -21,7 +24,6 @@ export default Index;
 export const query = graphql`
   query Home {
     sanityHomePage {
-      title
       _rawBody
       showReel {
         asset {
