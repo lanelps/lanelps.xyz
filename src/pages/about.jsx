@@ -6,11 +6,11 @@ import { Layout, Title, Image } from "~components";
 
 const About = ({ data: { sanityAboutPage } }) => (
   <Layout>
-    <section tw="relative md:sticky block h-min col-start-1 col-span-full md:col-span-6 top-0">
+    <section tw="relative lg-t:sticky block h-min col-start-1 col-span-full lg-t:col-span-6 top-0">
       <Title title={sanityAboutPage.title} text={sanityAboutPage._rawBody} />
     </section>
 
-    <section tw="md:col-start-7 col-span-full md:col-span-6 order-first md:order-1 mb-16 md:mb-0">
+    <section tw="lg-t:col-start-7 col-span-full lg-t:col-span-6 order-first lg-t:order-1 mb-16 lg-t:mb-0">
       <Image image={sanityAboutPage.image} />
     </section>
   </Layout>
@@ -35,15 +35,16 @@ export const query = graphql`
 
 export const Head = () => {
   const seo = {
-    title: `About`,
     description: ``,
     domain: `https://lanelps.xyz/about`,
     favicon: {
       mimeType: `image/jpg`,
       url: `/favicon.jpg`
     },
-    keywords: [`boilerplate`],
-    robots: `index, follow`
+    image: ``,
+    keywords: [``],
+    robots: `index, follow`,
+    title: `About`
   };
 
   return (

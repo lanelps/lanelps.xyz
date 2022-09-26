@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import tw, { css } from "twin.macro";
 
-import AppContext from "../context/AppContext";
+import { useApp } from "~hooks";
 
 const Git = () => {
-  const { isDark, setIsDark } = useContext(AppContext);
+  const { isDark, setIsDark } = useApp();
 
   const [branch, setBranch] = useState(`(mā)`);
 
@@ -21,7 +21,7 @@ const Git = () => {
   };
 
   return (
-    <div css={[tw`absolute top-0 md:top-[1.5rem] z-10`]}>
+    <div css={[tw`absolute top-0 lg-t:top-[1.5rem] z-10`]}>
       <span tw="text-red">lanelps </span>
       <button type="button" onClick={dayNightClick} tabIndex={0} tw="text-turq">
         {branch}

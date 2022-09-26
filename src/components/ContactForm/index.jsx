@@ -87,7 +87,7 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      tw="w-full flex flex-col font-main text-heading md:text-heading-md"
+      tw="w-full flex flex-col font-main text-heading lg-t:text-heading-md"
     >
       <input
         type="text"
@@ -97,7 +97,7 @@ const ContactForm = () => {
         placeholder="Name*"
         onChange={handleChange}
         disabled={isSubmitting}
-        tw="mb-20 bg-white dark:bg-black border-b border-black dark:border-white disabled:opacity-30 transition-colors duration-400"
+        tw="mb-20 bg-white dark:bg-black border-b border-black dark:border-white disabled:opacity-30 transition-colors"
       />
       <input
         type="email"
@@ -107,7 +107,7 @@ const ContactForm = () => {
         placeholder="Email*"
         onChange={handleChange}
         disabled={isSubmitting}
-        tw="mb-20 bg-white dark:bg-black border-b border-black dark:border-white disabled:opacity-30 transition-colors duration-400"
+        tw="mb-20 bg-white dark:bg-black border-b border-black dark:border-white disabled:opacity-30 transition-colors"
       />
       <input
         type="text"
@@ -117,7 +117,7 @@ const ContactForm = () => {
         placeholder="Subject*"
         onChange={handleChange}
         disabled={isSubmitting}
-        tw="mb-20 bg-white dark:bg-black border-b border-black dark:border-white disabled:opacity-30 transition-colors duration-400"
+        tw="mb-20 bg-white dark:bg-black border-b border-black dark:border-white disabled:opacity-30 transition-colors"
       />
       <textarea
         type="text"
@@ -127,14 +127,14 @@ const ContactForm = () => {
         placeholder="Message*"
         onChange={handleChange}
         disabled={isSubmitting}
-        tw="mb-20 bg-white dark:bg-black border-b border-black dark:border-white disabled:opacity-30 transition-colors duration-400"
+        tw="mb-20 bg-white dark:bg-black border-b border-black dark:border-white disabled:opacity-30 transition-colors"
       />
       <input
         type="submit"
         value={submitText}
         disabled={isSubmitting}
         css={[
-          tw`w-max bg-white dark:bg-black disabled:opacity-30 cursor-pointer transition-colors duration-400`,
+          tw`w-max bg-white dark:bg-black disabled:opacity-30 cursor-pointer transition-colors`,
           formSubmitted && tw`text-blue`
         ]}
       />

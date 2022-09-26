@@ -6,14 +6,14 @@ import { Layout, Title, ContactForm } from "~components";
 
 const Contact = ({ data: { sanityContactPage } }) => (
   <Layout>
-    <section tw="relative md:sticky block h-min col-start-1 col-span-full md:col-span-6 top-0">
+    <section tw="relative lg-t:sticky block h-min col-start-1 col-span-full lg-t:col-span-6 top-0">
       <Title
         title={sanityContactPage.title}
         text={sanityContactPage._rawBody}
       />
     </section>
 
-    <section tw="md:col-start-7 col-span-full md:col-span-6">
+    <section tw="lg-t:col-start-7 col-span-full lg-t:col-span-6">
       <ContactForm />
     </section>
   </Layout>
@@ -32,15 +32,16 @@ export const query = graphql`
 
 export const Head = () => {
   const seo = {
-    title: `Contact`,
     description: ``,
     domain: `https://lanelps.xyz/contact`,
     favicon: {
       mimeType: `image/jpg`,
       url: `/favicon.jpg`
     },
+    image: ``,
     keywords: [``],
-    robots: `index, follow`
+    robots: `index, follow`,
+    title: `Contact`
   };
 
   return (

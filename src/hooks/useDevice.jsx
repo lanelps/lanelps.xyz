@@ -5,17 +5,17 @@ const splitMedia = (mediaQuery) => +mediaQuery.split(`px`)[0];
 
 const useDevice = () => {
   const isMobile = useMediaQuery({
-    query: `(min-width: 0px) and (max-width: ${theme`screens.sm-t.min` - 1}px)`
+    query: `(min-width: 0px) and (max-width: ${theme`screens.sm-t` - 1}px)`
   });
 
   const isTablet = useMediaQuery({
     query: `(min-width: ${splitMedia(
-      theme`screens.sm-t.min`
-    )}px) and (max-width: ${splitMedia(theme`screens.lg-t.min`)}px)`
+      theme`screens.sm-t`
+    )}px) and (max-width: ${splitMedia(theme`screens.lg-t`)}px)`
   });
 
   const isDesktop = useMediaQuery({
-    query: `(min-width: ${theme`screens.lg-t.min` + 1}px)`
+    query: `(min-width: ${theme`screens.lg-t` + 1}px)`
   });
 
   console.log(`isMobile`, isMobile);

@@ -29,12 +29,12 @@ const ListItem = styled.li`
 const serializers = {
   block: {
     normal: ({ children }) => (
-      <p tw="font-main text-m-h3 sm-t:text-d-h3">{children}</p>
+      <p tw="font-main text-heading sm-t:text-heading-md">{children}</p>
     ),
     small: ({ children }) => (
       <>
         <br />
-        <p tw="font-main text-m-b2 sm-t:text-d-b2">{children}</p>
+        <p tw="font-main text-body">{children}</p>
       </>
     )
   },

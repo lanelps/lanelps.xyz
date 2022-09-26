@@ -12,7 +12,7 @@ const Project = ({ data: { sanityProject } }) => {
 
   return (
     <Layout title="Work" url="/work">
-      <section tw="relative md:sticky flex flex-col items-stretch h-auto md:h-[calc(100vh - 16rem)] col-start-1 col-span-full md:col-span-6 top-0">
+      <section tw="relative lg-t:sticky flex flex-col items-stretch h-auto lg-t:h-[calc(100vh - 16rem)] col-start-1 col-span-full lg-t:col-span-6 top-0">
         <header tw="flex justify-between mb-4">
           <h1 tw="before:(content['$'] absolute left-[-1rem] font-normal text-blue) font-main font-medium text-body mb-2">
             {sanityProject.name}
@@ -71,7 +71,7 @@ const Project = ({ data: { sanityProject } }) => {
         </ul>
       </section>
 
-      <section tw="md:col-start-7 col-span-full md:col-span-6 order-first md:order-1 mb-16 md:mb-0">
+      <section tw="lg-t:col-start-7 col-span-full lg-t:col-span-6 order-first lg-t:order-1 mb-16 lg-t:mb-0">
         {sanityProject?.images[0] && (
           <>
             {isDesktop ? (
@@ -125,15 +125,16 @@ export const query = graphql`
 
 export const Head = () => {
   const seo = {
-    title: `Project`,
     description: ``,
     domain: `https://lanelps.xyz/work/project`,
     favicon: {
       mimeType: `image/jpg`,
       url: `/favicon.jpg`
     },
+    image: ``,
     keywords: [``],
-    robots: `index, follow`
+    robots: `index, follow`,
+    title: `Project`
   };
 
   return (

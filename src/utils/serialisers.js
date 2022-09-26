@@ -14,7 +14,9 @@ export const simple = {
     block: (props) => {
       if (props.node.style === `normal`) {
         return (
-          <p tw="font-main text-heading md:text-heading-md">{props.children}</p>
+          <p tw="font-main text-heading lg-t:text-heading-md">
+            {props.children}
+          </p>
         );
       }
     }
@@ -23,7 +25,7 @@ export const simple = {
     strong: ({ children }) => <strong>{children}</strong>,
     em: ({ children }) => <em>{children}</em>,
     link: ({ children, mark }) => (
-      <Go to={mark.href} newTab css={[tw``]}>
+      <Go to={mark?.href} newTab css={[tw``]}>
         {children}
       </Go>
     )

@@ -1,5 +1,6 @@
 import React from "react";
-import { Global, GlobalStyles as BaseStyles, css } from "twin.macro";
+import { Global } from "@emotion/react";
+import { GlobalStyles as BaseStyles, css } from "twin.macro";
 
 import { Fonts } from "~components";
 

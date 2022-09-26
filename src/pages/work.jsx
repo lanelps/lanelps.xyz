@@ -11,7 +11,7 @@ const Work = ({ data: { allSanityProjects } }) => {
 
   return (
     <Layout>
-      <section tw="relative md:sticky md:flex flex-col items-stretch h-full md:h-[calc(100vh - 16rem)] col-start-1 col-span-full md:col-span-6 top-0">
+      <section tw="relative lg-t:sticky lg-t:flex flex-col items-stretch h-full lg-t:h-[calc(100vh - 16rem)] col-start-1 col-span-full lg-t:col-span-6 top-0">
         <h1 tw="before:(content['$'] absolute left-[-1rem] font-normal text-blue) font-main font-medium mb-2">
           Work
         </h1>
@@ -28,7 +28,7 @@ const Work = ({ data: { allSanityProjects } }) => {
       </section>
 
       {/* {!isMobile && (
-        <section tw="md:col-start-7 col-span-full md:col-span-6">
+        <section tw="lg-t:col-start-7 col-span-full lg-t:col-span-6">
           {projects.map((project) => {
             if (hovered === project.id && project.cover) {
               return <Image image={project.cover} />;
@@ -68,15 +68,16 @@ export const query = graphql`
 
 export const Head = () => {
   const seo = {
-    title: `Work`,
     description: ``,
     domain: `https://lanelps.xyz/work`,
     favicon: {
       mimeType: `image/jpg`,
       url: `/favicon.jpg`
     },
+    image: ``,
     keywords: [``],
-    robots: `index, follow`
+    robots: `index, follow`,
+    title: `Work`
   };
 
   return (

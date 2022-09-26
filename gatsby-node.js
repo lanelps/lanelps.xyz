@@ -17,7 +17,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
-exports.createPages = async ({ actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createRedirect, createPage } = actions;
 
   // redirect
@@ -51,11 +51,11 @@ exports.createPages = async ({ actions }) => {
   const projects = data.allSanityProjects.edges || [];
 
   projects.forEach(({ node: { id, slug } }) => {
-    const path = `/work/${slug.current}`;
+    const templatePath = `/work/${slug.current}`;
 
     createPage({
-      path,
-      component: require.resolve('./src/templates/project.jsx'),
+      path: templatePath,
+      component: require.resolve(`./src/templates/project.jsx`),
       context: { id }
     });
   });

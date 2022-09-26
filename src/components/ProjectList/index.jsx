@@ -1,7 +1,7 @@
 import React from "react";
 import tw, { css } from "twin.macro";
 
-import Go from "~components/Go";
+import { Go } from "~components";
 
 const ProjectList = ({ projects, className, hovered }) => (
   <ul
@@ -30,7 +30,7 @@ const ProjectList = ({ projects, className, hovered }) => (
           <Go
             to={`/work/${project.slug.current}`}
             css={[
-              tw`w-full flex justify-between font-main text-heading md:text-heading-md hover:opacity-100`
+              tw`w-full flex justify-between font-main text-heading lg-t:text-heading-md hover:opacity-100`
             ]}
           >
             <div tw="flex gap-[1ch]">

@@ -1,7 +1,7 @@
 import React from "react";
 import tw, { css } from "twin.macro";
 
-import Go from "../components/Go";
+import { Go } from "~components";
 
 const Header = () => {
   const links = [
