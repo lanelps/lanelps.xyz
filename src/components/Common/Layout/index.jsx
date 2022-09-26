@@ -1,14 +1,18 @@
 import React from "react";
 import tw from "twin.macro";
 
-import { Theme } from "~components";
+import { Theme, Header } from "~components";
+
+const Container = tw.div`fixed w-[calc(100vw - 2rem)] h-[calc(100vh - 1.25rem)] mx-4 my-2.5 pb-2.5 border overflow-y-scroll`;
+const Main = tw.main`mt-[53px]`;
 
 const Layout = ({ children, className }) => (
   <>
     <Theme />
-    <div css={tw`flex`}>
-      <main className={className}>{children}</main>
-    </div>
+    <Container>
+      <Header />
+      <Main className={className}>{children}</Main>
+    </Container>
   </>
 );
 
