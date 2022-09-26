@@ -15,12 +15,8 @@ const useDevice = () => {
   });
 
   const isDesktop = useMediaQuery({
-    query: `(min-width: ${theme`screens.lg-t` + 1}px)`
+    query: `(min-width: ${splitMedia(theme`screens.lg-t`) + 1}px)`
   });
-
-  console.log(`isMobile`, isMobile);
-  console.log(`isTablet`, isTablet);
-  console.log(`isDesktop`, isDesktop);
 
   return { isMobile, isTablet, isDesktop };
 };
