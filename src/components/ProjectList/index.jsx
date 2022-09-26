@@ -3,8 +3,11 @@ import tw, { css } from "twin.macro";
 
 import { Go } from "~components";
 
+const Container = tw.ul`relative w-full overflow-y-scroll`;
+const Project = tw.li`relative w-full border-b border-white hover:border-orange transition-colors mix-blend-difference`;
+
 const ProjectList = ({ projects, className, hovered }) => (
-  <ul
+  <Container
     className={className}
     css={[
       css`
@@ -15,22 +18,21 @@ const ProjectList = ({ projects, className, hovered }) => (
     ]}
   >
     {projects.map((project, index) => {
-      let projectIndex = index + 1;
+      let projectIndex = index;
       if (projectIndex < 10) {
         projectIndex = `0${projectIndex}`;
       }
 
       return (
-        <li
+        <Project
           key={project.id}
-          tw="mb-2"
           onMouseEnter={() => hovered(project.id)}
           onMouseLeave={() => hovered(null)}
         >
           <Go
             to={`/work/${project.slug.current}`}
             css={[
-              tw`w-full flex justify-between font-main text-heading lg-t:text-heading-md hover:opacity-100`
+              tw`w-full flex justify-between py-2.5 font-main text-main text-white hover:text-orange`
             ]}
           >
             <div tw="flex gap-[1ch]">
@@ -39,10 +41,10 @@ const ProjectList = ({ projects, className, hovered }) => (
             </div>
             <time>{project.projectDate}</time>
           </Go>
-        </li>
+        </Project>
       );
     })}
-  </ul>
+  </Container>
 );
 
 export default ProjectList;

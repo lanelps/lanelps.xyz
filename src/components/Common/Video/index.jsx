@@ -4,7 +4,7 @@ import tw, { styled } from "twin.macro";
 const Container = tw.div`relative w-full h-full`;
 
 const VideoElement = styled.video(({ contain }) => [
-  tw`relative w-full h-full transition-opacity object-cover`,
+  tw`relative w-full h-full transition-opacity object-cover invert`,
   contain && tw`object-contain`
 ]);
 

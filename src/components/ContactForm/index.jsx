@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import tw, { css, theme } from "twin.macro";
+import tw from "twin.macro";
+
+const Container = tw.form`w-full flex flex-col mt-[-10px] font-main text-main`;
+const Input = tw.input`w-full relative py-2.5 border-b border-white bg-transparent disabled:opacity-30 placeholder:(opacity-100 text-grey uppercase) font-main text-main text-white transition-colors`;
+const TextArea = tw.textarea`w-full relative min-h-[20vh] py-2.5 border-b border-white bg-transparent disabled:opacity-30 placeholder:(opacity-100 text-grey uppercase) font-main text-main text-white transition-colors`;
 
 const ContactForm = () => {
   /*= =============================================================== */
@@ -85,11 +89,8 @@ const ContactForm = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      tw="w-full flex flex-col font-main text-heading lg-t:text-heading-md"
-    >
-      <input
+    <Container onSubmit={handleSubmit}>
+      <Input
         type="text"
         required
         name="name"
@@ -97,9 +98,8 @@ const ContactForm = () => {
         placeholder="Name*"
         onChange={handleChange}
         disabled={isSubmitting}
-        tw="mb-20 bg-white dark:bg-black border-b border-black dark:border-white disabled:opacity-30 transition-colors"
       />
-      <input
+      <Input
         type="email"
         required
         name="email"
@@ -107,9 +107,8 @@ const ContactForm = () => {
         placeholder="Email*"
         onChange={handleChange}
         disabled={isSubmitting}
-        tw="mb-20 bg-white dark:bg-black border-b border-black dark:border-white disabled:opacity-30 transition-colors"
       />
-      <input
+      <Input
         type="text"
         required
         name="subject"
@@ -117,9 +116,8 @@ const ContactForm = () => {
         placeholder="Subject*"
         onChange={handleChange}
         disabled={isSubmitting}
-        tw="mb-20 bg-white dark:bg-black border-b border-black dark:border-white disabled:opacity-30 transition-colors"
       />
-      <textarea
+      <TextArea
         type="text"
         required
         name="message"
@@ -127,18 +125,17 @@ const ContactForm = () => {
         placeholder="Message*"
         onChange={handleChange}
         disabled={isSubmitting}
-        tw="mb-20 bg-white dark:bg-black border-b border-black dark:border-white disabled:opacity-30 transition-colors"
       />
-      <input
+      <Input
         type="submit"
         value={submitText}
         disabled={isSubmitting}
         css={[
-          tw`w-max bg-white dark:bg-black disabled:opacity-30 cursor-pointer transition-colors`,
+          tw`w-max cursor-pointer border-none`,
           formSubmitted && tw`text-blue`
         ]}
       />
-    </form>
+    </Container>
   );
 };
 

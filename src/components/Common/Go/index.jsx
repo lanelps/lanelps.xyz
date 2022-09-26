@@ -3,7 +3,7 @@ import tw, { css } from "twin.macro";
 import { Link } from "gatsby";
 
 const linkStyles = [
-  tw`inline-block font-main text-main hover:(italic text-blue)`,
+  tw`inline-block font-main text-main text-white hover:(italic text-orange)`,
   css``
 ];
 

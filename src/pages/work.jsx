@@ -1,42 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import tw, { css } from "twin.macro";
 
-import { Layout, ProjectList, Image } from "~components";
+import { Layout, ProjectList, Grid, Image } from "~components";
+
+const Figure = tw.figure`w-full absolute col-start-2 col-span-2 z-[-1]`;
 
 const Work = ({ data: { allSanityProjects } }) => {
-  // const [hovered, setHovered] = useState(null);
-
   const projects = allSanityProjects.edges.map(({ node }) => node);
+
+  const [hovered, setHovered] = useState(null);
+  const [activeImage, setActiveImage] = useState(projects?.[0]?.cover);
+
+  useEffect(() => {
+    if (!hovered) return;
+
+    const newActiveImage = projects.filter(
+      (project) => project.id === hovered
+    )[0];
+
+    setActiveImage(newActiveImage.cover);
+  }, [hovered, projects]);
 
   return (
     <Layout>
-      <section tw="relative lg-t:sticky lg-t:flex flex-col items-stretch h-full lg-t:h-[calc(100vh - 16rem)] col-start-1 col-span-full lg-t:col-span-6 top-0">
-        <h1 tw="before:(content['$'] absolute left-[-1rem] font-normal text-blue) font-main font-medium mb-2">
-          Work
-        </h1>
+      <Grid>
         <ProjectList
           projects={projects}
-          // hovered={setHovered}
-          css={[
-            tw`overflow-y-scroll`,
-            css`
-              flex: 1 0 0px;
-            `
-          ]}
+          hovered={setHovered}
+          tw="col-span-full"
         />
-      </section>
 
-      {/* {!isMobile && (
-        <section tw="lg-t:col-start-7 col-span-full lg-t:col-span-6">
-          {projects.map((project) => {
-            if (hovered === project.id && project.cover) {
-              return <Image image={project.cover} />;
-            }
-            return null;
-          })}
-        </section>
-      )} */}
+        <Figure>
+          <Image image={activeImage} />
+        </Figure>
+      </Grid>
     </Layout>
   );
 };

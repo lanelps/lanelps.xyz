@@ -27,7 +27,9 @@ const ListItem = styled.li`
 
 export default {
   block: {
-    normal: ({ children }) => <p tw="font-main text-main">{children}</p>,
+    normal: ({ children }) => (
+      <p tw="font-main text-main text-white">{children}</p>
+    ),
     small: ({ children }) => (
       <>
         <br />

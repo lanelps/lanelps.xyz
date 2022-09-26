@@ -1,5 +1,5 @@
 import React from "react";
-import { css } from "twin.macro";
+import tw, { css } from "twin.macro";
 import {
   GatsbyImage,
   getImage,
@@ -54,9 +54,12 @@ const Image = ({ className, image, alt, loading, title, contain }) => {
     <>
       {(src?.includes(`.svg`) && (
         <img
-          css={css`
-            object-fit: ${contain ? `contain` : `cover`};
-          `}
+          css={
+            (tw`invert`,
+            css`
+              object-fit: ${contain ? `contain` : `cover`};
+            `)
+          }
           className={className}
           src={src}
           alt={alt || ``}
@@ -68,6 +71,7 @@ const Image = ({ className, image, alt, loading, title, contain }) => {
       )) || (
         <GatsbyImage
           className={className}
+          css={[tw`invert`]}
           loading={loading || `eager`}
           image={images}
           alt={alt || ``}
