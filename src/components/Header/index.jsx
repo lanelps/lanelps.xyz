@@ -1,7 +1,12 @@
 import React from "react";
-import tw, { css } from "twin.macro";
+import tw from "twin.macro";
 
 import { Go } from "~components";
+
+const Container = tw.nav`fixed top-2.5 w-[calc(100% - 2rem - 2px)] px-3 z-30`;
+const Wrapper = tw.div`flex justify-between h-min py-2.5 bg-white md-t:bg-transparent border-t border-b`;
+const LinkList = tw.ul`relative flex gap-x-10`;
+const ThemeButton = tw.button`font-main text-main hover:(italic text-blue)`;
 
 const Header = () => {
   const links = [
@@ -12,19 +17,19 @@ const Header = () => {
   ];
 
   return (
-    <nav
-      css={[
-        tw`absolute w-[calc(100% - 8rem)] top-[1.5rem] grid grid-cols-12 gap-8 px-16`
-      ]}
-    >
-      <ul css={[tw`relative col-start-3 col-span-6 grid grid-cols-6 gap-8`]}>
-        {links.map((link) => (
-          <li key={link.id} css={[tw`col-span-1`]}>
-            <Go to={link.url}>{link.name}</Go>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <Container>
+      <Wrapper>
+        <LinkList>
+          {links.map((link) => (
+            <li key={link.id}>
+              <Go to={link.url}>{link.name}</Go>
+            </li>
+          ))}
+        </LinkList>
+
+        <ThemeButton type="button">Light</ThemeButton>
+      </Wrapper>
+    </Container>
   );
 };
 
