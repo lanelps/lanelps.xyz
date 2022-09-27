@@ -7,7 +7,7 @@ import { Layout, Grid, Image, Go, PortableText, Carousel } from "~components";
 import { useDevice } from "~hooks";
 
 const Header = tw.header`w-full col-span-full flex justify-between py-2.5 border-b border-white font-main text-main text-white uppercase`;
-const GridItem = tw.div`relative w-full col-span-full block md-t:flex justify-between py-2.5 border-b border-white font-main text-main text-white uppercase`;
+const GridItem = tw.div`relative w-full col-span-full block md-t:flex justify-between py-2.5 border-b border-white font-main text-main text-white uppercase break-all`;
 const ItemHead = tw.h3`mb-2.5`;
 const ImageWrapper = tw.div`w-full col-span-full md-t:col-start-2 md-t:col-span-2`;
 
@@ -16,7 +16,11 @@ const Project = ({ data: { sanityProject } }) => {
 
   return (
     <Layout>
-      <Grid css={[tw`gap-y-0! sticky! top-0 mix-blend-difference`]}>
+      <Grid
+        css={[
+          tw`relative gap-y-0! md-t:sticky! md-t:top-0 mix-blend-difference`
+        ]}
+      >
         <Header>
           <h1>{sanityProject?.name}</h1>
 

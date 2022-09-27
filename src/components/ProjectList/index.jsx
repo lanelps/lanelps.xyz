@@ -26,8 +26,8 @@ const ProjectList = ({ projects, className, hovered }) => (
       return (
         <Project
           key={project?.id}
-          onMouseEnter={() => hovered(project?.id)}
-          onMouseLeave={() => hovered(null)}
+          onPointerEnter={() => hovered(project?.id)}
+          onPointerLeave={() => hovered(null)}
         >
           <Go
             to={`/work/${project?.slug?.current}`}
@@ -35,7 +35,7 @@ const ProjectList = ({ projects, className, hovered }) => (
               tw`w-full flex justify-between py-2.5 font-main text-main text-white hover:text-orange uppercase`
             ]}
           >
-            <div tw="flex gap-[1ch]">
+            <div tw="flex gap-x-2.5">
               <span>{projectIndex}</span>
               <h3>{project?.projectName}</h3>
             </div>

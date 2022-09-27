@@ -4,7 +4,7 @@ import tw, { css } from "twin.macro";
 
 import { Layout, ProjectList, Grid, Image } from "~components";
 
-const Figure = tw.figure`w-full absolute col-start-2 col-span-2 z-[-1]`;
+const Figure = tw.figure`w-full absolute md-t:col-start-2 col-span-full md-t:col-span-2 z-[-1] self-center md-t:self-start`;
 
 const Work = ({ data: { allSanityProjects } }) => {
   const projects = allSanityProjects.edges.map(({ node }) => node);
@@ -24,7 +24,7 @@ const Work = ({ data: { allSanityProjects } }) => {
 
   return (
     <Layout>
-      <Grid>
+      <Grid tw="h-full">
         <ProjectList
           projects={projects}
           hovered={setHovered}
