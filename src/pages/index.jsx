@@ -6,7 +6,7 @@ import { Layout, Grid, Video, PortableText, StickyWrapper } from "~components";
 
 const Index = ({ data: { sanityHomePage } }) => (
   <Layout>
-    <Grid>
+    <Grid tw="mt-2.5!">
       <StickyWrapper tw="col-span-full md-t:col-span-1">
         <PortableText blocks={sanityHomePage?._rawBody} />
       </StickyWrapper>

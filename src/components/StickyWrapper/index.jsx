@@ -7,7 +7,7 @@ const Container = styled.div(({ offset }) => [
   tw`relative md-t:sticky overflow-y-scroll`,
   css`
     ${breakpoint(`md-t`)} {
-      top: ${offset}px;
+      top: 0.625rem;
       height: calc(100vh - ${offset}px - 2rem);
     }
   `

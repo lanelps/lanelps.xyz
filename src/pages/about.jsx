@@ -8,7 +8,7 @@ const ImageWrapper = tw.div`w-full col-span-full md-t:col-span-2`;
 
 const About = ({ data: { sanityAboutPage } }) => (
   <Layout>
-    <Grid>
+    <Grid tw="mt-2.5!">
       <StickyWrapper tw="col-span-full md-t:col-span-1">
         <PortableText blocks={sanityAboutPage?._rawBody} />
       </StickyWrapper>

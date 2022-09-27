@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import tw from "twin.macro";
 
-const Container = tw.form`w-full flex flex-col mt-[-10px] font-main text-main`;
+const Container = tw.form`w-full flex flex-col mt-[-0.625rem] font-main text-main`;
 const Input = tw.input`w-full relative py-2.5 border-b border-white bg-transparent disabled:opacity-30 placeholder:(opacity-100 text-grey uppercase) font-main text-main text-white transition-colors`;
 const TextArea = tw.textarea`w-full relative min-h-[20vh] py-2.5 border-b border-white bg-transparent disabled:opacity-30 placeholder:(opacity-100 text-grey uppercase) font-main text-main text-white transition-colors`;
 
