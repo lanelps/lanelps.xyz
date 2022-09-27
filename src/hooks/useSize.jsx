@@ -10,7 +10,7 @@ const useSize = () => {
   }, [ref]);
 
   // Where the magic happens
-  useResizeObserver(ref, (entry) => setSize(entry.contentRect));
+  useResizeObserver(ref, () => setSize(ref.current.getBoundingClientRect()));
   return [ref, size];
 };
 

@@ -1,5 +1,7 @@
-import React, { useState, useLayoutEffect, useRef } from "react";
+import React from "react";
 import tw, { css, styled } from "twin.macro";
+
+import { useSize } from "~hooks";
 
 import { breakpoint } from "~utils/css";
 
@@ -14,16 +16,10 @@ const Container = styled.div(({ offset }) => [
 ]);
 
 const StickyWrapper = ({ children, className }) => {
-  const stickyRef = useRef();
-  const [stickyOffset, setStickyoffset] = useState(0);
+  const [stickyRef, stickySize] = useSize();
 
-  useLayoutEffect(() => {
-    if (!stickyRef?.current) return;
-
-    setStickyoffset(stickyRef?.current?.getBoundingClientRect()?.top);
-  }, [stickyRef]);
   return (
-    <Container ref={stickyRef} className={className} offset={stickyOffset}>
+    <Container ref={stickyRef} className={className} offset={stickySize?.top}>
       {children}
     </Container>
   );
