@@ -31,7 +31,7 @@ const Carousel = ({
   embla,
   className = ``,
   slidesPerView = 1,
-  spaceBetween = 0,
+  spaceBetween = `0px`,
   slides = []
 }) => {
   // --------------------------------------------------------------------------
@@ -77,8 +77,8 @@ const Carousel = ({
           {slides({ current }).map((slide) => (
             <EmblaSlide
               css={css`
-                flex: 0 0 calc(${100 / slidesPerView}% - ${spaceBetween}px);
-                margin-right: ${spaceBetween}px;
+                flex: 0 0 calc(${100 / slidesPerView}% - ${spaceBetween});
+                margin-right: ${spaceBetween};
               `}
               className="embla__slide"
             >

@@ -1,97 +1,118 @@
 import React from "react";
 import { graphql } from "gatsby";
 import tw, { css } from "twin.macro";
+import { v4 as uuidv4 } from "uuid";
 
-import { Layout, Image, Go, PortableText, SwiperCarousel } from "~components";
+import { Layout, Grid, Image, Go, PortableText, Carousel } from "~components";
 import { useDevice } from "~hooks";
 
+const Header = tw.header`w-full col-span-full flex justify-between py-2.5 border-b border-white font-main text-main text-white uppercase`;
+const GridItem = tw.div`relative w-full col-span-full block md-t:flex justify-between py-2.5 border-b border-white font-main text-main text-white uppercase`;
+const ItemHead = tw.h3`mb-2.5`;
+const ImageWrapper = tw.div`w-full col-span-full md-t:col-start-2 md-t:col-span-2`;
+
 const Project = ({ data: { sanityProject } }) => {
-  const { isDesktop } = useDevice();
+  const { deviceAbove } = useDevice();
 
   return (
-    <Layout title="Work" url="/work">
-      <section tw="relative lg-t:sticky flex flex-col items-stretch h-auto lg-t:h-[calc(100vh - 16rem)] col-start-1 col-span-full lg-t:col-span-6 top-0">
-        <header tw="flex justify-between mb-4">
-          <h1 tw="before:(content['$'] absolute left-[-1rem] font-normal text-blue) font-main font-medium text-main mb-2">
-            {sanityProject.name}
-          </h1>
+    <Layout>
+      <Grid css={[tw`gap-y-0! sticky! top-0 mix-blend-difference`]}>
+        <Header>
+          <h1>{sanityProject?.name}</h1>
 
-          <date tw="font-main font-medium text-main">{sanityProject.date}</date>
-        </header>
+          <time dateTime={sanityProject?.date}>{sanityProject?.date}</time>
+        </Header>
 
-        <ul tw="">
-          <li tw="flex justify-between mb-3 pb-1 border-b">
-            <h3 tw="font-main font-medium text-main">Website</h3>
+        <GridItem>
+          <ItemHead>Website</ItemHead>
 
-            <Go
-              to={sanityProject.website}
-              css={[tw`font-main font-medium text-main`]}
-              newTab
-            >
-              {sanityProject.website}
-            </Go>
-          </li>
+          <Go to={sanityProject?.website} newTab>
+            {sanityProject?.website}
+          </Go>
+        </GridItem>
 
-          <li tw="flex justify-between mb-3 pb-1 border-b">
-            <h3 tw="font-main font-medium text-main">Role</h3>
+        <GridItem>
+          <ItemHead>Role</ItemHead>
 
-            <p tw="font-main font-medium text-main">
-              {sanityProject.role.map((job, index, array) => (
-                <span>
-                  {job}
-                  {index !== array.length - 1 && `, `}
-                </span>
-              ))}
-            </p>
-          </li>
+          <p>
+            {sanityProject?.role.map((job, index, array) => (
+              <span key={uuidv4()} tw="text-white">
+                {job}
+                {index !== array.length - 1 && `, `}
+              </span>
+            ))}
+          </p>
+        </GridItem>
 
-          <li tw="flex justify-between mb-3 pb-1 border-b">
-            <h3 tw="font-main font-medium text-main">Team</h3>
+        <GridItem>
+          <ItemHead>Team</ItemHead>
 
-            <p tw="font-main font-medium text-main">
-              {sanityProject.team.map((member, index, array) => (
-                <span>
-                  {member}
-                  {index !== array.length - 1 && `, `}
-                </span>
-              ))}
-            </p>
-          </li>
+          <p>
+            {sanityProject?.team.map((member, index, array) => (
+              <span key={uuidv4()}>
+                {member}
+                {index !== array.length - 1 && `, `}
+              </span>
+            ))}
+          </p>
+        </GridItem>
 
-          <li tw="">
-            <h3 tw="font-main font-medium text-main mb-4">Description</h3>
+        <GridItem tw="border-none">
+          <h3>Description</h3>
+        </GridItem>
 
-            <PortableText blocks={sanityProject.description} />
-          </li>
-        </ul>
-      </section>
+        <PortableText
+          blocks={sanityProject?.description}
+          tw="col-span-full md-t:col-span-1"
+        />
+      </Grid>
 
-      <section tw="lg-t:col-start-7 col-span-full lg-t:col-span-6 order-first lg-t:order-1 mb-16 lg-t:mb-0">
-        {sanityProject?.images[0] && (
-          <>
-            {isDesktop ? (
-              <ul tw="relative w-full">
-                {sanityProject.images.map((image) => (
-                  <li key={image._key} tw="mb-8">
-                    <figure>
-                      <Image image={image} />
-                    </figure>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <SwiperCarousel
-                options={{ loop: true, simulateTouch: true }}
-                slides={sanityProject.images.map((image) => (
-                  <figure>
-                    <Image image={image} />
-                  </figure>
-                ))}
-              />
-            )}
-          </>
-        )}
-      </section>
+      <Grid tw="relative md-t:absolute md-t:top-[2.6875rem] w-full mt-2.5! md-t:mt-0! md-t:z-[-1]!">
+        <ImageWrapper>
+          {sanityProject?.images[0] && (
+            <>
+              {deviceAbove(`sm-t`) ? (
+                <ul tw="relative w-full">
+                  {sanityProject?.images.map((image) => (
+                    <li key={image?._key} tw="mb-8">
+                      <figure>
+                        <Image image={image} />
+                      </figure>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <>
+                  <Carousel
+                    slides={() =>
+                      sanityProject.images.map((image) => {
+                        const { width, height } = image.asset.gatsbyImageData;
+                        const widthRatio = width / height;
+
+                        return (
+                          <figure>
+                            <Image
+                              image={image}
+                              css={[
+                                tw``,
+                                css`
+                                  width: calc(${widthRatio} * 48.6vw);
+                                  height: 48.6vw;
+                                `
+                              ]}
+                            />
+                          </figure>
+                        );
+                      })
+                    }
+                    spaceBetween="0.625rem"
+                  />
+                </>
+              )}
+            </>
+          )}
+        </ImageWrapper>
+      </Grid>
     </Layout>
   );
 };
