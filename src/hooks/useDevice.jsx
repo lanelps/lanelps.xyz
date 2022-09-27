@@ -3,7 +3,7 @@ import { theme } from "twin.macro";
 import { useMediaQuery } from "react-responsive";
 import useResizeObserver from "@react-hook/resize-observer";
 
-import { isBrowser } from "~uitls/css";
+import { isBrowser } from "~utils/css";
 
 const BREAKPOINTS = theme`screens`;
 
