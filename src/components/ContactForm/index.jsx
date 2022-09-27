@@ -132,7 +132,7 @@ const ContactForm = () => {
         disabled={isSubmitting}
         css={[
           tw`w-max cursor-pointer border-none`,
-          formSubmitted && tw`text-blue`
+          formSubmitted && tw`text-orange`
         ]}
       />
     </Container>
