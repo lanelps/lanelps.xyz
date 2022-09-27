@@ -14,6 +14,7 @@ const Index = ({ data: { sanityHomePage } }) => (
       <Video
         src={sanityHomePage?.showReel?.asset?.url}
         tw="w-full col-span-full md-t:col-span-2"
+        contain
       />
     </Grid>
   </Layout>
