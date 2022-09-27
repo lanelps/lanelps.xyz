@@ -43,7 +43,7 @@ const MenuDesktop = ({ links }) => (
       ))}
     </LinkList>
 
-    <ThemeButton type="button">Light</ThemeButton>
+    {/* <ThemeButton type="button">Light</ThemeButton> */}
   </Wrapper>
 );
 
@@ -73,7 +73,7 @@ const Menumobile = ({ links }) => {
         >
           {menuActive ? `Close` : `Menu`}
         </button>
-        <ThemeButton type="button">Light</ThemeButton>
+        {/* <ThemeButton type="button">Light</ThemeButton> */}
       </Wrapper>
 
       <LinksWrapper active={menuActive} height={linksSize?.height}>
