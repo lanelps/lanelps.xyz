@@ -4,7 +4,7 @@ import tw from "twin.macro";
 import { Go } from "~components";
 
 const Container = tw.nav`fixed top-2.5 w-[calc(100% - 2rem - 2px)] px-3 z-30 mix-blend-difference`;
-const Wrapper = tw.div`flex justify-between h-min py-2.5 bg-black md-t:bg-transparent border-b border-white`;
+const Wrapper = tw.div`flex justify-between h-min py-2.5 border-b border-white`;
 const LinkList = tw.ul`relative flex gap-x-10`;
 const ThemeButton = tw.button`font-main text-main text-white hover:(italic text-orange)`;
 
