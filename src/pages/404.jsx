@@ -27,8 +27,8 @@ export const Head = () => {
       <meta property="og:title" content={seo?.title} />
       <meta property="og:type" content="website" />
       <meta property="og:description" content={seo?.description} />
-      <meta property="og:image" content={seo.image.url} />
-      <meta property="og:url" content={seo.domain} />
+      <meta property="og:image" content={seo?.image?.url} />
+      <meta property="og:url" content={seo?.domain} />
       <meta name="twitter:card" content="summary_large_image" />
     </>
   );

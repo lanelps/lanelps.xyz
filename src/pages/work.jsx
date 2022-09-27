@@ -85,15 +85,15 @@ export const Head = () => {
       <meta name="keywords" content={seo?.keywords} />
       <meta name="robots" content={seo?.robots} />
       <meta name="googlebot" content={seo?.robots} />
-      <link rel="canonical" href={seo.domain} />
+      <link rel="canonical" href={seo?.domain} />
       <link rel="icon" type={seo?.favicon?.mimeType} href={seo?.favicon?.url} />
 
       {/* open graph/ twitter */}
       <meta property="og:title" content={seo?.title} />
       <meta property="og:type" content="website" />
       <meta property="og:description" content={seo?.description} />
-      <meta property="og:image" content={seo.image.url} />
-      <meta property="og:url" content={seo.domain} />
+      <meta property="og:image" content={seo?.image?.url} />
+      <meta property="og:url" content={seo?.domain} />
       <meta name="twitter:card" content="summary_large_image" />
     </>
   );
