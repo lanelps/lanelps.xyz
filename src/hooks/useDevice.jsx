@@ -3,6 +3,8 @@ import { theme } from "twin.macro";
 import { useMediaQuery } from "react-responsive";
 import useResizeObserver from "@react-hook/resize-observer";
 
+import { isBrowser } from "~uitls/css";
+
 const BREAKPOINTS = theme`screens`;
 
 const splitMedia = (mediaQuery) => +mediaQuery.split(`px`)[0];
@@ -54,8 +56,9 @@ const useDevice = () => {
   };
 
   //
+  const bodyElement = (isBrowser && window?.document?.body) || null;
 
-  useResizeObserver(window.document.body, () => handleResize());
+  useResizeObserver(bodyElement, () => handleResize());
 
   useEffect(() => {
     if (!windowSize?.width || !windowSize?.height) {

@@ -51,3 +51,5 @@ export const handleThemetoggle = () => {
     localStorage.setItem(`theme`, `light`);
   }
 };
+
+export const isBrowser = typeof window !== `undefined`;
