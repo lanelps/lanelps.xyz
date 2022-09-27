@@ -4,7 +4,7 @@ import tw, { css, styled } from "twin.macro";
 import { breakpoint } from "~utils/css";
 
 const Container = styled.div(({ offset }) => [
-  tw`relative md-t:sticky overflow-y-scroll`,
+  tw`relative md-t:sticky md-t:overflow-y-scroll`,
   css`
     ${breakpoint(`md-t`)} {
       top: 0.625rem;
