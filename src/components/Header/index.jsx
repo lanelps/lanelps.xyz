@@ -1,10 +1,10 @@
-import React, { useState, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import tw, { styled, css } from "twin.macro";
 
 import { Go } from "~components";
-import { useSize } from "~hooks";
+import { useSize, useApp } from "~hooks";
 
-const Container = tw.nav`fixed top-2.5 w-[calc(100% - 2rem - 2px)] px-3 bg-black md-t:bg-transparent border-t border-white z-30`;
+const Container = tw.nav`px-3 bg-black md-t:bg-transparent z-30`;
 const Wrapper = tw.div`flex justify-between h-min py-2.5`;
 const LinkList = tw.ul`relative flex gap-x-10`;
 // const ThemeButton = tw.button`font-main text-main text-white hover:(italic text-orange)`;
@@ -54,7 +54,7 @@ const Links = tw.ul`relative w-full flex flex-col gap-y-5 py-2.5`;
 
 const Menumobile = ({ links }) => {
   const [linksRef, linksSize] = useSize();
-  const [menuActive, setMenuActive] = useState(false);
+  const { menuActive, setMenuActive } = useApp();
 
   return (
     <div tw="block md-t:hidden border-b border-white overflow-hidden animate-appear">

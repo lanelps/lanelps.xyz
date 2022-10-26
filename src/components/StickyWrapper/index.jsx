@@ -10,7 +10,7 @@ const Container = styled.div(({ offset }) => [
   css`
     ${breakpoint(`md-t`)} {
       top: 0.625rem;
-      height: calc(100vh - ${offset}px - 2rem);
+      height: calc(100vh - ${offset}px - ${0.625 * 2}rem);
     }
   `
 ]);
