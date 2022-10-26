@@ -1,17 +1,17 @@
 export default {
-  name: 'contactPage',
-  title: 'Contact Page',
-  type: 'document',
+  name: `contactPage`,
+  title: `Contact Page`,
+  type: `document`,
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: `title`,
+      title: `Title`,
+      type: `string`
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
-    },
-  ],
+      name: `body`,
+      title: `Body`,
+      type: `blockContent`
+    }
+  ]
 };
