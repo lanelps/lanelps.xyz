@@ -10,12 +10,12 @@ import {
   PortableText
 } from "~components";
 
-const FormWrapper = tw.div`w-full col-span-full md-t:col-span-2`;
+const FormWrapper = tw.div`w-full col-span-full md-t:col-span-2 animate-appear`;
 
 const Contact = ({ data: { sanityContactPage } }) => (
   <Layout>
     <Grid tw="mt-2.5!">
-      <StickyWrapper tw="col-span-full md-t:col-span-1">
+      <StickyWrapper tw="col-span-full md-t:col-span-1 animate-appear">
         <PortableText blocks={sanityContactPage?._rawBody} />
       </StickyWrapper>
 

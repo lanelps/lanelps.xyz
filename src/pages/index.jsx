@@ -7,13 +7,13 @@ import { Layout, Grid, Video, PortableText, StickyWrapper } from "~components";
 const Index = ({ data: { sanityHomePage } }) => (
   <Layout>
     <Grid tw="mt-2.5!">
-      <StickyWrapper tw="col-span-full md-t:col-span-1">
+      <StickyWrapper tw="col-span-full md-t:col-span-1 animate-appear">
         <PortableText blocks={sanityHomePage?._rawBody} />
       </StickyWrapper>
 
       <Video
         src={sanityHomePage?.showReel?.asset?.url}
-        tw="w-full col-span-full md-t:col-span-2"
+        tw="w-full col-span-full md-t:col-span-2 animate-appear"
         contain
       />
     </Grid>

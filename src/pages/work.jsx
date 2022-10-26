@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
-import tw, { css } from "twin.macro";
+import tw, { css, styled } from "twin.macro";
 
 import { Layout, ProjectList, Grid, Image } from "~components";
 
-const Figure = tw.figure`w-full absolute md-t:col-start-2 col-span-full md-t:col-span-2 z-[-1] self-center md-t:self-start`;
+const Figure = styled.figure(() => [
+  tw`w-full absolute md-t:col-start-2 col-span-full md-t:col-span-2 z-[-1] self-center md-t:self-start opacity-100 transition-opacity duration-1000`
+]);
 
 const Work = ({ data: { allSanityProjects } }) => {
   const projects = allSanityProjects.edges.map(({ node }) => node);
@@ -32,7 +34,7 @@ const Work = ({ data: { allSanityProjects } }) => {
         />
 
         <Figure>
-          <Image image={activeImage} />
+          <Image image={activeImage} tw="opacity-0 animate-appear" />
         </Figure>
       </Grid>
     </Layout>

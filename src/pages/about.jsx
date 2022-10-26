@@ -4,12 +4,12 @@ import tw from "twin.macro";
 
 import { Layout, Grid, Image, StickyWrapper, PortableText } from "~components";
 
-const ImageWrapper = tw.div`w-full col-span-full md-t:col-span-2`;
+const ImageWrapper = tw.div`w-full col-span-full md-t:col-span-2 animate-appear`;
 
 const About = ({ data: { sanityAboutPage } }) => (
   <Layout>
     <Grid tw="mt-2.5!">
-      <StickyWrapper tw="col-span-full md-t:col-span-1">
+      <StickyWrapper tw="col-span-full md-t:col-span-1 animate-appear">
         <PortableText blocks={sanityAboutPage?._rawBody} />
       </StickyWrapper>
 
