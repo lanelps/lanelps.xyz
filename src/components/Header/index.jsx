@@ -2,12 +2,12 @@ import React, { useState, forwardRef } from "react";
 import tw, { styled, css } from "twin.macro";
 
 import { Go } from "~components";
-import { useDevice, useSize } from "~hooks";
+import { useSize } from "~hooks";
 
 const Container = tw.nav`fixed top-2.5 w-[calc(100% - 2rem - 2px)] px-3 bg-black md-t:bg-transparent border-t border-white z-30`;
 const Wrapper = tw.div`flex justify-between h-min py-2.5`;
 const LinkList = tw.ul`relative flex gap-x-10`;
-const ThemeButton = tw.button`font-main text-main text-white hover:(italic text-orange)`;
+// const ThemeButton = tw.button`font-main text-main text-white hover:(italic text-orange)`;
 
 const Header = forwardRef((props, ref) => {
   const links = [
@@ -16,17 +16,13 @@ const Header = forwardRef((props, ref) => {
     { id: 3, url: `/work`, name: `Work` },
     { id: 4, url: `/contact`, name: `Contact` }
   ];
-  //
 
-  const { deviceAbove } = useDevice();
+  //
 
   return (
     <Container ref={ref}>
-      {deviceAbove(`lg-m`) ? (
-        <MenuDesktop links={links} />
-      ) : (
-        <Menumobile links={links} />
-      )}
+      <MenuDesktop links={links} />
+      <Menumobile links={links} />
     </Container>
   );
 });
@@ -34,7 +30,7 @@ const Header = forwardRef((props, ref) => {
 export default Header;
 
 const MenuDesktop = ({ links }) => (
-  <Wrapper tw="border-b border-white">
+  <Wrapper tw="hidden md-t:block border-b border-white animate-appear">
     <LinkList>
       {links.map((link) => (
         <li key={link.id}>
@@ -61,7 +57,7 @@ const Menumobile = ({ links }) => {
   const [menuActive, setMenuActive] = useState(false);
 
   return (
-    <div tw="border-b border-white overflow-hidden">
+    <div tw="block md-t:hidden border-b border-white overflow-hidden animate-appear">
       <Wrapper>
         <button
           type="button"
