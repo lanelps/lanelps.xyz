@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { theme } from "twin.macro";
 import { useMediaQuery } from "react-responsive";
 import useResizeObserver from "@react-hook/resize-observer";
+// import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import { isBrowser } from "~utils/css";
 
@@ -10,8 +11,17 @@ const BREAKPOINTS = theme`screens`;
 const splitMedia = (mediaQuery) => +mediaQuery.split(`px`)[0];
 
 const useDevice = () => {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined
+  });
+  // const breakpoints = useBreakpoint();
+  const [screen, setScreen] = useState(null);
+
   const isMobile = useMediaQuery({
-    query: `(min-width: 0px) and (max-width: ${BREAKPOINTS[`sm-t`] - 1}px)`
+    query: `(min-width: 0px) and (max-width: ${
+      splitMedia(BREAKPOINTS[`sm-t`]) - 1
+    }px)`
   });
 
   const isTablet = useMediaQuery({
@@ -23,13 +33,6 @@ const useDevice = () => {
   const isDesktop = useMediaQuery({
     query: `(min-width: ${splitMedia(BREAKPOINTS[`lg-t`]) + 1}px)`
   });
-
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined
-  });
-
-  const [screen, setScreen] = useState(null);
 
   //
 
@@ -79,6 +82,10 @@ const useDevice = () => {
       ]
     );
   }, [windowSize]);
+
+  useEffect(() => {
+    console.log(`screen`, screen);
+  }, [screen]);
 
   return {
     deviceAbove,

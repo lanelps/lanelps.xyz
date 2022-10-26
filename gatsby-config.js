@@ -271,6 +271,27 @@ module.exports = {
         icon: `${__dirname}/static/favicon.jpg`
       }
     },
+    {
+      resolve: `gatsby-plugin-breakpoints`,
+      options: {
+        queries: {
+          "xxl-d": `(min-width: 1920px)`,
+          "xl-d": `(min-width: 1728px)`,
+          "lg-d": `(min-width: 1512px)`,
+          "md-d": `(min-width: 1440px)`,
+          "sm-d": `(min-width: 1280px)`,
+          //
+          "lg-t": `(min-width: 1024px)`,
+          "md-t": `(min-width: 834px)`,
+          "sm-t": `(min-width: 744px)`,
+          //
+          "lg-m": `(min-width: 428px)`,
+          "md-m": `(min-width: 414px)`,
+          "sm-m": `(min-width: 360px)`,
+          "xs-m": `(min-width: 320px)`
+        }
+      }
+    },
     ...seoPlugins(),
     ...trackingPlugins(),
     ...hostingPlugins(),
