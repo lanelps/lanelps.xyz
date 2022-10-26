@@ -86,18 +86,21 @@ module.exports = {
       }
     },
     animation: {
-      appear: `appear 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards`,
-      "appear-up": `appear-up 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards`,
-      "appear-down": `appear-down 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards`
+      appear: `appear 1000ms cubic-bezier(0.215, 0.61, 0.355, 1) forwards`,
+      "appear-up": `appear-up 600ms cubic-bezier(0.215, 0.61, 0.355, 1) forwards`,
+      "appear-down": `appear-down 600ms cubic-bezier(0.215, 0.61, 0.355, 1) forwards`
     },
     animationDelay: {
       300: `300ms`,
       1000: `1000ms`
     },
-    // animationDuration: {
-    //   // 300: `300ms`,
-    //   // 1000: `1000ms`
-    // },
+    animationDuration: {
+      DEFAULT: `600ms`,
+      300: `300ms`,
+      1000: `1000ms`,
+      1500: `1500ms`,
+      2000: `2000ms`
+    },
     // animationIteration: {
     //   // 2: `2`
     // },
