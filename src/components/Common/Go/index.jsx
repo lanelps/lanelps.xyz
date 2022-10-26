@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import tw, { css } from "twin.macro";
+import tw from "twin.macro";
 import { Link } from "gatsby";
 
 const linkStyles = [
-  tw`inline-block font-main text-main text-white hover:(italic text-orange)`,
-  css``
+  tw`inline-block font-main text-main text-white transition-colors hover:(italic text-orange duration-[0s])`
 ];
 
 /**
