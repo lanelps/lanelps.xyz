@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import tw, { styled } from "twin.macro";
+import { v4 as uuidv4 } from "uuid";
 
 const Container = tw.div`relative w-full h-full`;
 
@@ -12,10 +13,9 @@ const Video = ({
   autoPlay = true,
   className,
   id,
-  isMuted = true,
+  muted = true,
   loop = true,
-  src,
-  type = `video/mp4`,
+  sources = [],
   contain = false
 }) => {
   const ref = useRef(null);
@@ -25,12 +25,12 @@ const Video = ({
       return;
     }
 
-    if (isMuted) {
+    if (muted) {
       // open bug since 2017 that you cannot set muted in video element https://github.com/facebook/react/issues/10389
       ref.current.defaultMuted = true;
       ref.current.muted = true;
     }
-  }, [ref, isMuted]);
+  }, [ref, sources, muted]);
 
   return (
     <Container className={className}>
@@ -42,7 +42,13 @@ const Video = ({
         loop={loop}
         contain={contain}
       >
-        <source src={src} type={type} />
+        {sources.map((src) => (
+          <source
+            key={uuidv4()}
+            src={src?.url}
+            type={src?.type && `video/${src?.type}`}
+          />
+        ))}
         Sorry, your browser doesn&#39;t support embedded videos.
       </VideoElement>
     </Container>

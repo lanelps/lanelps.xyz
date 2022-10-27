@@ -2,23 +2,27 @@ import React from "react";
 import { graphql } from "gatsby";
 import tw from "twin.macro";
 
-import { Layout, Grid, Video, PortableText, StickyWrapper } from "~components";
+import { Layout, Grid, Media, PortableText, StickyWrapper } from "~components";
 
-const Index = ({ data: { sanityHomePage } }) => (
-  <Layout>
-    <Grid tw="mt-2.5!">
-      <StickyWrapper tw="col-span-full md-t:col-span-1 animate-appear">
-        <PortableText blocks={sanityHomePage?._rawBody} />
-      </StickyWrapper>
+const Index = ({ data: { sanityHomePage } }) => {
+  const { _rawBody, media } = sanityHomePage;
 
-      <Video
-        src={sanityHomePage?.showReel?.asset?.url}
-        tw="w-full col-span-full md-t:col-span-2 animate-appear"
-        contain
-      />
-    </Grid>
-  </Layout>
-);
+  return (
+    <Layout>
+      <Grid tw="mt-2.5!">
+        <StickyWrapper tw="col-span-full md-t:col-span-1 animate-appear">
+          <PortableText blocks={_rawBody} />
+        </StickyWrapper>
+
+        <Media
+          tw="w-full col-span-full md-t:col-span-2 animate-appear"
+          contain
+          media={media}
+        />
+      </Grid>
+    </Layout>
+  );
+};
 
 export default Index;
 
@@ -26,9 +30,28 @@ export const query = graphql`
   query Home {
     sanityHomePage {
       _rawBody
+      #
       showReel {
         asset {
           url
+        }
+      }
+      #
+      media {
+        type
+        image {
+          altText
+          asset {
+            gatsbyImageData(
+              width: 1440
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+        video {
+          format
+          public_id
         }
       }
     }
