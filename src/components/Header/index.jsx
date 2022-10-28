@@ -4,7 +4,7 @@ import tw, { styled, css } from "twin.macro";
 import { Go } from "~components";
 import { useSize, useApp } from "~hooks";
 
-const Container = tw.nav`px-3 bg-black md-t:bg-transparent z-30`;
+const Container = tw.nav`absolute top-0 w-full px-3 bg-black md-t:bg-transparent z-30`;
 const Wrapper = tw.div`flex justify-between h-min py-2.5`;
 const LinkList = tw.ul`relative flex gap-x-10`;
 // const ThemeButton = tw.button`font-main text-main text-white hover:(italic text-orange)`;
@@ -45,10 +45,9 @@ const MenuDesktop = ({ links }) => (
 
 const LinksWrapper = styled.div(({ active, height }) => [
   tw`relative w-full h-0 overflow-hidden transition-[height]`,
-  active &&
-    css`
-      height: ${height}px;
-    `
+  css`
+    height: ${active ? height : 0}px;
+  `
 ]);
 const Links = tw.ul`relative w-full flex flex-col gap-y-5 py-2.5`;
 
