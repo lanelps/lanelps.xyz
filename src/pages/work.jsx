@@ -30,7 +30,7 @@ const Work = ({ data: { allSanityProjects } }) => {
         <ProjectList
           projects={projects}
           hovered={setHovered}
-          tw="col-span-full animate-appear"
+          tw="col-span-full animate-appear mix-blend-difference"
         />
 
         <Figure>
