@@ -5,7 +5,7 @@ import tw, { css, styled } from "twin.macro";
 import { Layout, ProjectList, Grid, Image } from "~components";
 
 const Figure = styled.figure(() => [
-  tw`w-full absolute md-t:col-start-2 col-span-full md-t:col-span-2 z-[-1] self-center md-t:self-start opacity-100 transition-opacity duration-1000`
+  tw`w-full absolute md-t:col-start-2 col-span-full md-t:col-span-2 z-[-1] self-center md-t:self-start pt-[2px] opacity-100 transition-opacity duration-1000`
 ]);
 
 const Work = ({ data: { allSanityProjects } }) => {
