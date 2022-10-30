@@ -2,9 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import tw from "twin.macro";
 
-import { Layout, Grid, Image, StickyWrapper, PortableText } from "~components";
-
-const ImageWrapper = tw.div`w-full col-span-full md-t:col-span-2 animate-appear`;
+import { Layout, Grid, Media, StickyWrapper, PortableText } from "~components";
 
 const About = ({ data: { sanityAboutPage } }) => (
   <Layout>
@@ -13,9 +11,11 @@ const About = ({ data: { sanityAboutPage } }) => (
         <PortableText blocks={sanityAboutPage?._rawBody} />
       </StickyWrapper>
 
-      <ImageWrapper>
-        <Image image={sanityAboutPage.image} />
-      </ImageWrapper>
+      <Media
+        tw="w-full col-span-full md-t:col-span-2 animate-appear"
+        contain
+        media={sanityAboutPage?.media}
+      />
     </Grid>
   </Layout>
 );
@@ -27,15 +27,22 @@ export const query = graphql`
     sanityAboutPage {
       title
       _rawBody
-      image {
-        asset {
-          gatsbyImageData(
-            width: 1440
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-          )
+      media {
+        type
+        image {
+          altText
+          asset {
+            gatsbyImageData(
+              width: 1440
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
         }
-        altText
+        video {
+          format
+          public_id
+        }
       }
     }
   }
