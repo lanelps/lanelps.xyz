@@ -14,11 +14,6 @@ export default {
       type: `blockContent`
     },
     {
-      name: `image`,
-      title: `Image`,
-      type: `altImage`
-    },
-    {
       name: `media`,
       title: `Media`,
       type: `media`

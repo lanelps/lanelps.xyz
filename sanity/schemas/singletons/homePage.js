@@ -14,11 +14,6 @@ export default {
       type: `blockContent`
     },
     {
-      name: `showReel`,
-      title: `Show Reel`,
-      type: `file`
-    },
-    {
       name: `media`,
       title: `Media`,
       type: `media`
